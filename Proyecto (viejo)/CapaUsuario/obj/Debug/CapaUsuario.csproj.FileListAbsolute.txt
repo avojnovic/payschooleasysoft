@@ -1,0 +1,27 @@
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\bin\UI.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\bin\UI.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\bin\CapaDatos.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\bin\CapaNegocio.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\bin\CapaDatos.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\bin\CapaNegocio.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\obj\Debug\UI.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\UI\obj\Debug\UI.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\bin\UI.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\bin\UI.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\bin\CapaDatos.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\bin\CapaNegocio.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\bin\CapaDatos.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\bin\CapaNegocio.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\obj\Debug\UI.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaUsuario\obj\Debug\UI.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\bin\UI.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\bin\UI.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\bin\CapaDatos.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\bin\CapaNegocio.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\bin\CapaDatos.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\bin\CapaNegocio.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\obj\Debug\UI.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\obj\Debug\UI.pdb

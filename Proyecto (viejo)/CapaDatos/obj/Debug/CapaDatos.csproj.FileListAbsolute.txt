@@ -1,0 +1,20 @@
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\obj\Debug\CapaDatos.pdb
