@@ -1,0 +1,9 @@
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\bin\UI.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\bin\UI.pdb
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\bin\CapaDatos.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\bin\CapaNegocio.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\bin\CapaDatos.pdb
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\bin\CapaNegocio.pdb
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\obj\Debug\UI.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\UI\obj\Debug\UI.pdb

@@ -1,0 +1,26 @@
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Mariela\Documents\Visual Studio 2008\Projects\TC Santiago Alegre\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Mariela\Documents\PaySchoolEasySoft\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Santiago Alegre\Desktop\PaySchoolEasySoft\CapaNegocio\obj\Debug\CapaNegocio.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaNegocio.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaNegocio.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaDatos.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaNegocio\bin\Debug\CapaDatos.pdb
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaNegocio\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaNegocio\obj\Debug\CapaNegocio.dll
+C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaNegocio\obj\Debug\CapaNegocio.pdb
