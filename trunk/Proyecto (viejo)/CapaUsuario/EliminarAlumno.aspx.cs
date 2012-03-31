@@ -28,19 +28,20 @@ namespace UI
         protected void buscarbtn_Click(object sender, EventArgs e)
         {
             String nromatricula = nromatriculatb.Text;
-            Alumno alumno = PaySchoolEasySoft.buscarAlumno(nromatricula);
-            if (alumno != null)
-            {
-                Session["alumno"] = alumno;
-                dnitb.Text = (alumno.Dni).ToString;
-                apellidotb.Text = alumno.darApellido;
-                nombretb.Text = alumno.Nombre;
-                fechanacimientotb.Text = alumno.FechaNacimiento;
-               niveltb.Text = alumno.darNivel;
-                cursotb.Text = alumno.darCurso;
-            }
-            else
-                alumnoInexistentelb.Visible = true;
+        //    Alumno alumno = PaySchoolEasySoft.buscarAlumno(nromatricula);
+        //    if (alumno != null)
+        //    {
+                
+        //        Session["alumno"] = alumno;
+        //        dnitb.Text = (alumno.Dni).ToString();
+        //        apellidotb.Text = alumno.darApellido;
+        //        nombretb.Text = alumno.Nombre;
+        //        fechanacimientotb.Text = alumno.FechaNacimiento;
+        //       niveltb.Text = alumno.darNivel;
+        //        cursotb.Text = alumno.darCurso;
+        //    }
+        //    else
+        //        alumnoInexistentelb.Visible = true;
         }
     }
 }

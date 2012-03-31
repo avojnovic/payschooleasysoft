@@ -25,3 +25,12 @@ C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\
 C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\obj\Debug\UI.dll
 C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaUsuario\obj\Debug\UI.pdb
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\obj\Debug\UI.dll
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\bin\UI.dll
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\bin\UI.pdb
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\bin\CapaDatos.dll
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\bin\CapaNegocio.dll
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\bin\CapaDatos.pdb
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\bin\CapaNegocio.pdb
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaUsuario\obj\Debug\UI.pdb

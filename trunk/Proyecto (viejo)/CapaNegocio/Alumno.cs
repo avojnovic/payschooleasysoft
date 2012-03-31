@@ -61,10 +61,10 @@ namespace CapaNegocio
         #endregion;
 
         #region MÉTODOS
-        public string darNivel
-        {
-            return (Datos.darNivel(nroMatricula)).ToString;
-        }
+        //public string darNivel
+        //{
+        //    return (Datos.darNivel(nroMatricula)).ToString;
+        //}
 #endregion;
     }
 }

@@ -18,3 +18,8 @@ C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\bi
 C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\obj\Debug\CapaDatos.dll
 C:\Users\Mariela\Documents\SANTI\Trabajo de Campo\PaySchoolEasySoft\CapaDatos\obj\Debug\CapaDatos.pdb
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaDatos\bin\Debug\CapaDatos.dll
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaDatos\bin\Debug\CapaDatos.pdb
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaDatos\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaDatos\obj\Debug\CapaDatos.dll
+C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\CapaDatos\obj\Debug\CapaDatos.pdb
