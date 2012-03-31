@@ -10,7 +10,7 @@ namespace CapaDatos
 {
     public class Datos
     {
-        private static String strCon = "Data Source=PC5\\SQLEXPRESS;Initial Catalog=BD_PAYSCHOOLEASYSOFT;Integrated Security=SSPI";
+        private static String strCon = "Data Source=.\\LOCALHOST;Initial Catalog=BD_PAYSCHOOLEASYSOFT;Integrated Security=SSPI";
         private static SqlDataAdapter da = null;
         private static SqlCommand cmd = null;
         private static DataSet ds = null;
