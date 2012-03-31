@@ -1,0 +1,2 @@
+INSERT INTO USUARIO_TBL VALUES('33154138', 'Santiago', 'Alegre', 'santiagoalegre@hotmail.com','1',1,'45001234','Anchorena 422'); 
+INSERT INTO USUARIO_TBL (USUARIO, CONTRASEÑA, DNI, NOMBRE, APELLIDO, TIPO) VALUES('admin@fasta.edu.ar', 'admin','34432323', 'Marcelo', 'Mauri',0); 
