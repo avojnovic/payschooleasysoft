@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?><?xml-stylesheet type='text/xsl' href='_UpgradeReport_Files/UpgradeReport.xslt'?><UpgradeLog>
+<Properties><Property Name="Solution" Value="PaySchoolEasySoft">
+</Property><Property Name="Archivo de la solución" Value="C:\Users\Alan\Proyectos\PaySchoolEasy\Proyecto (viejo)\PaySchoolEasySoft.sln">
+</Property><Property Name="Date" Value="sábado, 24 de marzo de 2012">
+</Property><Property Name="Time" Value="16:44 p.m.">
+</Property></Properties><Event ErrorLevel="0" Project="CapaNegocio" Source="CapaNegocio\CapaNegocio.csproj" Description="Proyecto convertido correctamente">
+</Event><Event ErrorLevel="3" Project="CapaNegocio" Source="CapaNegocio\CapaNegocio.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CapaDatos" Source="CapaDatos\CapaDatos.csproj" Description="Proyecto convertido correctamente">
+</Event><Event ErrorLevel="3" Project="CapaDatos" Source="CapaDatos\CapaDatos.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CapaUsuario" Source="CapaUsuario\CapaUsuario.csproj" Description="Proyecto convertido correctamente">
+</Event><Event ErrorLevel="3" Project="CapaUsuario" Source="CapaUsuario\CapaUsuario.csproj" Description="Converted">
+</Event><Event ErrorLevel="0" Project="" Source="PaySchoolEasySoft.sln" Description="La solución se convirtió correctamente">
+</Event><Event ErrorLevel="3" Project="" Source="PaySchoolEasySoft.sln" Description="Converted">
+</Event><Event ErrorLevel="0" Project="CapaNegocio" Source="CapaNegocio\CapaNegocio.csproj" Description="Examen completo: no es necesario actualizar los archivos de proyecto.">
+</Event><Event ErrorLevel="0" Project="CapaDatos" Source="CapaDatos\CapaDatos.csproj" Description="Examen completo: no es necesario actualizar los archivos de proyecto.">
+</Event><Event ErrorLevel="0" Project="CapaUsuario" Source="CapaUsuario\CapaUsuario.csproj" Description="Examen completo: no es necesario actualizar los archivos de proyecto.">
+</Event></UpgradeLog>
