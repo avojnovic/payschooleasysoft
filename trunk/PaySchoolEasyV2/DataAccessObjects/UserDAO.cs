@@ -129,9 +129,13 @@ namespace DataAccessObjects
         private static void SetParameters(User u, SqlCommand cmd)
         {
             cmd.Parameters.Add(":DNI", SqlDbType.VarChar, 8).Value = u.Dni;
-            cmd.Parameters.Add(":NOMBRE", SqlDbType.VarChar, 8).Value = u.Nombre;
-            //TODO COMPLETAR LOS QUE FALTAN
-
+            cmd.Parameters.Add(":NOMBRE", SqlDbType.VarChar, 20).Value = u.Nombre;
+            cmd.Parameters.Add(":APELLIDO",SqlDbType.VarChar, 20).Value = u.Apellido;
+            cmd.Parameters.Add(":EMAIL",SqlDbType.VarChar, 50).Value = u.Email;
+            cmd.Parameters.Add(":PSW",SqlDbType.VarChar, 20).Value = u.Psw;
+            cmd.Parameters.Add(":ID_TIPO",SqlDbType,Int64).Value = u.TipoUsuario;
+            cmd.Parameters.Add(":TELEFONO", SqlDbType.VarChar, 8).Value = u.Telefono;
+            cmd.Parameters.Add(":DIRECCION",SqlDbType.VarChar, 50).Value = u.Direccion;
         }
         
       
