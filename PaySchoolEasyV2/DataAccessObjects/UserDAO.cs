@@ -133,12 +133,13 @@ namespace DataAccessObjects
             cmd.Parameters.Add(":APELLIDO",SqlDbType.VarChar, 20).Value = u.Apellido;
             cmd.Parameters.Add(":EMAIL",SqlDbType.VarChar, 50).Value = u.Email;
             cmd.Parameters.Add(":PSW",SqlDbType.VarChar, 20).Value = u.Psw;
-            cmd.Parameters.Add(":ID_TIPO",SqlDbType,Int64).Value = u.TipoUsuario;
+            cmd.Parameters.Add(":ID_TIPO",SqlDbType.BigInt).Value = u.TipoUsuario.Id;
             cmd.Parameters.Add(":TELEFONO", SqlDbType.VarChar, 8).Value = u.Telefono;
             cmd.Parameters.Add(":DIRECCION",SqlDbType.VarChar, 50).Value = u.Direccion;
         }
         
-      
+     
+
 
     }
 }

@@ -14,12 +14,12 @@ namespace BussinesObjects
             set { _id = value; }
         }
 
-        private string _dni;
+        private string _descripcion;
 
-        public string Dni
+        public string Descripcion
         {
-            get { return _dni; }
-            set { _dni = value; }
+            get { return _descripcion; }
+            set { _descripcion = value; }
         }
 
         private bool _borrado;
