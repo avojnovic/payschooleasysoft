@@ -37,15 +37,20 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlumnoDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="SQLConnection.cs" />
     <Compile Include="UserDAO.cs" />
+    <Compile Include="UserTypeDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\BussinesObjects\BussinesObjects.csproj">
       <Project>{9B6901D3-2F2F-4FE9-98C1-B8D561E574D8}</Project>
       <Name>BussinesObjects</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
