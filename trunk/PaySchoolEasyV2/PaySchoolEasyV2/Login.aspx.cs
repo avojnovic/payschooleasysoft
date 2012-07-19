@@ -5,7 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BussinesObjects;
-using DataAccessObjects;
+using CapaDatos;
 using System.Web.Security;
 
 namespace PaySchoolEasyV2
@@ -19,7 +19,7 @@ namespace PaySchoolEasyV2
 
         protected void BtnIniciar_Click(object sender, EventArgs e)
         {
-            User r = UserDAO.verificarUsuario(TxtUsuario.Text, TxtPassword.Text);
+            User r = UserDatos.verificarUsuario(TxtUsuario.Text, TxtPassword.Text);
 
             if (r != null)
             {

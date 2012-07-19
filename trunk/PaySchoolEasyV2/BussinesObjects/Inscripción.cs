@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BussinesObjects
 {
-    class Inscripción
+    public class Inscripción
     {
         private Int64 _id;
 

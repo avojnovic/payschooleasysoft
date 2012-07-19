@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BussinesObjects
 {
-    class Matricula
+    public class Matricula
     {
         private Int64 _id;
 

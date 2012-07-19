@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BussinesObjects
 {
-    class Alumno
+    public class Alumno
     {
         private Int64 _id;
 
@@ -39,9 +39,9 @@ namespace BussinesObjects
             set { _apellido = value; }
         }
 
-        private DateTime _fechaNacimiento;
+        private DateTime? _fechaNacimiento;
 
-        public DateTime FechaNacimiento
+        public DateTime? FechaNacimiento
         {
             get { return _fechaNacimiento; }
             set { _fechaNacimiento = value; }
