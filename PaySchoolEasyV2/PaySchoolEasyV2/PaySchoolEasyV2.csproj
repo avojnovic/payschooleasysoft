@@ -53,6 +53,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Alumnos.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Images\logosuperior.PNG" />
     <Content Include="Login.aspx" />
@@ -68,6 +69,13 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Alumnos.aspx.cs">
+      <DependentUpon>Alumnos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Alumnos.aspx.designer.cs">
+      <DependentUpon>Alumnos.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
       <DependentUpon>Default.aspx</DependentUpon>
@@ -98,13 +106,13 @@
     <Content Include="Master.Master" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BussinesObjects\BussinesObjects.csproj">
+    <ProjectReference Include="..\BussinesObjects\CapaNegocio.csproj">
       <Project>{9B6901D3-2F2F-4FE9-98C1-B8D561E574D8}</Project>
-      <Name>BussinesObjects</Name>
+      <Name>CapaNegocio</Name>
     </ProjectReference>
-    <ProjectReference Include="..\DataAccessObjects\DataAccessObjects.csproj">
+    <ProjectReference Include="..\DataAccessObjects\CapaDatos.csproj">
       <Project>{4D5B4398-5096-45AB-8D61-EC70EB2D3937}</Project>
-      <Name>DataAccessObjects</Name>
+      <Name>CapaDatos</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

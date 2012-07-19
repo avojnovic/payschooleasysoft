@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BussinesObjects
 {
-    class Curso
+    public class Curso
     {
         private Int64 _id;
 

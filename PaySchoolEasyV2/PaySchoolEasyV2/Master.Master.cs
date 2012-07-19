@@ -46,15 +46,20 @@ namespace PaySchoolEasyV2
         private void generarMenu()
         {
 
-            MenuItem ith = new MenuItem("Home");
-            ith.Value = "Home";
-            ith.NavigateUrl = "Default.aspx";
-            Menu1.Items.Add(ith);
+            MenuItem home = new MenuItem("Home");
+            home.Value = "Home";
+            home.NavigateUrl = "Default.aspx";
+            Menu1.Items.Add(home);
 
-            MenuItem ito = new MenuItem("Logout");
-            ito.Value = "Logout";
-            ito.NavigateUrl = "Login.aspx";
-            Menu1.Items.Add(ito);
+            MenuItem alumnos = new MenuItem("Alumnos");
+            alumnos.Value = "Alumnos";
+            alumnos.NavigateUrl = "Alumnos.aspx";
+            Menu1.Items.Add(alumnos);
+
+            MenuItem salir = new MenuItem("Logout");
+            salir.Value = "Logout";
+            salir.NavigateUrl = "Login.aspx";
+            Menu1.Items.Add(salir);
 
         }
 

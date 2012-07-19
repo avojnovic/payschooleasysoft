@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BussinesObjects
 {
-    class Factura
+    public class Factura
     {
         private Int64 _id;
 

@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BussinesObjects
 {
-    class Nivel
+    public class Nivel
     {
         private Int64 _id;
 

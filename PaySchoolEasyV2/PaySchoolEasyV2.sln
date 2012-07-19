@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaySchoolEasyV2", "PaySchoolEasyV2\PaySchoolEasyV2.csproj", "{7B95AD41-E5D4-439E-AE3F-E7942669C5C9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinesObjects", "BussinesObjects\BussinesObjects.csproj", "{9B6901D3-2F2F-4FE9-98C1-B8D561E574D8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaNegocio", "BussinesObjects\CapaNegocio.csproj", "{9B6901D3-2F2F-4FE9-98C1-B8D561E574D8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessObjects", "DataAccessObjects\DataAccessObjects.csproj", "{4D5B4398-5096-45AB-8D61-EC70EB2D3937}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CapaDatos", "DataAccessObjects\CapaDatos.csproj", "{4D5B4398-5096-45AB-8D61-EC70EB2D3937}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
