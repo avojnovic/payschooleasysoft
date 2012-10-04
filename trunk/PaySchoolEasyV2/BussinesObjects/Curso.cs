@@ -23,12 +23,12 @@ namespace BussinesObjects
             set { _cupo = value; }
         }
 
-        private Int64 _idNivel;
+        private Nivel _nivel;
 
-        public Int64 IdNivel
+        public Nivel Nivel
         {
-            get { return _idNivel; }
-            set { _idNivel = value; }
+            get { return _nivel; }
+            set { _nivel = value; }
         }
     }
 }

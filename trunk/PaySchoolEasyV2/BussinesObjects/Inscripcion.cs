@@ -5,7 +5,7 @@ using System.Text;
 
 namespace BussinesObjects
 {
-    public class Inscripción
+    public class Inscripcion
     {
         private Int64 _id;
 
@@ -15,12 +15,12 @@ namespace BussinesObjects
             set { _id = value; }
         }
 
-        private Int64 _idAlumno;
+        private Alumno _alumno;
 
-        public Int64 IdAlumno
+        public Alumno Alumno
         {
-            get { return _idAlumno; }
-            set { _idAlumno = value; }
+            get { return _alumno; }
+            set { _alumno = value; }
         }
 
         private DateTime _fechaInscripción;

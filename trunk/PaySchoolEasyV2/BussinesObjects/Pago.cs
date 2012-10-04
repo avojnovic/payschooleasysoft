@@ -15,44 +15,44 @@ namespace BussinesObjects
             set { _id = value; }
         }
 
-        private Int64 _idCuota;
+        private Cuota _cuota;
 
-        public Int64 IdCuota
+        public Cuota Cuota
         {
-            get { return _idCuota; }
-            set { _idCuota = value; }
+            get { return _cuota; }
+            set { _cuota = value; }
         }
 
-        private Int64 _idAlumno;
+        private Alumno _alumno;
 
-        public Int64 IdAlumno
+        public Alumno Alumno
         {
-            get { return _idAlumno; }
-            set { _idAlumno = value; }
+            get { return _alumno; }
+            set { _alumno = value; }
         }
 
-        private Int64 _idFactura;
+        private Factura _factura;
 
-        public Int64 IdFactura
+        public Factura Factura
         {
-            get { return _idFactura; }
-            set { _idFactura = value; }
+            get { return _factura; }
+            set { _factura = value; }
         }
 
-        private Int64 _idMatricula;
+        private Matricula _matricula;
 
-        public Int64 IdMatricula
+        public Matricula Matricula
         {
-            get { return _idMatricula; }
-            set { _idMatricula = value; }
+            get { return _matricula; }
+            set { _matricula = value; }
         }
 
-        private Int64 _idRecargos;
+        private Recargos _recargos;
 
-        public Int64 IdRecargos
+        public Recargos Recargos
         {
-            get { return _idRecargos; }
-            set { _idRecargos = value; }
+            get { return _recargos; }
+            set { _recargos = value; }
         }
     }
 }

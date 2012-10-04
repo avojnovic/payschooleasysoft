@@ -55,20 +55,20 @@ namespace BussinesObjects
             set { _nroMatricula = value; }
         }
 
-        private Int64 _idUsuario;
+        private User _usuario;
 
-        public Int64 IdUsuario
+        public User Usuario
         {
-            get { return _idUsuario; }
-            set { _idUsuario = value; }
+            get { return _usuario; }
+            set { _usuario = value; }
         }
 
-        private Int64 _idNivel;
+        private Nivel _nivel;
 
-        public Int64 IdNivel
+        public Nivel Nivel
         {
-            get { return _idNivel; }
-            set { _idNivel = value; }
+            get { return _nivel; }
+            set { _nivel = value; }
         }
 
         private Boolean _borrado;
@@ -82,6 +82,16 @@ namespace BussinesObjects
         public string nombreCompleto
         {
             get { return Nombre + " " + Apellido; }
+        }
+
+        public string NivelNombre
+        {
+            get {
+                if (Nivel != null)
+                    return Nivel.Descripcion;
+                else
+                    return "";
+                }
         }
     }
 }

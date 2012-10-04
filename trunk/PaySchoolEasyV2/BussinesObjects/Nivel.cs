@@ -15,12 +15,12 @@ namespace BussinesObjects
             set { _id = value; }
         }
 
-        private string _descripción;
+        private string _descripcion;
 
-        public string Descripción
+        public string Descripcion
         {
-            get { return _descripción; }
-            set { _descripción = value; }
+            get { return _descripcion; }
+            set { _descripcion = value; }
         }
 
         private float _montoMatricula;
