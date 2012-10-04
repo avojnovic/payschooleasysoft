@@ -53,8 +53,15 @@ namespace PaySchoolEasyV2
 
             MenuItem alumnos = new MenuItem("Alumnos");
             alumnos.Value = "Alumnos";
-            alumnos.NavigateUrl = "Alumnos.aspx";
+            alumnos.NavigateUrl = "Alumnos/Index.aspx";
             Menu1.Items.Add(alumnos);
+
+
+            MenuItem User = new MenuItem(UsuarioLogueado.nombreCompleto);
+            User.Value = UsuarioLogueado.nombreCompleto;
+            User.Selectable = false;
+            Menu1.Items.Add(User);
+
 
             MenuItem salir = new MenuItem("Logout");
             salir.Value = "Logout";
