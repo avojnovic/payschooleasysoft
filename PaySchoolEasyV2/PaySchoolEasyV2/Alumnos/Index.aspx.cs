@@ -26,7 +26,7 @@ namespace PaySchoolEasyV2.Alumnos
 
         protected void BtnNuevo_Click(object sender, EventArgs e)
         {
-            Response.Redirect("Alumnos/New.aspx");
+            Response.Redirect("Details.aspx");
         }
 
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)

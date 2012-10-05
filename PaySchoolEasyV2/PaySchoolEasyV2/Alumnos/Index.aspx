@@ -4,7 +4,6 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
     <asp:ImageButton ID="ImageButton1" Width="32px" Height="32px" ImageUrl="~/Images/New.png"
         runat="server" OnClick="BtnNuevo_Click" ToolTip="Nuevo" />
 
@@ -26,7 +25,7 @@
           
             <asp:TemplateField ItemStyle-Width="25px">
                 <ItemTemplate>
-                    <a href="Alumnos/Edit.aspx?id=<%# Eval("Id") %>">
+                    <a href="Details.aspx?id=<%# Eval("Id") %>">
                         <img alt="Abrir" src="../images/File-Open-icon.png" border="0" width="16px" height="16px" />
                     </a>
                 </ItemTemplate>
