@@ -3,3 +3,4 @@ C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObje
 C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.dll
 C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.pdb
+C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\EntityFramework.dll

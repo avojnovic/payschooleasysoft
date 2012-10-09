@@ -31,24 +31,31 @@ namespace PaySchoolEasyV2.Alumnos
                 CmbNivel.DataValueField = "Id";
                 CmbNivel.DataSource = niveles.ToList();
                 CmbNivel.DataBind();
+
+
+
+                if (id != null && id != "")
+                {
+
+                    var res = AlumnoManager.GetAlumnoDetail(int.Parse(id));
+                    if (res.Count() > 0)
+                    {
+                        var alumno = res.First();
+                        setearAlumno(alumno);
+                    }
+                    else
+                    {
+
+                    }
+                }
+                else
+                {
+                    BtnBorrar.Visible = false;
+                }
             }
 
 
 
-            if (id != null && id != "")
-            {
-                var alumno = from c in dbContext.Alumno.Include("Nivel")
-                             where c.Id == long.Parse(id)
-                             select c;
-
-
-
-                //setearAlumno(alumno as Alumno);
-            }
-            else
-            {
-                BtnBorrar.Visible = false;
-            }
         }
 
 
@@ -59,6 +66,8 @@ namespace PaySchoolEasyV2.Alumnos
             TxtFecNac.Text = alumno.FechaNacimiento.ToString();
             TxtMatricula.Text = alumno.NroMatricula.ToString();
             TxtNombre.Text = alumno.Nombre;
+
+            CmbNivel.SelectedValue = alumno.Nivel.Id.ToString();
         }
 
 
@@ -71,6 +80,20 @@ namespace PaySchoolEasyV2.Alumnos
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
 
+            Alumno a = new Alumno();
+            string id = Request.QueryString["id"];
+            if (id != null && id != "")
+            {
+               
+                a.Id = long.Parse(id);
+                a.Nombre = TxtNombre.Text;
+                a.Apellido = TxtApellido.Text;
+                a.Dni = TxtDNI.Text;
+                a.FechaNacimiento =DateTime.Parse( TxtFecNac.Text);
+                a.NroMatricula = long.Parse( TxtMatricula.Text);
+
+                AlumnoManager.Update(a);
+            }
             volver();
         }
 
