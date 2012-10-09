@@ -10,7 +10,7 @@
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>PaySchoolEasyV2</RootNamespace>
+    <RootNamespace>ControlObjects</RootNamespace>
     <AssemblyName>PaySchoolEasyV2</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <TargetFrameworkProfile />
@@ -137,6 +137,10 @@
     <ProjectReference Include="..\BussinesObjects\BussinesObjects.csproj">
       <Project>{93C0F1B0-BF20-4C5C-9B58-34C7D483AF00}</Project>
       <Name>BussinesObjects</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ControlObjects\ControlObjects.csproj">
+      <Project>{EFDD663A-1E6B-418E-8BD4-3568A4768C1C}</Project>
+      <Name>ControlObjects</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

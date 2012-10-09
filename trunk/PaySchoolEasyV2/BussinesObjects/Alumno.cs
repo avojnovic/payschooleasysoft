@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using PaySchoolEasyV2;
 
 namespace BussinesObjects
 {
@@ -64,6 +63,7 @@ namespace BussinesObjects
             set { _usuario = value; }
         }
 
+
         private Nivel _nivel;
 
         public Nivel Nivel
@@ -97,46 +97,7 @@ namespace BussinesObjects
     }
 
 
-    public static class AlumnoManager
-    {
-      
-
-
-
-        public static IEnumerable<Alumno> GetAlumnoDetail(int id)
-        {
-            SchoolDbContext dbContext = new SchoolDbContext();
-
-            var alumno = from c in dbContext.Alumno.Include("Nivel")
-                         where c.Id == id
-                         select c;
-                      
-            return alumno.ToList();
-        }
-
-
-        public static void Update(Alumno alu)
-        {
-            SchoolDbContext dbContext = new SchoolDbContext();
-
-            var alumno = (from o in dbContext.Alumno
-                          where o.Id == alu.Id
-                        select o).First();
-
-            alumno.Apellido = alu.Apellido;
-            alumno.Borrado = alu.Borrado;
-            alumno.Dni = alu.Dni;
-            alumno.FechaNacimiento = alu.FechaNacimiento;
-            alumno.Nivel = alu.Nivel;
-            alumno.Nombre = alu.Nombre;
-            alumno.NroMatricula = alu.NroMatricula;
-            alumno.Usuario = alu.Usuario;
-
-            dbContext.SaveChanges();
-        }
-
-
-    }
+    
 }
 
 

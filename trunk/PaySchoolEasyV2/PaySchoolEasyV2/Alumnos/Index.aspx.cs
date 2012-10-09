@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using BussinesObjects;
+using ControlObjects;
 
 namespace PaySchoolEasyV2.Alumnos
 {
@@ -12,14 +13,9 @@ namespace PaySchoolEasyV2.Alumnos
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            SchoolDbContext dbContext = new SchoolDbContext();
+          
 
-            var alumnos = from a in dbContext.Alumno.Include("Nivel")
-                          select a;
-
-            
-            GridView1.DataSource =(List<Alumno>) alumnos.ToList();
-
+            GridView1.DataSource = AlumnoManager.Get();
             GridView1.DataBind();
 
         }

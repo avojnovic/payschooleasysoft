@@ -84,3 +84,5 @@ C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\ru\AjaxControlTool
 C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\tr-TR\AjaxControlToolkit.resources.dll
 C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\zh-CHS\AjaxControlToolkit.resources.dll
 C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\zh-CHT\AjaxControlToolkit.resources.dll
+C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\ControlObjects.dll
+C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\ControlObjects.pdb
