@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PaySchoolEasyV2", "PaySchoo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BussinesObjects", "BussinesObjects\BussinesObjects.csproj", "{93C0F1B0-BF20-4C5C-9B58-34C7D483AF00}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ControlObjects", "ControlObjects\ControlObjects.csproj", "{EFDD663A-1E6B-418E-8BD4-3568A4768C1C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{93C0F1B0-BF20-4C5C-9B58-34C7D483AF00}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{93C0F1B0-BF20-4C5C-9B58-34C7D483AF00}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{93C0F1B0-BF20-4C5C-9B58-34C7D483AF00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EFDD663A-1E6B-418E-8BD4-3568A4768C1C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EFDD663A-1E6B-418E-8BD4-3568A4768C1C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EFDD663A-1E6B-418E-8BD4-3568A4768C1C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EFDD663A-1E6B-418E-8BD4-3568A4768C1C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,11 +1,11 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Data.Entity;
 using BussinesObjects;
 
-namespace PaySchoolEasyV2
+namespace ControlObjects
 {
     public class SchoolDbContext : DbContext
     {

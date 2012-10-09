@@ -7,7 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PaySchoolEasyV2.Alumnos {
+namespace PaySchoolEasyV2.Alumnos
+{
     
     
     public partial class Details {

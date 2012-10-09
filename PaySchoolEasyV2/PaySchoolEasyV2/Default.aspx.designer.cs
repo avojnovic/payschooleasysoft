@@ -7,7 +7,8 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PaySchoolEasyV2 {
+namespace PaySchoolEasyV2
+{
     
     
     public partial class _Default {

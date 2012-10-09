@@ -5,11 +5,11 @@
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{93C0F1B0-BF20-4C5C-9B58-34C7D483AF00}</ProjectGuid>
+    <ProjectGuid>{EFDD663A-1E6B-418E-8BD4-3568A4768C1C}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BussinesObjects</RootNamespace>
-    <AssemblyName>BussinesObjects</AssemblyName>
+    <RootNamespace>ControlObjects</RootNamespace>
+    <AssemblyName>ControlObjects</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -36,6 +36,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Data.Entity" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -43,18 +44,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Alumno.cs" />
-    <Compile Include="Cuota.cs" />
-    <Compile Include="Curso.cs" />
-    <Compile Include="Factura.cs" />
-    <Compile Include="Inscripcion.cs" />
-    <Compile Include="Matricula.cs" />
-    <Compile Include="Nivel.cs" />
-    <Compile Include="Pago.cs" />
+    <Compile Include="AlumnoManager.cs" />
+    <Compile Include="NivelManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Recargos.cs" />
-    <Compile Include="User.cs" />
-    <Compile Include="UserType.cs" />
+    <Compile Include="SchoolDbContext.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\BussinesObjects\BussinesObjects.csproj">
+      <Project>{93C0F1B0-BF20-4C5C-9B58-34C7D483AF00}</Project>
+      <Name>BussinesObjects</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

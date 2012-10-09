@@ -1,0 +1,8 @@
+C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\bin\Debug\ControlObjects.dll
+C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\bin\Debug\ControlObjects.pdb
+C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\bin\Debug\BussinesObjects.dll
+C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\bin\Debug\EntityFramework.dll
+C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\bin\Debug\BussinesObjects.pdb
+C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\obj\Debug\ControlObjects.dll
+C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\obj\Debug\ControlObjects.pdb
