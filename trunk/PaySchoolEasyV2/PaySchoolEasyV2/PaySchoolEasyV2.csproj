@@ -65,9 +65,13 @@
     <Content Include="Alumnos\Details.aspx" />
     <Content Include="Alumnos\Index.aspx" />
     <Content Include="Default.aspx" />
+    <Content Include="Images\Calendar.png" />
     <Content Include="Images\File-Open-icon.png" />
     <Content Include="Images\logosuperior.PNG" />
     <Content Include="Images\New.png" />
+    <Content Include="Images\return.png" />
+    <Content Include="Images\save.png" />
+    <Content Include="Images\Trash.png" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />

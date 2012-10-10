@@ -7,12 +7,11 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
     <br />
-    <asp:Label ID="LblMensaje" Font-Names="Calibri" Font-Size="Small" ForeColor="Red" runat="server"></asp:Label>
+    <asp:Label ID="LblMensaje" Font-Names="Calibri" Font-Size="Small" ForeColor="Red"
+        runat="server"></asp:Label>
     <br />
-
     <center>
         <asp:Panel runat="server" ID="panel1" Visible="true" Width="600px" Style="background-color: #DDDDDD">
-            
             <table style="width: 500px;" border="0" cellspacing="0">
                 <tr>
                     <td align="left" style="width: 100px;">
@@ -22,9 +21,10 @@
                     </td>
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtDNI" Width="100%" runat="server"></asp:TextBox>
+                        <act:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="TxtDNI" Mask="99999999" MaskType="Number" />
                     </td>
                 </tr>
-                 <tr>
+                <tr>
                     <td align="left" style="width: 100px;">
                         <asp:Label ID="Label2" runat="server" Text="Nombre:" Font-Names="Calibri"></asp:Label>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TxtNombre"
@@ -51,21 +51,23 @@
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
                     <td style="width: 200px;">
-                        <asp:TextBox ID="TxtFecNac" Width="100%" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TxtFecNac" Width="90%" runat="server" onKeyPress = "javascript: return false;" onPaste = "javascript: return false;"></asp:TextBox>
+                        <asp:ImageButton ID="btnCalendar" runat="server" ImageUrl="~/Images/Calendar.png" />
+                        <act:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TxtFecNac" Format="dd/MM/yyyy"
+                            PopupButtonID="btnCalendar" />
                     </td>
                 </tr>
                 <tr>
-                <td align="left" style="width: 100px;">
+                    <td align="left" style="width: 100px;">
                         <asp:Label ID="Label6" runat="server" Text="Matricula:" Font-Names="Calibri"></asp:Label>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TxtMatricula"
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtMatricula" Width="100%" runat="server"></asp:TextBox>
+                         <act:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="TxtMatricula" Mask="99999999" MaskType="Number" />
                     </td>
                 </tr>
-
-
                 <tr>
                     <td align="left" style="width: 100px;">
                         <asp:Label ID="Label3" runat="server" Text="Nivel:" Font-Names="Calibri"></asp:Label>

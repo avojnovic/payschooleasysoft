@@ -24,11 +24,7 @@ namespace PaySchoolEasyV2
             string usertxt=TxtUsuario.Text.Trim();
             string pswtxt=TxtPassword.Text.Trim();
 
-            SchoolDbContext dbContext = new SchoolDbContext();
-
-            var user = from u in dbContext.User
-                       where usertxt == u.Email && pswtxt == u.Psw
-                        select u;
+            var user = UserManager.Get(usertxt, pswtxt);
             
 
             if (user.Count()==1)
