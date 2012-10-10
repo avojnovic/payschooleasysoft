@@ -53,7 +53,7 @@ namespace PaySchoolEasyV2.Alumnos
         {
             TxtApellido.Text = alumno.Apellido;
             TxtDNI.Text = alumno.Dni;
-            TxtFecNac.Text = alumno.FechaNacimiento.ToString();
+            TxtFecNac.Text = alumno.FechaNacimiento.Value.ToShortDateString();
             TxtMatricula.Text = alumno.NroMatricula.ToString();
             TxtNombre.Text = alumno.Nombre;
             CmbNivel.SelectedValue = alumno.Nivel.Id.ToString();

@@ -18,7 +18,7 @@
             <asp:BoundField DataField="Dni" HeaderText="Dni" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" HeaderStyle-Font-Names="calibri"/>
-            <asp:BoundField DataField="FechaNacimiento" HeaderText="FechaNacimiento" HeaderStyle-Font-Names="calibri"/>
+            <asp:BoundField DataField="FechaNacimiento"   DataFormatString="{0:dd/MM/yyyy}"  HeaderText="FechaNacimiento" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="NroMatricula" HeaderText="NroMatricula" HeaderStyle-Font-Names="calibri" />
             <asp:BoundField DataField="NivelNombre" HeaderText="Nivel" HeaderStyle-Font-Names="calibri" />
            
