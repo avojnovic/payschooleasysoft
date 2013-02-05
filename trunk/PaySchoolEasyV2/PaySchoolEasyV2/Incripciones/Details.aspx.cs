@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using BussinesObjects;
+using ControlObjects;
 
 namespace ControlObjects.Incripciones
 {
@@ -22,19 +24,19 @@ namespace ControlObjects.Incripciones
             if (!IsPostBack)
             {
 
-                CmbAlumno.DataTextField = "Descripcion";
-                CmbNivel.DataValueField = "Id";
-                CmbNivel.DataSource = NivelManager.Get();
-                CmbNivel.DataBind();
+                CmbAlumno.DataTextField = "Alumno";
+                CmbAlumno.DataValueField = "Id";
+                CmbAlumno.DataSource = InscripcionManager.Get();
+                CmbAlumno.DataBind();
 
                 if (id != null && id != "")
                 {
 
-                    var res = AlumnoManager.Get(int.Parse(id));
+                    var res = InscripcionManager.Get(int.Parse(id));
                     if (res.Count() > 0)
                     {
-                        var alumno = res.First();
-                        setearAlumno(alumno);
+                        var inscripcion = res.First();
+                        setearInscripcion(inscripcion);
                     }
 
                 }
@@ -47,14 +49,11 @@ namespace ControlObjects.Incripciones
         }
 
 
-        private void setearAlumno(Alumno alumno)
+        private void setearInscripcion(Inscripcion inscripcion)
         {
-            TxtApellido.Text = alumno.Apellido;
-            TxtDNI.Text = alumno.Dni;
-            TxtFecNac.Text = alumno.FechaNacimiento.Value.ToShortDateString();
-            TxtMatricula.Text = alumno.NroMatricula.ToString();
-            TxtNombre.Text = alumno.Nombre;
-            CmbNivel.SelectedValue = alumno.Nivel.Id.ToString();
+            //TxtFecIns.Text = inscripcion.FechaInscripción.Value.ToShortDateString();
+            TxtFecIns.Text = inscripcion.FechaInscripción.Date.ToShortDateString();
+            CmbAlumno.SelectedValue = inscripcion.Alumno.Id.ToString();
         }
 
 
@@ -66,7 +65,7 @@ namespace ControlObjects.Incripciones
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
 
-            Alumno a = new Alumno();
+            Inscripcion a = new Inscripcion();
             string id = Request.QueryString["id"];
             if (id != null && id != "")
             {
@@ -75,25 +74,21 @@ namespace ControlObjects.Incripciones
 
                 setObject(a);
 
-                AlumnoManager.Update(a);
+                InscripcionManager.Update(a);
             }
             else
             {
                 setObject(a);
-                AlumnoManager.Insert(a);
+                InscripcionManager.Insert(a);
             }
 
             volver();
         }
 
-        private void setObject(Alumno a)
+        private void setObject(Inscripcion a)
         {
-            a.Nombre = TxtNombre.Text;
-            a.Apellido = TxtApellido.Text;
-            a.Dni = TxtDNI.Text;
-            a.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
-            a.NroMatricula = long.Parse(TxtMatricula.Text);
-            a.Nivel = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
+            a.FechaInscripción = DateTime.Parse(TxtFecIns.Text);
+            a.Alumno = AlumnoManager.Get(int.Parse(CmbAlumno.SelectedValue)).First();
 
         }
 
@@ -101,12 +96,12 @@ namespace ControlObjects.Incripciones
         protected void BtnBorrar_Click(object sender, EventArgs e)
         {
 
-            Alumno a = new Alumno();
+            Inscripcion a = new Inscripcion();
             string id = Request.QueryString["id"];
             if (id != null && id != "")
             {
 
-                AlumnoManager.Delete(int.Parse(id));
+                InscripcionManager.Delete(int.Parse(id));
             }
 
             volver();
