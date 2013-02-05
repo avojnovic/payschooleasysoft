@@ -11,67 +11,25 @@
     <center>
         <asp:Panel runat="server" ID="panel1" Visible="true" Width="600px" Style="background-color: #DDDDDD">
             <table style="width: 500px;" border="0" cellspacing="0">
-                <tr>
+             <tr>
                     <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label1" runat="server" Text="DNI:" Font-Names="Calibri"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TxtDNI"
+                        <asp:Label ID="Label7" runat="server" Text="Fecha Inscripción:" Font-Names="Calibri"></asp:Label>
+                        <asp:RequiredFieldValidator ID="RequiredFieldValidator5" runat="server" ControlToValidate="TxtFecIns"
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
                     <td style="width: 200px;">
-                        <asp:TextBox ID="TxtDNI" Width="100%" runat="server"></asp:TextBox>
-                        <act:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="TxtDNI" Mask="99999999" MaskType="Number" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label2" runat="server" Text="Nombre:" Font-Names="Calibri"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator1" runat="server" ControlToValidate="TxtNombre"
-                            Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
-                    </td>
-                    <td style="width: 200px;">
-                        <asp:TextBox ID="TxtNombre" Width="100%" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label4" runat="server" Text="Apellido:" Font-Names="Calibri"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator2" runat="server" ControlToValidate="TxtApellido"
-                            Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
-                    </td>
-                    <td style="width: 200px;">
-                        <asp:TextBox ID="TxtApellido" Width="100%" runat="server"></asp:TextBox>
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label5" runat="server" Text="Fecha Nacimiento:" Font-Names="Calibri"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TxtFecNac"
-                            Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
-                    </td>
-                    <td style="width: 200px;">
-                        <asp:TextBox ID="TxtFecNac" Width="90%" runat="server" onKeyPress = "javascript: return false;" onPaste = "javascript: return false;"></asp:TextBox>
-                        <asp:ImageButton ID="btnCalendar" runat="server" ImageUrl="~/Images/Calendar.png" />
-                        <act:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TxtFecNac" Format="dd/MM/yyyy"
+                        <asp:TextBox ID="TxtFecIns" Width="90%" runat="server" onKeyPress = "javascript: return false;" onPaste = "javascript: return false;"></asp:TextBox>
+                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Calendar.png" />
+                        <act:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TxtFecIns" Format="dd/MM/yyyy"
                             PopupButtonID="btnCalendar" />
                     </td>
                 </tr>
                 <tr>
                     <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label6" runat="server" Text="Matricula:" Font-Names="Calibri"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TxtMatricula"
-                            Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
+                        <asp:Label ID="Label8" runat="server" Text="Alumno:" Font-Names="Calibri"></asp:Label>
                     </td>
                     <td style="width: 200px;">
-                        <asp:TextBox ID="TxtMatricula" Width="100%" runat="server"></asp:TextBox>
-                         <act:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="TxtMatricula" Mask="99999999" MaskType="Number" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label3" runat="server" Text="Nivel:" Font-Names="Calibri"></asp:Label>
-                    </td>
-                    <td style="width: 200px;">
-                        <asp:DropDownList ID="CmbNivel" Width="100%" runat="server" />
+                        <asp:DropDownList ID="CmbAlumno" Width="100%" runat="server" />
                     </td>
                 </tr>
                 <tr>
@@ -84,10 +42,12 @@
                         <asp:ImageButton ID="BtnSalir" Width="32px" Height="32px" ImageUrl="~/Images/return.png"
                             runat="server" OnClick="BtnSalir_Click" ToolTip="Salir" />
                     </td>
-                </tr>
+                </tr>              
             </table>
         </asp:Panel>
     </center>
     <act:RoundedCornersExtender ID="RoundedCornersExtender2" runat="server" TargetControlID="panel1"
         Radius="8" Color="#DDDDDD" Corners="All" Enabled="true" />
 </asp:Content>
+
+
