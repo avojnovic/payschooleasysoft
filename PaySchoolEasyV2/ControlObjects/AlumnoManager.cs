@@ -10,7 +10,7 @@ namespace ControlObjects
     public static class AlumnoManager
     {
 
-        
+        //Obtener un alumno por ID
         public static IEnumerable<Alumno> Get(int id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
@@ -21,7 +21,7 @@ namespace ControlObjects
 
             return res.ToList();
         }
-
+        //Obtener todos los alumnos
         public static IEnumerable<Alumno> Get()
         {
             SchoolDbContext dbContext = new SchoolDbContext();
@@ -47,6 +47,8 @@ namespace ControlObjects
             res.FechaNacimiento = x.FechaNacimiento;
             res.Nivel = NivelManager.Get((int)x.Nivel.Id).First();
             
+            //Para que la BD no entienda el valor como un valor nuevo y lo intente guardar.
+            //Solo para clases con clases asociadas.
             dbContext.Entry(res.Nivel).State = System.Data.EntityState.Unchanged;
            
             res.Nombre = x.Nombre;

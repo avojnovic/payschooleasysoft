@@ -72,6 +72,8 @@
     <Content Include="Images\return.png" />
     <Content Include="Images\save.png" />
     <Content Include="Images\Trash.png" />
+    <Content Include="Incripciones\Details.aspx" />
+    <Content Include="Incripciones\Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -106,6 +108,20 @@
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Incripciones\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Incripciones\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Incripciones\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Incripciones\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -127,7 +143,6 @@
     <Folder Include="Cuotas\" />
     <Folder Include="Cursos\" />
     <Folder Include="Facturas\" />
-    <Folder Include="Incripciones\" />
     <Folder Include="Matriculas\" />
     <Folder Include="Niveles\" />
     <Folder Include="Pagos\" />

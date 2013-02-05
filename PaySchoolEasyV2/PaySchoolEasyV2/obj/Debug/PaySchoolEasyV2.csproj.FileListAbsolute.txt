@@ -31,10 +31,8 @@ C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV
 C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\PaySchoolEasyV2.pdb
 C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\AjaxControlToolkit.dll
 C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\BussinesObjects.dll
-C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\DataAccessObjects.dll
 C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\System.Web.Ajax.dll
 C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\BussinesObjects.pdb
-C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\DataAccessObjects.pdb
 C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\AjaxControlToolkit.pdb
 C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\System.Web.Ajax.pdb
 C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\ar\AjaxControlToolkit.resources.dll
@@ -86,3 +84,6 @@ C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\zh-CHS\AjaxControl
 C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\zh-CHT\AjaxControlToolkit.resources.dll
 C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\ControlObjects.dll
 C:\Projects\Payschooleasy\PaySchoolEasyV2\PaySchoolEasyV2\bin\ControlObjects.pdb
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\ControlObjects.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\EntityFramework.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\PaySchoolEasyV2\bin\ControlObjects.pdb
