@@ -6,3 +6,11 @@ C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\bin\Debug\BussinesObjec
 C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\obj\Debug\ResolveAssemblyReference.cache
 C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\obj\Debug\ControlObjects.dll
 C:\Projects\Payschooleasy\PaySchoolEasyV2\ControlObjects\obj\Debug\ControlObjects.pdb
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\ControlObjects\bin\Debug\ControlObjects.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\ControlObjects\bin\Debug\ControlObjects.pdb
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\ControlObjects\bin\Debug\BussinesObjects.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\ControlObjects\bin\Debug\EntityFramework.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\ControlObjects\bin\Debug\BussinesObjects.pdb
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\ControlObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\ControlObjects\obj\Debug\ControlObjects.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\ControlObjects\obj\Debug\ControlObjects.pdb

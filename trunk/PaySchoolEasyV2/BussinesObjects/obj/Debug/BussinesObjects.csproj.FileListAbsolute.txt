@@ -4,3 +4,9 @@ C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\ResolveAssem
 C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.dll
 C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.pdb
 C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\EntityFramework.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.pdb
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\bin\Debug\EntityFramework.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.pdb

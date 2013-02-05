@@ -23,6 +23,16 @@ namespace BussinesObjects
             set { _alumno = value; }
         }
 
+        public string alumnoNombre
+        {
+            get { return Alumno.nombreCompleto; }
+        }
+
+        public string alumnoMatricula
+        {
+            get { return Alumno.NroMatricula.ToString(); }
+        }
+
         private DateTime _fechaInscripción;
 
         public DateTime FechaInscripción
@@ -37,6 +47,20 @@ namespace BussinesObjects
         {
             get { return _inscripto; }
             set { _inscripto = value; }
+        }
+
+
+        public string StatusInscripto
+        {
+            get
+            {
+                if (Inscripto)
+                    return "Si";
+                else
+                    return "No";
+                
+            
+            }
         }
     }
 }

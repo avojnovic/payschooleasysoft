@@ -56,6 +56,10 @@ namespace PaySchoolEasyV2
             alumnos.NavigateUrl = "Alumnos/Index.aspx";
             Menu1.Items.Add(alumnos);
 
+            MenuItem Incripcion = new MenuItem("Incripciones");
+            Incripcion.Value = "Incripciones";
+            Incripcion.NavigateUrl = "Incripciones/Index.aspx";
+            Menu1.Items.Add(Incripcion);
 
             MenuItem User = new MenuItem(UsuarioLogueado.nombreCompleto);
             User.Value = UsuarioLogueado.nombreCompleto;

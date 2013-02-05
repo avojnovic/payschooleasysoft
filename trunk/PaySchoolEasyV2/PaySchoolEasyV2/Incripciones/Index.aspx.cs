@@ -4,18 +4,16 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
-using BussinesObjects;
-using ControlObjects;
 
-namespace PaySchoolEasyV2.Alumnos
+namespace ControlObjects.Incripciones
 {
     public partial class Index : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-          
-            //Carga la grilla con todos los Alumnos y la asocia al tipo dato
-            GridView1.DataSource = AlumnoManager.Get();
+
+
+            GridView1.DataSource = InscripcionManager.Get();
             GridView1.DataBind();
 
         }
@@ -25,7 +23,6 @@ namespace PaySchoolEasyV2.Alumnos
             Response.Redirect("Details.aspx");
         }
 
-        //Evento de grilla para cambiar de pagina y ver todos los elementos
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
