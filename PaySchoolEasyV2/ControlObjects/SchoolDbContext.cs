@@ -9,7 +9,7 @@ namespace ControlObjects
 {
     public class SchoolDbContext : DbContext
     {
-
+       
         public DbSet<Alumno> Alumno { get; set; }
         public DbSet<Cuota> Cuota { get; set; }
         public DbSet<Curso> Curso { get; set; }
