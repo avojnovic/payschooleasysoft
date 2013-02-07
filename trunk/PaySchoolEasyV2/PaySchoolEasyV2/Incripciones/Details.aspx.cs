@@ -25,10 +25,10 @@ namespace ControlObjects.Incripciones
             {
 
 
-                CmbAlumno.DataTextField = "nombreCompleto";
-                CmbAlumno.DataValueField = "Id";
-                CmbAlumno.DataSource = AlumnoManager.Get();
-                CmbAlumno.DataBind();
+                CmbNivel.DataTextField = "Descripcion";
+                CmbNivel.DataValueField = "Id";
+                CmbNivel.DataSource = NivelManager.Get();
+                CmbNivel.DataBind();
 
                 if (id != null && id != "")
                 {
@@ -37,6 +37,8 @@ namespace ControlObjects.Incripciones
                     if (res.Count() > 0)
                     {
                         var inscripcion = res.First();
+
+                        inscripcion.Alumno = AlumnoManager.Get((int)inscripcion.Alumno.Id).First();
                         setearInscripcion(inscripcion);
                     }
 
@@ -52,12 +54,55 @@ namespace ControlObjects.Incripciones
 
         private void setearInscripcion(Inscripcion inscripcion)
         {
-            //TxtFecIns.Text = inscripcion.FechaInscripción.Value.ToShortDateString();
+           
             TxtFecIns.Text = inscripcion.FechaInscripción.Date.ToShortDateString();
-            CmbAlumno.SelectedValue = inscripcion.Alumno.Id.ToString();
+            setearAlumno(inscripcion.Alumno);
+
+
         }
 
+        private void setearAlumno(Alumno a)
+        {
+            TxtIdAlumno.Text = a.Id.ToString();
+            TxtApellido.Text = a.Apellido;
+            TxtDNI.Text = a.Dni;
+            TxtFecNac.Text = a.FechaNacimiento.Value.ToShortDateString();
+            TxtMatricula.Text = a.NroMatricula.ToString();
+            TxtNombre.Text = a.Nombre;
 
+
+
+            CmbNivel.SelectedValue = a.Nivel.Id.ToString();
+        }
+
+        protected void BtnSearch_Click(object sender, EventArgs e)
+        {
+            if (TxtSearch.Text != "")
+            {
+
+                var alu = from a in AlumnoManager.Get()
+                          where a.Dni.ToString().Contains(TxtSearch.Text) ||
+                           a.nombreCompleto.ToLower().Contains(TxtSearch.Text.ToLower()) ||
+                           a.NroMatricula.ToString().ToLower().Contains(TxtSearch.Text.ToLower())
+                          select a;
+
+                if (alu.Count() > 0)
+                {
+                    setearAlumno(alu.First());
+                }
+                else
+                {
+                    TxtIdAlumno.Text = "";
+                    TxtApellido.Text = "";
+                    TxtDNI.Text = "";
+                    TxtFecNac.Text = "";
+                    TxtMatricula.Text ="";
+                    TxtNombre.Text = "";
+                }
+
+            }
+        }
+        
         protected void BtnSalir_Click(object sender, EventArgs e)
         {
             volver();
@@ -86,11 +131,35 @@ namespace ControlObjects.Incripciones
             volver();
         }
 
-        private void setObject(Inscripcion a)
+        private void setObject(Inscripcion i)
         {
-            a.FechaInscripción = DateTime.Parse(TxtFecIns.Text);
-            a.Alumno = AlumnoManager.Get(int.Parse(CmbAlumno.SelectedValue)).First();
 
+            i.FechaInscripción = DateTime.Parse(TxtFecIns.Text);
+            i.Inscripto = true;
+
+            Alumno alumno = new Alumno();
+
+            alumno.Nombre = TxtNombre.Text;
+            alumno.Apellido = TxtApellido.Text;
+            alumno.Dni = TxtDNI.Text;
+            alumno.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
+            alumno.NroMatricula = long.Parse(TxtMatricula.Text);
+            alumno.Nivel = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
+
+            if (TxtIdAlumno.Text != "")
+            {
+                alumno.Id = long.Parse(TxtIdAlumno.Text);
+                AlumnoManager.Update(alumno);
+            }
+            else
+            {
+                AlumnoManager.Insert(alumno);
+            }
+
+          
+
+
+            i.Alumno = alumno;
         }
 
 

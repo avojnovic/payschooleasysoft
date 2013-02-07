@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using BussinesObjects;
+using System.Data.Objects;
 
 namespace ControlObjects
 {
@@ -36,19 +37,25 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = (from o in dbContext.Inscripcion
+            var res = (from o in dbContext.Inscripcion.Include("Alumno")
                        where o.Id == x.Id
                        select o).First();
 
             res.FechaInscripción = x.FechaInscripción;
             res.Inscripto = x.Inscripto;
-            res.Alumno = AlumnoManager.Get((int)x.Alumno.Id).First();
+           
 
-            //Para que la BD no entienda el valor como un valor nuevo y lo intente guardar.
-            //Solo para clases con clases asociadas.
+            var alu =   from c in dbContext.Alumno.Include("Nivel")
+                                   where c.Id == x.Alumno.Id
+                                 select c;
+
+
+            res.Alumno = alu.First();
+
+
             dbContext.Entry(res.Alumno).State = System.Data.EntityState.Unchanged;
 
-
+            
             dbContext.SaveChanges();
         }
 
