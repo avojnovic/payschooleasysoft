@@ -24,9 +24,10 @@ namespace ControlObjects.Incripciones
             if (!IsPostBack)
             {
 
-                CmbAlumno.DataTextField = "Alumno";
+
+                CmbAlumno.DataTextField = "nombreCompleto";
                 CmbAlumno.DataValueField = "Id";
-                CmbAlumno.DataSource = InscripcionManager.Get();
+                CmbAlumno.DataSource = AlumnoManager.Get();
                 CmbAlumno.DataBind();
 
                 if (id != null && id != "")

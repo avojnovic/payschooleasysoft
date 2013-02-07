@@ -19,7 +19,7 @@
                     </td>
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtFecIns" Width="90%" runat="server" onKeyPress = "javascript: return false;" onPaste = "javascript: return false;"></asp:TextBox>
-                        <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Calendar.png" />
+                        <asp:ImageButton ID="btnCalendar" runat="server" ImageUrl="~/Images/Calendar.png" />
                         <act:CalendarExtender ID="CalendarExtender2" runat="server" TargetControlID="TxtFecIns" Format="dd/MM/yyyy"
                             PopupButtonID="btnCalendar" />
                     </td>
