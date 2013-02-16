@@ -78,6 +78,7 @@
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
+    <Content Include="Usuarios\Details.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -137,6 +138,13 @@
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Usuarios\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -147,7 +155,6 @@
     <Folder Include="Niveles\" />
     <Folder Include="Pagos\" />
     <Folder Include="Recargos\" />
-    <Folder Include="Usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />
