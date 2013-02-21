@@ -38,15 +38,25 @@
         <br />
         <asp:Panel runat="server" ID="panel2" Visible="true" Width="600px" Style="background-color: #DDDDDD">
             <table style="width: 500px;" border="0" cellspacing="0">
-                <tr>
+                <tr >
                   <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label9" runat="server" Text="Buscar Alumno:" Font-Names="Calibri"></asp:Label>
+                        <asp:Label ID="Label9" runat="server" Visible="false" Text="Buscar Alumno:" Font-Names="Calibri"></asp:Label>
                     </td>
                     <td align="left" >
-                        <asp:TextBox ID="TxtSearch"  runat="server"></asp:TextBox>
-                        <asp:Button ID="BtnSearch" OnClick="BtnSearch_Click" runat="server" Text="Buscar" />
+                        <asp:TextBox ID="TxtSearch" Visible="false" runat="server"></asp:TextBox>
+                        <asp:Button ID="BtnSearch" Visible="false" OnClick="BtnSearch_Click" runat="server" Text="Buscar" />
                     </td>
                 </tr>
+
+                 <tr>
+                    <td align="left" style="width: 100px;">
+                        <asp:Label ID="Label11" runat="server" Text="Alumnos Registrados:" Font-Names="Calibri"></asp:Label>
+                    </td>
+                    <td style="width: 200px;">
+                        <asp:DropDownList ID="CmbAlumnos" Width="100%" AutoPostBack="true" runat="server" OnSelectedIndexChanged="CmbAlumnos_OnSelectedIndexChanged" />
+                    </td>
+                </tr>
+
                <tr>
                     <td align="left" style="width: 100px;">
                         <asp:Label ID="Label8" runat="server" Text="Id:" Font-Names="Calibri"></asp:Label>
@@ -83,7 +93,7 @@
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
                     <td style="width: 200px;">
-                        <asp:TextBox ID="TxtApellido" Width="100%" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TxtApellido" ReadOnly="true" Width="100%" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 <tr>
@@ -115,7 +125,17 @@
                         <asp:Label ID="Label3" runat="server" Text="Nivel:" Font-Names="Calibri"></asp:Label>
                     </td>
                     <td style="width: 200px;">
-                        <asp:DropDownList ID="CmbNivel" Width="100%" runat="server" />
+                        <asp:DropDownList ID="CmbNivel" Width="100%" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CmbNivel_OnSelectedIndexChanged" />
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="left" style="width: 100px;">
+                        <asp:Label ID="Label10" runat="server" Text="Curso:" Font-Names="Calibri"></asp:Label>
+                          <asp:RequiredFieldValidator ID="RequiredFieldValidator7" runat="server" ControlToValidate="CmbCurso"
+                            Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
+                    </td>
+                    <td style="width: 200px;">
+                        <asp:DropDownList ID="CmbCurso" Width="100%" runat="server" />
                     </td>
                 </tr>
               

@@ -31,6 +31,29 @@ namespace ControlObjects
             return res.ToList();
         }
 
+
+        public static IEnumerable<User> CheckUserName(long id, string username)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.User.Include("TipoUsuario")
+                      where c.Id != id && c.Email == username
+                      select c;
+
+            return res.ToList();
+        }
+
+        public static IEnumerable<User> CheckUserName(string username)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.User.Include("TipoUsuario")
+                      where c.Email == username
+                      select c;
+
+            return res.ToList();
+        }
+
         public static IEnumerable<User> Get()
         {
             SchoolDbContext dbContext = new SchoolDbContext();

@@ -23,6 +23,8 @@ namespace BussinesObjects
             set { _alumno = value; }
         }
 
+
+        
         public string alumnoNombre
         {
             get { return Alumno.nombreCompleto; }
@@ -50,6 +52,31 @@ namespace BussinesObjects
         }
 
 
+        private Curso _curso;
+
+        public Curso Curso
+        {
+            get { return _curso; }
+            set { _curso = value; }
+        }
+
+
+        public string CursoDescripcion
+        {
+             get
+            {
+                return _curso.Anio;
+            }
+        }
+
+        public string NivelDescripcion
+        {
+            get
+            {
+                return _curso.Nivel.Descripcion;
+            }
+        }
+ 
         public string StatusInscripto
         {
             get
@@ -62,5 +89,9 @@ namespace BussinesObjects
             
             }
         }
+
+
+
+
     }
 }

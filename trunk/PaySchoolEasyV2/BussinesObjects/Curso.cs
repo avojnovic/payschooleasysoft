@@ -15,6 +15,15 @@ namespace BussinesObjects
             set { _id = value; }
         }
 
+        private string _anio;
+
+        public string Anio
+        {
+            get { return _anio; }
+            set { _anio = value; }
+        }
+    
+
         private Int64 _cupo;
 
         public Int64 Cupo

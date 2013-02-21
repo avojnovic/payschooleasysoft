@@ -15,7 +15,7 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Alumno.Include("Nivel")
+            var res = from c in dbContext.Alumno.Include("Usuario")
                          where c.Id == id
                          select c;
 
@@ -26,10 +26,22 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Alumno.Include("Nivel")
+            var res = from c in dbContext.Alumno.Include("Usuario")
                          select c;
 
             return res.ToList();
+        }
+
+        public static IEnumerable<Alumno> GetByTutor(long id)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Alumno.Include("Usuario")
+                      where c.Usuario.Id == id
+                      select c;
+
+            return res.ToList();
+
         }
 
 
@@ -37,7 +49,7 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = (from o in dbContext.Alumno
+            var res = (from o in dbContext.Alumno.Include("Usuario")
                           where o.Id == x.Id
                           select o).First();
 
@@ -45,16 +57,20 @@ namespace ControlObjects
             res.Borrado = x.Borrado;
             res.Dni = x.Dni;
             res.FechaNacimiento = x.FechaNacimiento;
-            res.Nivel = NivelManager.Get((int)x.Nivel.Id).First();
-            
-            //Para que la BD no entienda el valor como un valor nuevo y lo intente guardar.
-            //Solo para clases con clases asociadas.
-            dbContext.Entry(res.Nivel).State = System.Data.EntityState.Unchanged;
-           
+               
             res.Nombre = x.Nombre;
             res.NroMatricula = x.NroMatricula;
-            res.Usuario = x.Usuario;
 
+
+
+            var u = from c in dbContext.User
+                      where c.Id == x.Usuario.Id
+                      select c;
+            res.Usuario = u.First();
+            dbContext.Entry(res.Usuario).State = System.Data.EntityState.Unchanged;
+
+
+    
             dbContext.SaveChanges();
         }
 
@@ -63,9 +79,10 @@ namespace ControlObjects
         public static void Insert(Alumno x)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
-            x.Nivel = NivelManager.Get((int)x.Nivel.Id).First();
-            
-            dbContext.Entry(x.Nivel).State = System.Data.EntityState.Unchanged;
+
+            x.Usuario = UserManager.Get((int)x.Usuario.Id).First();
+
+            dbContext.Entry(x.Usuario).State = System.Data.EntityState.Unchanged;
 
             dbContext.Alumno.Add(x);
             dbContext.SaveChanges();
@@ -76,7 +93,7 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Alumno
+            var res = from c in dbContext.Alumno.Include("Usuario")
                          where c.Id == id
                          select c;
 
@@ -87,5 +104,7 @@ namespace ControlObjects
             }
         }
 
+
+      
     }
 }

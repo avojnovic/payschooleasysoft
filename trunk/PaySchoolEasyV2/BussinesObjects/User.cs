@@ -83,5 +83,11 @@ namespace BussinesObjects
             get { return Nombre + " " + Apellido; }
         }
 
+
+        public string TipoUsuarioNombre
+        {
+            get { return _tipoUsuario.Descripcion; }
+        }
+
     }
 }
