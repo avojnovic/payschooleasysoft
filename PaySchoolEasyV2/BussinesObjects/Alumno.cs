@@ -64,14 +64,6 @@ namespace BussinesObjects
         }
 
 
-        private Nivel _nivel;
-
-        public Nivel Nivel
-        {
-            get { return _nivel; }
-            set { _nivel = value; }
-        }
-
         private Boolean _borrado;
     
         public Boolean Borrado
@@ -85,15 +77,7 @@ namespace BussinesObjects
             get { return Nombre + " " + Apellido; }
         }
 
-        public string NivelNombre
-        {
-            get {
-                if (Nivel != null)
-                    return Nivel.Descripcion;
-                else
-                    return "";
-                }
-        }
+       
     }
 
 

@@ -79,6 +79,8 @@
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
     <Content Include="Usuarios\Details.aspx" />
+    <Content Include="Usuarios\Index.aspx" />
+    <Content Include="Usuarios\Password.aspx" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -144,6 +146,20 @@
     </Compile>
     <Compile Include="Usuarios\Details.aspx.designer.cs">
       <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Usuarios\Password.aspx.cs">
+      <DependentUpon>Password.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Usuarios\Password.aspx.designer.cs">
+      <DependentUpon>Password.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

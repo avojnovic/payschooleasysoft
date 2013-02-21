@@ -21,6 +21,7 @@ namespace ControlObjects
             return res.ToList();
         }
 
+
         public static IEnumerable<Nivel> Get()
         {
             SchoolDbContext dbContext = new SchoolDbContext();
@@ -52,6 +53,7 @@ namespace ControlObjects
         public static void Insert(Nivel x)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
+
             dbContext.Nivel.Add(x);
             dbContext.SaveChanges();
         }

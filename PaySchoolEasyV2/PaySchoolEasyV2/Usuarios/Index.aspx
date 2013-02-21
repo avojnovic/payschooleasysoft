@@ -1,10 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true"
-    CodeBehind="Index.aspx.cs" Inherits="PaySchoolEasyV2.Alumnos.Index" %>
-
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ControlObjects.Usuarios.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <asp:ImageButton ID="ImageButton1" Width="32px" Height="32px" ImageUrl="~/Images/New.png"
+  <asp:ImageButton ID="ImageButton1" Width="32px" Height="32px" ImageUrl="~/Images/New.png"
         runat="server" OnClick="BtnNuevo_Click" ToolTip="Nuevo" />
 
     <asp:GridView ID="GridView1" Font-Names="calibri" runat="server" AutoGenerateColumns="False"
@@ -18,9 +16,10 @@
             <asp:BoundField DataField="Dni" HeaderText="Dni" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" HeaderStyle-Font-Names="calibri"/>
-            <asp:BoundField DataField="FechaNacimiento"   DataFormatString="{0:dd/MM/yyyy}"  HeaderText="FechaNacimiento" HeaderStyle-Font-Names="calibri"/>
-            <asp:BoundField DataField="NroMatricula" HeaderText="NroMatricula" HeaderStyle-Font-Names="calibri" />
-                    
+            <asp:BoundField DataField="Email"   HeaderText="Email" HeaderStyle-Font-Names="calibri"/>
+            <asp:BoundField DataField="Telefono" HeaderText="Telefono" HeaderStyle-Font-Names="calibri" />
+            <asp:BoundField DataField="TipoUsuarioNombre" HeaderText="Tipo Usuario" HeaderStyle-Font-Names="calibri" />
+           
           
             <asp:TemplateField ItemStyle-Width="25px">
                 <ItemTemplate>

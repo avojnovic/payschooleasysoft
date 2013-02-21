@@ -68,14 +68,7 @@
                          <act:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="TxtMatricula" Mask="99999999" MaskType="Number" />
                     </td>
                 </tr>
-                <tr>
-                    <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label3" runat="server" Text="Nivel:" Font-Names="Calibri"></asp:Label>
-                    </td>
-                    <td style="width: 200px;">
-                        <asp:DropDownList ID="CmbNivel" Width="100%" runat="server" />
-                    </td>
-                </tr>
+             
                 <tr>
                     <td align="center" colspan="2">
                         <br />

@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ControlObjects.Incripciones {
+namespace ControlObjects.Usuarios {
     
     
     public partial class Index {

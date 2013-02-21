@@ -15,7 +15,7 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Inscripcion.Include("Alumno")
+            var res = from c in dbContext.Inscripcion.Include("Alumno").Include("Curso")
                       where c.Id == id
                       select c;
 
@@ -27,7 +27,7 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Inscripcion.Include("Alumno")
+            var res = from c in dbContext.Inscripcion.Include("Alumno").Include("Curso")
                       select c;
 
             return res.ToList();
@@ -37,7 +37,7 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = (from o in dbContext.Inscripcion.Include("Alumno")
+            var res = (from o in dbContext.Inscripcion.Include("Alumno").Include("Curso")
                        where o.Id == x.Id
                        select o).First();
 
@@ -48,11 +48,7 @@ namespace ControlObjects
             var alu =   from c in dbContext.Alumno.Include("Nivel")
                                    where c.Id == x.Alumno.Id
                                  select c;
-
-
             res.Alumno = alu.First();
-
-
             dbContext.Entry(res.Alumno).State = System.Data.EntityState.Unchanged;
 
             

@@ -24,11 +24,6 @@ namespace PaySchoolEasyV2.Alumnos
             if (!IsPostBack)
             {
 
-                CmbNivel.DataTextField = "Descripcion";
-                CmbNivel.DataValueField = "Id";
-                CmbNivel.DataSource = NivelManager.Get();
-                CmbNivel.DataBind();
-
                 if (id != null && id != "")
                 {
 
@@ -56,7 +51,7 @@ namespace PaySchoolEasyV2.Alumnos
             TxtFecNac.Text = alumno.FechaNacimiento.Value.ToShortDateString();
             TxtMatricula.Text = alumno.NroMatricula.ToString();
             TxtNombre.Text = alumno.Nombre;
-            CmbNivel.SelectedValue = alumno.Nivel.Id.ToString();
+
         }
 
 
@@ -95,7 +90,7 @@ namespace PaySchoolEasyV2.Alumnos
             a.Dni = TxtDNI.Text;
             a.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
             a.NroMatricula = long.Parse(TxtMatricula.Text);
-            a.Nivel = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
+
             
         }
 

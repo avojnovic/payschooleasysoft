@@ -25,10 +25,19 @@ namespace ControlObjects.Incripciones
             {
 
 
+                CmbAlumnos.DataTextField = "nombreCompleto";
+                CmbAlumnos.DataValueField = "Id";
+                CmbAlumnos.DataSource = AlumnoManager.GetByTutor(((User)Session["user"]).Id);
+                CmbAlumnos.DataBind();
+                CmbAlumnos.Items.Insert(0, new ListItem("Sin Seleccionar", "0"));
+                CmbAlumnos.SelectedIndex = 0;
+
                 CmbNivel.DataTextField = "Descripcion";
                 CmbNivel.DataValueField = "Id";
                 CmbNivel.DataSource = NivelManager.Get();
                 CmbNivel.DataBind();
+
+                ObtenerCursos();
 
                 if (id != null && id != "")
                 {
@@ -46,9 +55,20 @@ namespace ControlObjects.Incripciones
                 else
                 {
                     BtnBorrar.Visible = false;
+                    TxtApellido.Text = ((User)Session["user"]).Apellido;
+                    
                 }
             }
 
+        }
+
+        private void ObtenerCursos()
+        {
+            Nivel n = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
+            CmbCurso.DataTextField = "Anio";
+            CmbCurso.DataValueField = "Id";
+            CmbCurso.DataSource = CursoManager.GetByNivel(n.Id);
+            CmbCurso.DataBind();
         }
 
 
@@ -72,8 +92,28 @@ namespace ControlObjects.Incripciones
 
 
 
-            CmbNivel.SelectedValue = a.Nivel.Id.ToString();
+           
         }
+
+        protected void CmbAlumnos_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+
+            if (int.Parse(CmbAlumnos.SelectedValue) == 0)
+            {
+                TxtIdAlumno.Text ="";
+                TxtApellido.Text = "";
+                TxtDNI.Text = "";
+                TxtFecNac.Text = "";
+                TxtMatricula.Text = "";
+                TxtNombre.Text = "";
+            }
+            else
+            {
+                Alumno a = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
+                setearAlumno(a);
+            }
+        }
+
 
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
@@ -101,6 +141,12 @@ namespace ControlObjects.Incripciones
                 }
 
             }
+        }
+
+
+        protected void CmbNivel_OnSelectedIndexChanged(object sender, EventArgs e)
+        {
+            ObtenerCursos();
         }
         
         protected void BtnSalir_Click(object sender, EventArgs e)
@@ -136,6 +182,7 @@ namespace ControlObjects.Incripciones
 
             i.FechaInscripción = DateTime.Parse(TxtFecIns.Text);
             i.Inscripto = true;
+            i.Curso = CursoManager.Get(int.Parse(CmbCurso.SelectedValue)).First();
 
             Alumno alumno = new Alumno();
 
@@ -144,7 +191,8 @@ namespace ControlObjects.Incripciones
             alumno.Dni = TxtDNI.Text;
             alumno.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
             alumno.NroMatricula = long.Parse(TxtMatricula.Text);
-            alumno.Nivel = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
+            alumno.Usuario = (User)Session["user"];
+
 
             if (TxtIdAlumno.Text != "")
             {
