@@ -39,5 +39,8 @@ namespace BussinesObjects
             get { return _nivel; }
             set { _nivel = value; }
         }
+
+
+
     }
 }
