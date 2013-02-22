@@ -71,7 +71,7 @@ namespace ControlObjects.Pagos
                     TxtDescuento.Text = m.Descuento.ToString();
                     TxtTotal.Text = (m.Monto - m.Descuento).ToString();
 
-                    codigo = "0" + DateTime.Today.Year.ToString() + "00" + TxtTotal.Text;
+                    codigo = "0" + "-" + DateTime.Today.Year.ToString()+ "-" + "00" + "-" + TxtMatricula.Text + "-" + TxtTotal.Text;
                 }
                 else
                 {
@@ -91,7 +91,7 @@ namespace ControlObjects.Pagos
 
                         TxtTotal.Text = (a.MontoCuota + m.Monto - m.Descuento).ToString();
 
-                        codigo = "1" + DateTime.Today.Year.ToString() + a.Mes.ToString("00") + TxtTotal.Text;
+                        codigo = "1" + "-" + DateTime.Today.Year.ToString() + "-" + a.Mes.ToString("00") + "-" + TxtMatricula.Text + "-" + TxtTotal.Text;
                     }
                     else
                     {//Cuota
@@ -107,7 +107,7 @@ namespace ControlObjects.Pagos
                         TxtSubTotal.Text = a.MontoCuota.ToString();
                         TxtTotal.Text = a.MontoCuota.ToString();
 
-                        codigo = "2" + DateTime.Today.Year.ToString() + a.Mes.ToString("00") + TxtTotal.Text;
+                        codigo = "2" + "-" + DateTime.Today.Year.ToString() + "-" + a.Mes.ToString("00") + "-" + TxtMatricula.Text + "-" + TxtTotal.Text;
                     }
                 }
 
