@@ -64,6 +64,7 @@
   <ItemGroup>
     <Content Include="Alumnos\Details.aspx" />
     <Content Include="Alumnos\Index.aspx" />
+    <Content Include="barCode.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Images\Calendar.png" />
     <Content Include="Images\File-Open-icon.png" />
@@ -75,6 +76,7 @@
     <Content Include="Incripciones\Details.aspx" />
     <Content Include="Incripciones\Index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Pagos\Pagar.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
     <Content Include="Scripts\jquery-1.4.1.min.js" />
@@ -103,6 +105,13 @@
     </Compile>
     <Compile Include="Alumnos\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="barCode.aspx.cs">
+      <DependentUpon>barCode.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="barCode.aspx.designer.cs">
+      <DependentUpon>barCode.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -139,6 +148,13 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="Pagos\Pagar.aspx.cs">
+      <DependentUpon>Pagar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagos\Pagar.aspx.designer.cs">
+      <DependentUpon>Pagar.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Usuarios\Details.aspx.cs">
       <DependentUpon>Details.aspx</DependentUpon>
@@ -169,7 +185,6 @@
     <Folder Include="Facturas\" />
     <Folder Include="Matriculas\" />
     <Folder Include="Niveles\" />
-    <Folder Include="Pagos\" />
     <Folder Include="Recargos\" />
   </ItemGroup>
   <ItemGroup>

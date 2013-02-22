@@ -1,0 +1,1 @@
+Verificar como obtener el nivel automaticamente en la inscripcion. Como se calcula?

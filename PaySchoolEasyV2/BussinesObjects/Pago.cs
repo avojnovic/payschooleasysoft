@@ -54,5 +54,15 @@ namespace BussinesObjects
             get { return _recargos; }
             set { _recargos = value; }
         }
+
+
+        private bool _confirmado;
+
+        public bool Confirmado
+        {
+            get { return _confirmado; }
+            set { _confirmado = value; }
+        }
+
     }
 }

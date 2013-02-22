@@ -16,12 +16,20 @@ namespace BussinesObjects
         }
 
 
-        private Int64 _año;
+        private Int64 _anio;
 
-        public Int64 Año
+        public Int64 Anio
         {
-            get { return _año; }
-            set { _año = value; }
+            get { return _anio; }
+            set { _anio = value; }
+        }
+
+        private Int64 _mes;
+
+        public Int64 Mes
+        {
+            get { return _mes; }
+            set { _mes = value; }
         }
 
         private float _montoCuota;
