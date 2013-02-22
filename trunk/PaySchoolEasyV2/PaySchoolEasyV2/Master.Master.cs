@@ -67,6 +67,13 @@ namespace PaySchoolEasyV2
                 Incripcion.Value = "Incripciones";
                 Incripcion.NavigateUrl = "Incripciones/Index.aspx";
                 Menu1.Items.Add(Incripcion);
+
+                MenuItem Pagos = new MenuItem("Pagar");
+                Pagos.Value = "pagar";
+                Pagos.NavigateUrl = "Pagos/Pagar.aspx";
+                Menu1.Items.Add(Pagos);
+
+
             }
 
             if (UsuarioLogueado.TipoUsuarioNombre == "Admin")
