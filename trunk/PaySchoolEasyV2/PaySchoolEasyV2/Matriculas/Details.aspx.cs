@@ -46,8 +46,8 @@ namespace ControlObjects.Matriculas
 
             CmbNivel.SelectedValue = m.Nivel.Id.ToString();
             TxtAnio.Text = m.Año.ToString();
-            TxtMonto.Text = m.Monto.ToString();
-            TxtDescuento.Text = m.Descuento.ToString();
+            TxtMonto.Text = m.Monto.ToString("0000.00");
+            TxtDescuento.Text = m.Descuento.ToString("0000.00");
 
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
