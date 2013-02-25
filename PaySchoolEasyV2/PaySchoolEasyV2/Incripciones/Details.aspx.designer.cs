@@ -58,24 +58,6 @@ namespace ControlObjects.Incripciones {
         protected global::System.Web.UI.WebControls.TextBox TxtFecIns;
         
         /// <summary>
-        /// btnCalendar control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.ImageButton btnCalendar;
-        
-        /// <summary>
-        /// CalendarExtender2 control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::AjaxControlToolkit.CalendarExtender CalendarExtender2;
-        
-        /// <summary>
         /// panel2 control.
         /// </summary>
         /// <remarks>

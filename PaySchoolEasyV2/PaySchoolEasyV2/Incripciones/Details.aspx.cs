@@ -56,6 +56,7 @@ namespace ControlObjects.Incripciones
                 {
                     BtnBorrar.Visible = false;
                     TxtApellido.Text = ((User)Session["user"]).Apellido;
+                    TxtFecIns.Text = DateTime.Today.ToShortDateString();
                     
                 }
             }
@@ -65,6 +66,7 @@ namespace ControlObjects.Incripciones
         private void ObtenerCursos()
         {
             Nivel n = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
+
             CmbCurso.DataTextField = "Anio";
             CmbCurso.DataValueField = "Id";
             CmbCurso.DataSource = CursoManager.GetByNivel(n.Id);
@@ -74,11 +76,8 @@ namespace ControlObjects.Incripciones
 
         private void setearInscripcion(Inscripcion inscripcion)
         {
-           
             TxtFecIns.Text = inscripcion.FechaInscripción.Date.ToShortDateString();
             setearAlumno(inscripcion.Alumno);
-
-
         }
 
         private void setearAlumno(Alumno a)
@@ -156,25 +155,35 @@ namespace ControlObjects.Incripciones
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
+            LblMensaje.Text = "";
 
-            Inscripcion a = new Inscripcion();
+            Inscripcion i = new Inscripcion();
             string id = Request.QueryString["id"];
             if (id != null && id != "")
             {
 
-                a.Id = long.Parse(id);
+                i.Id = long.Parse(id);
 
-                setObject(a);
+                setObject(i);
 
-                InscripcionManager.Update(a);
+                if (LblMensaje.Text == "")
+                {
+                    InscripcionManager.Update(i);
+                    volver();
+                }
             }
             else
             {
-                setObject(a);
-                InscripcionManager.Insert(a);
+                setObject(i);
+
+                if (LblMensaje.Text == "")
+                {
+                    InscripcionManager.Insert(i);
+                    volver();
+                }
             }
 
-            volver();
+          
         }
 
         private void setObject(Inscripcion i)
@@ -184,30 +193,49 @@ namespace ControlObjects.Incripciones
             i.Inscripto = true;
             i.Curso = CursoManager.Get(int.Parse(CmbCurso.SelectedValue)).First();
 
-            Alumno alumno = new Alumno();
+            Alumno a = new Alumno();
 
-            alumno.Nombre = TxtNombre.Text;
-            alumno.Apellido = TxtApellido.Text;
-            alumno.Dni = TxtDNI.Text;
-            alumno.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
-            alumno.NroMatricula = long.Parse(TxtMatricula.Text);
-            alumno.Usuario = (User)Session["user"];
+            a.Nombre = TxtNombre.Text;
+            a.Apellido = TxtApellido.Text;
+            a.Dni = TxtDNI.Text;
+            a.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
+            a.NroMatricula = long.Parse(TxtMatricula.Text);
+            a.Usuario = (User)Session["user"];
 
 
             if (TxtIdAlumno.Text != "")
             {
-                alumno.Id = long.Parse(TxtIdAlumno.Text);
-                AlumnoManager.Update(alumno);
+                a.Id = long.Parse(TxtIdAlumno.Text);
+               
+
+
+                if (AlumnoManager.Validar(a, true))
+                {
+                    AlumnoManager.Update(a);
+                }
+                else
+                {
+                    LblMensaje.Text = "El DNI ya esta registrado";
+                }
+
             }
             else
             {
-                AlumnoManager.Insert(alumno);
+                if (AlumnoManager.Validar(a, false))
+                {
+                    AlumnoManager.Insert(a);
+               
+                }
+                else
+                {
+                    LblMensaje.Text = "El DNI ya esta registrado";
+                }
             }
 
           
 
 
-            i.Alumno = alumno;
+            i.Alumno = a;
         }
 
 

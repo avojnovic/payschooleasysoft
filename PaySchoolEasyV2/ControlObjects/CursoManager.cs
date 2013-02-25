@@ -20,15 +20,31 @@ namespace ControlObjects
         }
 
 
-        public static IEnumerable<Curso> GetByNivel(long id)
+        public static List<Curso> GetByNivel(long id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
             var res = from c in dbContext.Curso.Include("Nivel")
                       where c.Nivel.Id == id
                       select c;
+            
 
-            return res.ToList();
+
+            //Filtrar los que tienen cupo
+            List<Curso> cursos = new List<Curso>();
+
+            foreach (Curso c in res)
+            {
+                var ins = InscripcionManager.GetByCurso(c.Id);
+                
+                if (ins.Count() < c.Cupo)
+                {
+                    cursos.Add(c);
+                }
+                
+            }
+
+            return cursos;
         }
 
         public static IEnumerable<Curso> Get()
@@ -54,10 +70,10 @@ namespace ControlObjects
             res.Cupo = x.Cupo;
 
 
-            var Nivel = from c in dbContext.Nivel
-                      where c.Id == x.Nivel.Id
-                      select c;
-            res.Nivel = Nivel.First();
+            res.Nivel = (from c in dbContext.Nivel
+                         where c.Id == x.Nivel.Id
+                         select c).First();
+
             dbContext.Entry(res.Nivel).State = System.Data.EntityState.Unchanged;
 
 

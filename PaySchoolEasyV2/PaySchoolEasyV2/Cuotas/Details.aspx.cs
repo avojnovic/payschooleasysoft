@@ -67,16 +67,34 @@ namespace ControlObjects.Cuotas
                 c.Id = long.Parse(id);
 
                 setObject(c);
+                if (CuotaManager.Validar(c, true))
+                {
+                    CuotaManager.Update(c);
+                    volver();
+                }
+                else
+                {
+                    LblMensaje.Text = "La Cuota para el Año, Mes y Nivel ya existe";
+                }
 
-                CuotaManager.Update(c);
+               
             }
             else
             {
                 setObject(c);
-                CuotaManager.Insert(c);
+
+                if (CuotaManager.Validar(c, false))
+                {
+                    CuotaManager.Insert(c);
+                    volver();
+                }
+                else
+                {
+                    LblMensaje.Text = "La Cuota para el Año, Mes y Nivel ya existe";
+                }
             }
 
-            volver();
+
         }
 
         private void setObject(Cuota cuota)

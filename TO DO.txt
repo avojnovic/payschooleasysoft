@@ -1,1 +1,12 @@
 Verificar como obtener el nivel automaticamente en la inscripcion. Como se calcula?
+
+
+Inscribir: Verificar que no se pueda inscribir al mismo alumno en algun curso del mismo nivel
+
+Email
+
+
+Importar Pagos
+
+
+Recargos y Descuentos por mora

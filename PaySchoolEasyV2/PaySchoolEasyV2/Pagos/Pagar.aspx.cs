@@ -49,77 +49,85 @@ namespace ControlObjects.Pagos
         private void setearMontos()
         {
 
-            string codigo="";
-            
-            if (CmbAlumnos.Items.Count > 0)
-            {
-                ImgBarCode.Visible = true;
-
-                TxtFechaEmision.Text = DateTime.Today.ToShortDateString();
-
-
-                if (CmbPagoDe.SelectedValue == "0")
-                {//Matricula
-                    lblCuota.Visible = false;
-                    CmbCuota.Visible = false;
-
-                    Matricula m = MatriculaManager.GetByYear(DateTime.Today.Year).First();
-
-                    TxtSubTotal.Text = m.Monto.ToString();
-                    TxtDescuento.Text = m.Descuento.ToString();
-                    TxtTotal.Text = (m.Monto - m.Descuento).ToString();
-
-                    codigo = "0" + "-" + DateTime.Today.Year.ToString()+ "-" + "00" + "-" + TxtMatricula.Text + "-" + TxtTotal.Text;
-                }
-                else
+               if (CmbAlumnos.Items.Count > 0)
                 {
-                    lblCuota.Visible = true;
-                    CmbCuota.Visible = true;
+                    TxtFechaEmision.Text = DateTime.Today.ToShortDateString();
 
-                    if (CmbPagoDe.SelectedValue == "1")
-                    {//Matricula y Cuota
-                        Matricula m = MatriculaManager.GetByYear(DateTime.Today.Year).First();
-                        Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+                    if (CmbPagoDe.SelectedValue == "0")
+                    {//Matricula
+                        lblCuota.Visible = false;
+                        CmbCuota.Visible = false;
 
-                        TxtVencimiento1.Text = a.FechaVenc1.ToShortDateString();
-                        TxtVencimiento2.Text = a.FechaVenc2.ToShortDateString();
+                        Nivel n= obtenerNiveldeAlumno(long.Parse( CmbAlumnos.SelectedValue));
+                        Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year,n.Id).First();
 
-                        TxtSubTotal.Text = (a.MontoCuota + m.Monto).ToString();
+                        TxtSubTotal.Text = m.Monto.ToString();
                         TxtDescuento.Text = m.Descuento.ToString();
+                        TxtTotal.Text = (m.Monto - m.Descuento).ToString();
 
-                        TxtTotal.Text = (a.MontoCuota + m.Monto - m.Descuento).ToString();
-
-                        codigo = "1" + "-" + DateTime.Today.Year.ToString() + "-" + a.Mes.ToString("00") + "-" + TxtMatricula.Text + "-" + TxtTotal.Text;
                     }
                     else
-                    {//Cuota
+                    {
+                        lblCuota.Visible = true;
+                        CmbCuota.Visible = true;
+
+                        if (CmbPagoDe.SelectedValue == "1")
+                        {//Matricula y Cuota
+                           
+                            Nivel n = obtenerNiveldeAlumno(long.Parse(CmbAlumnos.SelectedValue));
+                            Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
+
+                            Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+
+                            TxtVencimiento1.Text = a.FechaVenc1.ToShortDateString();
+                            TxtVencimiento2.Text = a.FechaVenc2.ToShortDateString();
+
+                            TxtSubTotal.Text = (a.MontoCuota + m.Monto).ToString();
+                            TxtDescuento.Text = m.Descuento.ToString();
+
+                            TxtTotal.Text = (a.MontoCuota + m.Monto - m.Descuento).ToString();
+
+                        }
+                        else
+                        {//Cuota
 
 
-                        Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+                            Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
 
+                            TxtVencimiento1.Text = a.FechaVenc1.ToShortDateString();
+                            TxtVencimiento2.Text = a.FechaVenc2.ToShortDateString();
+                            TxtDescuento.Text = "";
 
-                        TxtVencimiento1.Text = a.FechaVenc1.ToShortDateString();
-                        TxtVencimiento2.Text = a.FechaVenc2.ToShortDateString();
-                        TxtDescuento.Text = "";
+                            TxtSubTotal.Text = a.MontoCuota.ToString();
+                            TxtTotal.Text = a.MontoCuota.ToString();
 
-                        TxtSubTotal.Text = a.MontoCuota.ToString();
-                        TxtTotal.Text = a.MontoCuota.ToString();
-
-                        codigo = "2" + "-" + DateTime.Today.Year.ToString() + "-" + a.Mes.ToString("00") + "-" + TxtMatricula.Text + "-" + TxtTotal.Text;
+                            
+                        }
                     }
+
                 }
 
-            }
-
-            ImgBarCode.ImageUrl = "http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data=" + codigo + "&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm";
+               
+            
         }
 
 
+        private void generarCodigo(string codigo)
+        {
+
+            ImgBarCode.ImageUrl = "http://barcode.tec-it.com/barcode.ashx?code=Code128&modulewidth=fit&data=" + codigo + "&dpi=96&imagetype=gif&rotation=0&color=&bgcolor=&fontcolor=&quiet=0&qunit=mm";
+            ImgBarCode.Visible = true;
+
+            CmbAlumnos.Enabled = false;
+            CmbCuota.Enabled = false;
+            CmbPagoDe.Enabled = false;
+
+        }
 
 
         protected void CmbAlumnos_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            LblMensaje.Text = "";
             setearAlumno();
 
         }
@@ -137,35 +145,69 @@ namespace ControlObjects.Pagos
                 TxtMatricula.Text = a.NroMatricula.ToString();
                 TxtNombre.Text = a.Nombre;
 
-
-                
-
-                CmbCuota.DataTextField = "Mes";
-                CmbCuota.DataValueField = "Id";
-                CmbCuota.DataSource = CuotaManager.GetByYear(DateTime.Today.Year);
-                CmbCuota.DataBind();
-                CmbCuota.SelectedIndex = DateTime.Today.Month - 1;
+                setearCuota(a);
+               
             }
 
         }
 
 
-        private void obtenerNiveldeAlumno(Alumno a)
+        private void setearCuota(Alumno a)
         {
+            LblMensaje.Text = "";
+          
+            Nivel n=obtenerNiveldeAlumno(a.Id);
+            if(n!=null)
+            {
+          
+                CmbCuota.DataTextField = "Mes";
+                CmbCuota.DataValueField = "Id";
+                CmbCuota.DataSource = CuotaManager.GetByYearNivel(DateTime.Today.Year, n.Id);
+                CmbCuota.DataBind();
 
-            var inscripcionesList = InscripcionManager.GetByAlumno(a.Id);
+                if (CmbCuota.Items.Count > 0)
+                {
+                    BtnEmail.Visible = true;
+                    BtnPrint.Visible = true;
+                }
+                else
+                {
+                    LblMensaje.Text = "No existen cuotas disponibles para pagar.";
+                }
+            }
+            else
+            {
+                LblMensaje.Text = "El alumno seleccionado no esta inscripto en ningun curso.";
+                BtnEmail.Visible = false;
+                BtnPrint.Visible = false;
+            }
+        }
 
-            var iMax = inscripcionesList.OrderByDescending(item => item.FechaInscripción).First();
-            
+
+        private Nivel obtenerNiveldeAlumno(long idAlumno)
+        {
+            var inscripcionesList = InscripcionManager.GetByAlumno(idAlumno);
+            if (inscripcionesList.Count() > 0)
+            {
+                var iMax = inscripcionesList.OrderByDescending(item => item.FechaInscripción).First();
+                Curso c = CursoManager.Get(iMax.Curso.Id).First();
+                return c.Nivel;
+            }
+            else
+            {
+                return null;
+            }
         }
 
         protected void CmbPagoDe_OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            LblMensaje.Text = "";
             setearMontos();
         }
 
         protected void CmbCuota_OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            LblMensaje.Text = "";
             setearMontos();
         }
 
@@ -174,42 +216,33 @@ namespace ControlObjects.Pagos
             volver();
         }
 
-
-        protected void BtnPrint_Click(object sender, EventArgs e)
-        {
-            LblMensaje.Text = "";
-            guardar();
-
-        }
-
-
         private void guardar()
         {
-
-            Factura f = new Factura();
-
-            f.FechaEmisión = DateTime.Today;
-            f.ImporteTotal = float.Parse(TxtTotal.Text);
-
 
             Pago a = new Pago();
             a.Confirmado = false;
             a.Alumno = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
-         
-            a.Factura = f;
+
+          
 
             if (CmbPagoDe.SelectedValue == "0")
             {//Matricula
                 a.Cuota = null;
-                a.Matricula = MatriculaManager.GetByYear(DateTime.Today.Year).First();
+
+                Nivel n = obtenerNiveldeAlumno(long.Parse(CmbAlumnos.SelectedValue));
+                Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
+                a.Matricula = m;
             }
             else
             {
-               
+
                 if (CmbPagoDe.SelectedValue == "1")
                 {//Matricula y Cuota
                     a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
-                    a.Matricula = MatriculaManager.GetByYear(DateTime.Today.Year).First();
+
+                    Nivel n = obtenerNiveldeAlumno(long.Parse(CmbAlumnos.SelectedValue));
+                    Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
+                    a.Matricula = m;
                 }
                 else
                 {//Cuota
@@ -218,15 +251,94 @@ namespace ControlObjects.Pagos
                 }
             }
 
-            PagoManager.Insert(a);
-         
-            volver();
-        
+
+            if (validar(a))
+            {
+                Factura f = new Factura();
+                f.FechaEmisión = DateTime.Today;
+                f.ImporteTotal = float.Parse(TxtTotal.Text);
+                a.Factura = f;
+                PagoManager.Insert(a);
+
+
+                string codigo = f.Id.ToString() + "-" + a.Id.ToString();
+                generarCodigo(codigo);
+            }
+
+        }
+
+
+        private bool validar(Pago a)
+        {
+            bool guardar = true;
+            if (CmbPagoDe.SelectedValue == "0")
+            {
+                var pago = PagoManager.GetByMatricula(a.Matricula.Id, a.Alumno.Id);
+                if (pago.Count() > 0)
+                {
+                    guardar = false;
+                    LblMensaje.Text = "La Matricula seleccionada ya se encuentra paga";
+                }
+            }
+            else
+            {
+                if (CmbPagoDe.SelectedValue == "1")
+                {
+                    var pago = PagoManager.GetByMatricula(a.Matricula.Id, a.Alumno.Id);
+                    if (pago.Count() > 0)
+                    {
+                        guardar = false;
+                        LblMensaje.Text = "La Matricula seleccionada ya se encuentra paga";
+                    }
+                    else
+                    {
+                        var pago2 = PagoManager.GetByCuota(a.Cuota.Id, a.Alumno.Id);
+                        if (pago2.Count() > 0)
+                        {
+                            guardar = false;
+                            LblMensaje.Text = "La Cuota seleccionada ya se encuentra paga";
+                        }
+                    }
+                }
+                else
+                {
+                    var pago2 = PagoManager.GetByCuota(a.Cuota.Id, a.Alumno.Id);
+                    if (pago2.Count() > 0)
+                    {
+                        guardar = false;
+                        LblMensaje.Text = "La Cuota seleccionada ya se encuentra paga";
+                    }
+
+                }
+            }
+            return guardar;
+        }
+
+        protected void BtnPrint_Click(object sender, EventArgs e)
+        {
+            LblMensaje.Text = "";
+
+            if (ImgBarCode.Visible == false)
+            {
+                guardar();
+            }
+
+            if (LblMensaje.Text == "")
+            {
+                ClientScript.RegisterStartupScript(this.GetType(), "PrintPage", "<script language='javascript'>window.print()</script>");
+            }
         }
 
         protected void BtnEmail_Click(object sender, EventArgs e)
         {
             LblMensaje.Text = "";
+
+            if (ImgBarCode.Visible == false)
+            {
+                guardar();
+            }
+
+          
 
             var fromAddress = new MailAddress("from@gmail.com", "From Name");
             var toAddress = new MailAddress("to@example.com", "To Name");
@@ -250,7 +362,7 @@ namespace ControlObjects.Pagos
             })
             {
                 smtp.Send(message);
-                guardar();
+             
             }
 
         }

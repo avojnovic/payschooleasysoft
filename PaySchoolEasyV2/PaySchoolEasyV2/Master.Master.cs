@@ -71,6 +71,11 @@ namespace PaySchoolEasyV2
                 matriculas.NavigateUrl = "Matriculas/Index.aspx";
                 Menu1.Items.Add(matriculas);
 
+                MenuItem import = new MenuItem("Importar");
+                import.Value = "Importar";
+                import.NavigateUrl = "PAgos/Importar.aspx";
+                Menu1.Items.Add(import);
+
             }
 
             if (UsuarioLogueado.TipoUsuarioNombre == "Tutor")

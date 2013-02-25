@@ -62,6 +62,7 @@ namespace PaySchoolEasyV2.Alumnos
 
         protected void BtnGuardar_Click(object sender, EventArgs e)
         {
+            LblMensaje.Text = "";
 
             Alumno a = new Alumno();
             string id = Request.QueryString["id"];
@@ -71,16 +72,31 @@ namespace PaySchoolEasyV2.Alumnos
                 a.Id = long.Parse(id);
 
                 setObject(a);
-
-                AlumnoManager.Update(a);
+                if (AlumnoManager.Validar(a, true))
+                {
+                    AlumnoManager.Update(a);
+                    volver();
+                }
+                else
+                {
+                    LblMensaje.Text = "El DNI ya esta registrado";
+                }
             }
             else
             {
                 setObject(a);
-                AlumnoManager.Insert(a);
+                if (AlumnoManager.Validar(a, false))
+                {
+                    AlumnoManager.Insert(a);
+                    volver();
+                }
+                else
+                {
+                    LblMensaje.Text = "El DNI ya esta registrado";
+                }
             }
 
-            volver();
+          
         }
 
         private void setObject(Alumno a)

@@ -47,6 +47,7 @@ namespace ControlObjects
 
         public static void Update(Alumno x)
         {
+
             SchoolDbContext dbContext = new SchoolDbContext();
 
             var res = (from o in dbContext.Alumno.Include("Usuario")
@@ -57,16 +58,13 @@ namespace ControlObjects
             res.Borrado = x.Borrado;
             res.Dni = x.Dni;
             res.FechaNacimiento = x.FechaNacimiento;
-               
             res.Nombre = x.Nombre;
             res.NroMatricula = x.NroMatricula;
 
+            res.Usuario =  (from c in dbContext.User.Include("TipoUsuario")
+                      where c.Id == x.Id
+                      select c).First();
 
-
-            var u = from c in dbContext.User
-                      where c.Id == x.Usuario.Id
-                      select c;
-            res.Usuario = u.First();
             dbContext.Entry(res.Usuario).State = System.Data.EntityState.Unchanged;
 
 
@@ -74,6 +72,38 @@ namespace ControlObjects
             dbContext.SaveChanges();
         }
 
+        public static bool Validar(Alumno x, bool update)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+            int count = 0;
+
+            if (update)
+            {
+                var res = (from o in dbContext.Alumno.Include("Usuario")
+                           where o.Id != x.Id && o.Dni==x.Dni
+                           select o);
+                count=res.Count();
+               
+            }
+            else
+            {
+                var res = (from o in dbContext.Alumno.Include("Usuario")
+                           where o.Dni == x.Dni
+                           select o);
+                count = res.Count();
+            }
+
+
+            if (count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
+        }
 
 
         public static void Insert(Alumno x)

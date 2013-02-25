@@ -30,5 +30,7 @@ namespace BussinesObjects
             get { return _importeTotal; }
             set { _importeTotal = value; }
         }
+
+
     }
 }

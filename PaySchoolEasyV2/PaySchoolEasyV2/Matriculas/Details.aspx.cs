@@ -67,15 +67,32 @@ namespace ControlObjects.Matriculas
 
                 setObject(m);
 
-                MatriculaManager.Update(m);
+                if (MatriculaManager.Validar(m, true))
+                {
+                    MatriculaManager.Update(m);
+                    volver();
+                }
+                else
+                {
+                    LblMensaje.Text = "La Matricula para el Año y Nivel ya existe";
+                }
             }
             else
             {
                 setObject(m);
-                MatriculaManager.Insert(m);
+
+                if (MatriculaManager.Validar(m, false))
+                {
+                    MatriculaManager.Insert(m);
+                    volver();
+                }
+                else
+                {
+                    LblMensaje.Text = "La Matricula para el Año y Nivel ya existe";
+                }
             }
 
-            volver();
+
         }
 
         private void setObject(Matricula m)
