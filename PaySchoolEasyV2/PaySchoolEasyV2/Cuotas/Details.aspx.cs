@@ -46,7 +46,7 @@ namespace ControlObjects.Cuotas
             CmbNivel.SelectedValue = cuota.Nivel.Id.ToString();
             TxtAnio.Text = cuota.Anio.ToString();
             TxtMes.Text = cuota.Mes.ToString();
-            TxtMonto.Text = cuota.MontoCuota.ToString();
+            TxtMonto.Text = cuota.MontoCuota.ToString("0000.00");
             TxtVenc1.Text = cuota.FechaVenc1.ToShortDateString();
             TxtVenc2.Text = cuota.FechaVenc2.ToShortDateString();
 
