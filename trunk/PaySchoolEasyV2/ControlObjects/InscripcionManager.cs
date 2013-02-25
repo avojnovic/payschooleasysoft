@@ -11,7 +11,7 @@ namespace ControlObjects
     {
 
         
-        public static IEnumerable<Inscripcion> Get(int id)
+        public static IEnumerable<Inscripcion> Get(long id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
@@ -22,6 +22,16 @@ namespace ControlObjects
             return res.ToList();
         }
 
+        public static IEnumerable<Inscripcion> GetByAlumno(long id)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Inscripcion.Include("Alumno").Include("Curso")
+                      where c.Alumno.Id == id
+                      select c;
+
+            return res.ToList();
+        }
 
         public static IEnumerable<Inscripcion> Get()
         {

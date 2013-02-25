@@ -48,7 +48,7 @@
                         <asp:Label ID="Label1" runat="server" Text="Factura Pago de:" Font-Names="Calibri"></asp:Label>
                     </td>
                     <td style="width: 200px;">
-                        <asp:DropDownList ID="CmbFactura" Width="100%" AutoPostBack="true" runat="server" OnSelectedIndexChanged="CmbFactura_OnSelectedIndexChanged" />
+                        <asp:DropDownList ID="CmbPagoDe" Width="100%" AutoPostBack="true" runat="server" OnSelectedIndexChanged="CmbPagoDe_OnSelectedIndexChanged" />
                     </td>
                 </tr>
                  <tr>

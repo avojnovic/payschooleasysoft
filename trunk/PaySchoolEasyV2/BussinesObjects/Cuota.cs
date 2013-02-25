@@ -56,5 +56,18 @@ namespace BussinesObjects
             get { return _fechaVenc2; }
             set { _fechaVenc2 = value; }
         }
+
+        private Nivel _nivel;
+
+        public Nivel Nivel
+        {
+            get { return _nivel; }
+            set { _nivel = value; }
+        }
+
+        public string nombreNivel
+        {
+            get { return _nivel.Descripcion; }
+        }
     }
 }

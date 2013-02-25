@@ -1,0 +1,24 @@
+C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.dll
+C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.pdb
+C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.dll
+C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.pdb
+C:\Projects\Payschooleasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\EntityFramework.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.pdb
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\bin\Debug\EntityFramework.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.dll
+C:\Users\Santiago Alegre\Desktop\PayEasySchoolSVN\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.pdb
+C:\Projects\PaySchool\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.dll
+C:\Projects\PaySchool\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.pdb
+C:\Projects\PaySchool\PaySchoolEasyV2\BussinesObjects\bin\Debug\EntityFramework.dll
+C:\Projects\PaySchool\PaySchoolEasyV2\BussinesObjects\obj\Debug\ResolveAssemblyReference.cache
+C:\Projects\PaySchool\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.dll
+C:\Projects\PaySchool\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.pdb
+D:\Proyectos\PaySchoolEasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.dll
+D:\Proyectos\PaySchoolEasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\BussinesObjects.pdb
+D:\Proyectos\PaySchoolEasy\PaySchoolEasyV2\BussinesObjects\bin\Debug\EntityFramework.dll
+D:\Proyectos\PaySchoolEasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.dll
+D:\Proyectos\PaySchoolEasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.pdb
+D:\Proyectos\PaySchoolEasy\PaySchoolEasyV2\BussinesObjects\obj\Debug\BussinesObjects.csprojResolveAssemblyReference.cache

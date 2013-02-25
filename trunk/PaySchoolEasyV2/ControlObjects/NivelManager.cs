@@ -42,8 +42,7 @@ namespace ControlObjects
                        select o).First();
 
             res.Descripcion = x.Descripcion;
-            res.Descuento = x.Descuento;
-            res.MontoMatricula = x.MontoMatricula;
+      
 
             dbContext.SaveChanges();
         }

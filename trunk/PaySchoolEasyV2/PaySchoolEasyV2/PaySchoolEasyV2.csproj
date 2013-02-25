@@ -64,7 +64,8 @@
   <ItemGroup>
     <Content Include="Alumnos\Details.aspx" />
     <Content Include="Alumnos\Index.aspx" />
-    <Content Include="barCode.aspx" />
+    <Content Include="Cuotas\Details.aspx" />
+    <Content Include="Cuotas\Index.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Images\Calendar.png" />
     <Content Include="Images\File-Open-icon.png" />
@@ -76,6 +77,8 @@
     <Content Include="Incripciones\Details.aspx" />
     <Content Include="Incripciones\Index.aspx" />
     <Content Include="Login.aspx" />
+    <Content Include="Matriculas\Details.aspx" />
+    <Content Include="Matriculas\Index.aspx" />
     <Content Include="Pagos\Pagar.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -105,12 +108,19 @@
     <Compile Include="Alumnos\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
-    <Compile Include="barCode.aspx.cs">
-      <DependentUpon>barCode.aspx</DependentUpon>
+    <Compile Include="Cuotas\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="barCode.aspx.designer.cs">
-      <DependentUpon>barCode.aspx</DependentUpon>
+    <Compile Include="Cuotas\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cuotas\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cuotas\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
       <SubType>ASPXCodeBehind</SubType>
@@ -147,6 +157,20 @@
     <Compile Include="Master.Master.designer.cs">
       <DependentUpon>Master.Master</DependentUpon>
     </Compile>
+    <Compile Include="Matriculas\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Matriculas\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Matriculas\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Matriculas\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pagos\Pagar.aspx.cs">
       <DependentUpon>Pagar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -172,13 +196,10 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Cuotas\" />
     <Folder Include="Cursos\" />
     <Folder Include="Facturas\" />
-    <Folder Include="Matriculas\" />
     <Folder Include="Niveles\" />
     <Folder Include="Recargos\" />
-    <Folder Include="Usuarios\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Master.Master" />

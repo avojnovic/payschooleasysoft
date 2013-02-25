@@ -81,7 +81,6 @@ namespace ControlObjects
             SchoolDbContext dbContext = new SchoolDbContext();
 
             x.Usuario = UserManager.Get((int)x.Usuario.Id).First();
-
             dbContext.Entry(x.Usuario).State = System.Data.EntityState.Unchanged;
 
             dbContext.Alumno.Add(x);
