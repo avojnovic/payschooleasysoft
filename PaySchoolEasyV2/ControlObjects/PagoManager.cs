@@ -44,18 +44,26 @@ namespace ControlObjects
             res.Alumno = AlumnoManager.Get((int)x.Alumno.Id).First();
             dbContext.Entry(res.Alumno).State = System.Data.EntityState.Unchanged;
 
-
-            res.Cuota = CuotaManager.Get((int)x.Cuota.Id).First();
-            dbContext.Entry(res.Cuota).State = System.Data.EntityState.Unchanged;
+            if (x.Cuota != null)
+            {
+                res.Cuota = CuotaManager.Get((int)x.Cuota.Id).First();
+                dbContext.Entry(res.Cuota).State = System.Data.EntityState.Unchanged;
+            }
 
             res.Factura = FacturaManager.Get((int)x.Factura.Id).First();
             dbContext.Entry(res.Factura).State = System.Data.EntityState.Unchanged;
 
-            res.Matricula = MatriculaManager.Get((int)x.Matricula.Id).First();
-            dbContext.Entry(res.Matricula).State = System.Data.EntityState.Unchanged;
+            if (x.Matricula != null)
+            {
+                res.Matricula = MatriculaManager.Get((int)x.Matricula.Id).First();
+                dbContext.Entry(res.Matricula).State = System.Data.EntityState.Unchanged;
+            }
 
-            res.Recargos = RecargoManager.Get((int)x.Recargos.Id).First();
-            dbContext.Entry(res.Recargos).State = System.Data.EntityState.Unchanged;
+            if (x.Recargos != null)
+            {
+                res.Recargos = RecargoManager.Get((int)x.Recargos.Id).First();
+                dbContext.Entry(res.Recargos).State = System.Data.EntityState.Unchanged;
+            }
 
             res.Confirmado = x.Confirmado;
         
@@ -72,19 +80,29 @@ namespace ControlObjects
             x.Alumno = AlumnoManager.Get((int)x.Alumno.Id).First();
             dbContext.Entry(x.Alumno).State = System.Data.EntityState.Unchanged;
 
+            if (x.Cuota != null)
+            {
+                x.Cuota = CuotaManager.Get((int)x.Cuota.Id).First();
+                dbContext.Entry(x.Cuota).State = System.Data.EntityState.Unchanged;
+            }
 
-            x.Cuota = CuotaManager.Get((int)x.Cuota.Id).First();
-            dbContext.Entry(x.Cuota).State = System.Data.EntityState.Unchanged;
+            //if (x.Factura != null)
+            //{
+            //    x.Factura = FacturaManager.Get((int)x.Factura.Id).First();
+            //    dbContext.Entry(x.Factura).State = System.Data.EntityState.Unchanged;
+            //}
 
-            x.Factura = FacturaManager.Get((int)x.Factura.Id).First();
-            dbContext.Entry(x.Factura).State = System.Data.EntityState.Unchanged;
+            if (x.Matricula != null)
+            {
+                x.Matricula = MatriculaManager.Get((int)x.Matricula.Id).First();
+                dbContext.Entry(x.Matricula).State = System.Data.EntityState.Unchanged;
+            }
 
-            x.Matricula = MatriculaManager.Get((int)x.Matricula.Id).First();
-            dbContext.Entry(x.Matricula).State = System.Data.EntityState.Unchanged;
-
-            x.Recargos = RecargoManager.Get((int)x.Recargos.Id).First();
-            dbContext.Entry(x.Recargos).State = System.Data.EntityState.Unchanged;
-
+            if (x.Recargos != null)
+            {
+                x.Recargos = RecargoManager.Get((int)x.Recargos.Id).First();
+                dbContext.Entry(x.Recargos).State = System.Data.EntityState.Unchanged;
+            }
 
 
 

@@ -23,6 +23,19 @@ namespace BussinesObjects
             set { _año = value; }
         }
 
+        private Nivel _nivel;
+
+        public Nivel Nivel
+        {
+            get { return _nivel; }
+            set { _nivel = value; }
+        }
+
+        public string nombreNivel
+        {
+            get { return _nivel.Descripcion; }
+        }
+
         private float _monto;
 
         public float Monto

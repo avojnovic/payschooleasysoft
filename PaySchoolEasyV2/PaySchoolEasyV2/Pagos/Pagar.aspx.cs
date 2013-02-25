@@ -6,6 +6,9 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using BussinesObjects;
 using System.Drawing.Text;
+using System.Net.Mail;
+using System.Net;
+
 
 namespace ControlObjects.Pagos
 {
@@ -27,18 +30,13 @@ namespace ControlObjects.Pagos
                 setearAlumno();
 
 
-                CmbFactura.Items.Insert(0, new ListItem("Matricula", "0"));
-                CmbFactura.Items.Insert(1, new ListItem("Matricula y Cuota", "1"));
-                CmbFactura.Items.Insert(2, new ListItem("Cuota", "2"));
-                CmbFactura.SelectedIndex = 0;
+                CmbPagoDe.Items.Insert(0, new ListItem("Matricula", "0"));
+                CmbPagoDe.Items.Insert(1, new ListItem("Matricula y Cuota", "1"));
+                CmbPagoDe.Items.Insert(2, new ListItem("Cuota", "2"));
+                CmbPagoDe.SelectedIndex = 0;
 
 
 
-                CmbCuota.DataTextField = "Mes";
-                CmbCuota.DataValueField = "Id";
-                CmbCuota.DataSource = CuotaManager.GetByYear(DateTime.Today.Year);
-                CmbCuota.DataBind();
-                CmbCuota.SelectedIndex = DateTime.Today.Month - 1;
 
                 setearMontos();
 
@@ -60,7 +58,7 @@ namespace ControlObjects.Pagos
                 TxtFechaEmision.Text = DateTime.Today.ToShortDateString();
 
 
-                if (CmbFactura.SelectedValue == "0")
+                if (CmbPagoDe.SelectedValue == "0")
                 {//Matricula
                     lblCuota.Visible = false;
                     CmbCuota.Visible = false;
@@ -78,7 +76,7 @@ namespace ControlObjects.Pagos
                     lblCuota.Visible = true;
                     CmbCuota.Visible = true;
 
-                    if (CmbFactura.SelectedValue == "1")
+                    if (CmbPagoDe.SelectedValue == "1")
                     {//Matricula y Cuota
                         Matricula m = MatriculaManager.GetByYear(DateTime.Today.Year).First();
                         Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
@@ -139,10 +137,29 @@ namespace ControlObjects.Pagos
                 TxtMatricula.Text = a.NroMatricula.ToString();
                 TxtNombre.Text = a.Nombre;
 
+
+                
+
+                CmbCuota.DataTextField = "Mes";
+                CmbCuota.DataValueField = "Id";
+                CmbCuota.DataSource = CuotaManager.GetByYear(DateTime.Today.Year);
+                CmbCuota.DataBind();
+                CmbCuota.SelectedIndex = DateTime.Today.Month - 1;
             }
 
         }
-        protected void CmbFactura_OnSelectedIndexChanged(object sender, EventArgs e)
+
+
+        private void obtenerNiveldeAlumno(Alumno a)
+        {
+
+            var inscripcionesList = InscripcionManager.GetByAlumno(a.Id);
+
+            var iMax = inscripcionesList.OrderByDescending(item => item.FechaInscripción).First();
+            
+        }
+
+        protected void CmbPagoDe_OnSelectedIndexChanged(object sender, EventArgs e)
         {
             setearMontos();
         }
@@ -161,13 +178,80 @@ namespace ControlObjects.Pagos
         protected void BtnPrint_Click(object sender, EventArgs e)
         {
             LblMensaje.Text = "";
+            guardar();
+
+        }
 
 
+        private void guardar()
+        {
+
+            Factura f = new Factura();
+
+            f.FechaEmisión = DateTime.Today;
+            f.ImporteTotal = float.Parse(TxtTotal.Text);
+
+
+            Pago a = new Pago();
+            a.Confirmado = false;
+            a.Alumno = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
+         
+            a.Factura = f;
+
+            if (CmbPagoDe.SelectedValue == "0")
+            {//Matricula
+                a.Cuota = null;
+                a.Matricula = MatriculaManager.GetByYear(DateTime.Today.Year).First();
+            }
+            else
+            {
+               
+                if (CmbPagoDe.SelectedValue == "1")
+                {//Matricula y Cuota
+                    a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+                    a.Matricula = MatriculaManager.GetByYear(DateTime.Today.Year).First();
+                }
+                else
+                {//Cuota
+                    a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+                    a.Matricula = null;
+                }
+            }
+
+            PagoManager.Insert(a);
+         
+            volver();
+        
         }
 
         protected void BtnEmail_Click(object sender, EventArgs e)
         {
             LblMensaje.Text = "";
+
+            var fromAddress = new MailAddress("from@gmail.com", "From Name");
+            var toAddress = new MailAddress("to@example.com", "To Name");
+            const string fromPassword = "fromPassword";
+            const string subject = "Subject";
+            const string body = "Body";
+
+            var smtp = new SmtpClient
+            {
+                Host = "smtp.gmail.com",
+                Port = 587,
+                EnableSsl = true,
+                DeliveryMethod = SmtpDeliveryMethod.Network,
+                UseDefaultCredentials = false,
+                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            };
+            using (var message = new MailMessage(fromAddress, toAddress)
+            {
+                Subject = subject,
+                Body = body
+            })
+            {
+                smtp.Send(message);
+                guardar();
+            }
 
         }
 

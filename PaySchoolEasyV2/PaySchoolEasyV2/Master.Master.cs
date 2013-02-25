@@ -59,6 +59,18 @@ namespace PaySchoolEasyV2
                 alumnos.Value = "Alumnos";
                 alumnos.NavigateUrl = "Alumnos/Index.aspx";
                 Menu1.Items.Add(alumnos);
+
+
+                MenuItem cuotas = new MenuItem("Cuotas");
+                cuotas.Value = "Cuotas";
+                cuotas.NavigateUrl = "Cuotas/Index.aspx";
+                Menu1.Items.Add(cuotas);
+
+                MenuItem matriculas = new MenuItem("Matriculas");
+                matriculas.Value = "Matriculas";
+                matriculas.NavigateUrl = "Matriculas/Index.aspx";
+                Menu1.Items.Add(matriculas);
+
             }
 
             if (UsuarioLogueado.TipoUsuarioNombre == "Tutor")
