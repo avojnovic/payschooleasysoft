@@ -78,7 +78,11 @@ namespace ControlObjects
             res.Dni = x.Dni;
             res.Email = x.Email;
             res.Nombre = x.Nombre;
-            res.TipoUsuario = UserTypeManager.Get((int)x.TipoUsuario.Id).First();
+
+
+            res.TipoUsuario = (from c in dbContext.UserType
+                               where c.Id == x.TipoUsuario.Id
+                               select c).First();
 
             dbContext.Entry(res.TipoUsuario).State = System.Data.EntityState.Unchanged;
 

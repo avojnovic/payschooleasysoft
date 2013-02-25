@@ -63,7 +63,9 @@ namespace ControlObjects
             res.Descuento = x.Descuento;
             res.Monto= x.Monto;
 
-            res.Nivel = NivelManager.Get((int)x.Nivel.Id).First();
+            res.Nivel = (from c in dbContext.Nivel
+                         where c.Id == x.Nivel.Id
+                         select c).First();
             dbContext.Entry(res.Nivel).State = System.Data.EntityState.Unchanged;
 
             dbContext.SaveChanges();
@@ -96,6 +98,40 @@ namespace ControlObjects
                 dbContext.Matricula.Remove(res.First());
                 dbContext.SaveChanges();
             }
+        }
+
+
+        public static bool Validar(Matricula x, bool update)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+            int count = 0;
+
+            if (update)
+            {
+                var res = (from o in dbContext.Matricula.Include("Nivel")
+                           where o.Id != x.Id && o.Año == x.Año && o.Nivel.Id == x.Nivel.Id
+                           select o);
+                count = res.Count();
+
+            }
+            else
+            {
+                var res = (from o in dbContext.Matricula.Include("Nivel")
+                           where o.Id != x.Id && o.Año == x.Año && o.Nivel.Id == x.Nivel.Id
+                           select o);
+                count = res.Count();
+            }
+
+
+            if (count > 0)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+
         }
 
     }
