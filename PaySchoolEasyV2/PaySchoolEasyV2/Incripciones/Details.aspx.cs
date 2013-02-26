@@ -32,12 +32,7 @@ namespace ControlObjects.Incripciones
                 CmbAlumnos.Items.Insert(0, new ListItem("Sin Seleccionar", "0"));
                 CmbAlumnos.SelectedIndex = 0;
 
-                CmbNivel.DataTextField = "Descripcion";
-                CmbNivel.DataValueField = "Id";
-                CmbNivel.DataSource = NivelManager.Get();
-                CmbNivel.DataBind();
-
-                ObtenerCursos();
+               
 
                 if (id != null && id != "")
                 {
@@ -63,14 +58,47 @@ namespace ControlObjects.Incripciones
 
         }
 
+
+
+        private void ObtenerNiveles()
+        {
+
+            if (TxtFecNac.Text != "")
+            {
+                DateTime nacimiento = DateTime.Parse(TxtFecNac.Text);
+                double edad = DateTime.Today.AddTicks(-nacimiento.Ticks).Year - 1;
+
+
+                CmbNivel.DataTextField = "Descripcion";
+                CmbNivel.DataValueField = "Id";
+                CmbNivel.DataSource = NivelManager.GetByEdad(edad);
+                CmbNivel.DataBind();
+
+                ObtenerCursos();
+            }
+            else
+            {
+                CmbCurso.Items.Clear();
+                CmbCurso.DataSource = null;
+                CmbCurso.DataBind();
+                CmbNivel.Items.Clear();
+                CmbNivel.DataSource = null;
+                CmbNivel.DataBind();
+            }
+        }
+
+
         private void ObtenerCursos()
         {
-            Nivel n = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
+            if (CmbNivel.Items.Count > 0)
+            {
+                Nivel n = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
 
-            CmbCurso.DataTextField = "Anio";
-            CmbCurso.DataValueField = "Id";
-            CmbCurso.DataSource = CursoManager.GetByNivel(n.Id);
-            CmbCurso.DataBind();
+                CmbCurso.DataTextField = "Anio";
+                CmbCurso.DataValueField = "Id";
+                CmbCurso.DataSource = CursoManager.GetByNivel(n.Id);
+                CmbCurso.DataBind();
+            }
         }
 
 
@@ -78,6 +106,7 @@ namespace ControlObjects.Incripciones
         {
             TxtFecIns.Text = inscripcion.FechaInscripción.Date.ToShortDateString();
             setearAlumno(inscripcion.Alumno);
+            
         }
 
         private void setearAlumno(Alumno a)
@@ -85,14 +114,14 @@ namespace ControlObjects.Incripciones
             TxtIdAlumno.Text = a.Id.ToString();
             TxtApellido.Text = a.Apellido;
             TxtDNI.Text = a.Dni;
-            TxtFecNac.Text = a.FechaNacimiento.Value.ToShortDateString();
+            TxtFecNac.Text = a.FechaNacimiento.ToShortDateString();
             TxtMatricula.Text = a.NroMatricula.ToString();
             TxtNombre.Text = a.Nombre;
 
-
-
-           
+            ObtenerNiveles();
         }
+
+
 
         protected void CmbAlumnos_OnSelectedIndexChanged(object sender, EventArgs e)
         {
@@ -105,15 +134,23 @@ namespace ControlObjects.Incripciones
                 TxtFecNac.Text = "";
                 TxtMatricula.Text = "";
                 TxtNombre.Text = "";
+
+                ObtenerNiveles();
+
             }
             else
             {
                 Alumno a = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
                 setearAlumno(a);
+               
             }
         }
 
-
+        protected void Btn_Niveles_Click(object sender, EventArgs e)
+        {
+            ObtenerNiveles();
+        }
+        
         protected void BtnSearch_Click(object sender, EventArgs e)
         {
             if (TxtSearch.Text != "")
@@ -190,7 +227,8 @@ namespace ControlObjects.Incripciones
         {
 
             i.FechaInscripción = DateTime.Parse(TxtFecIns.Text);
-            i.Inscripto = true;
+            i.Inscripto = false;
+            i.EnListaDeEspera = true;
             i.Curso = CursoManager.Get(int.Parse(CmbCurso.SelectedValue)).First();
 
             Alumno a = new Alumno();

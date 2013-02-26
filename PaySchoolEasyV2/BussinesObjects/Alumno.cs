@@ -39,9 +39,9 @@ namespace BussinesObjects
             set { _apellido = value; }
         }
 
-        private DateTime? _fechaNacimiento;
+        private DateTime _fechaNacimiento;
 
-        public DateTime? FechaNacimiento
+        public DateTime FechaNacimiento
         {
             get { return _fechaNacimiento; }
             set { _fechaNacimiento = value; }
@@ -77,6 +77,11 @@ namespace BussinesObjects
             get { return Nombre + " " + Apellido; }
         }
 
+
+        public double edad
+        {
+            get { return DateTime.Today.AddTicks(-FechaNacimiento.Ticks).Year - 1; }
+        }
        
     }
 

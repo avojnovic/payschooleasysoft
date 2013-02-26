@@ -48,7 +48,7 @@ namespace PaySchoolEasyV2.Alumnos
         {
             TxtApellido.Text = alumno.Apellido;
             TxtDNI.Text = alumno.Dni;
-            TxtFecNac.Text = alumno.FechaNacimiento.Value.ToShortDateString();
+            TxtFecNac.Text = alumno.FechaNacimiento.ToShortDateString();
             TxtMatricula.Text = alumno.NroMatricula.ToString();
             TxtNombre.Text = alumno.Nombre;
 

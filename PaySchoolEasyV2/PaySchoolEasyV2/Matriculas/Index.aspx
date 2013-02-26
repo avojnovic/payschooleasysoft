@@ -14,7 +14,7 @@
         <Columns>
             <asp:BoundField DataField="Id" HeaderText="ID" HeaderStyle-Font-Names="calibri" ReadOnly="True"/>
             <asp:BoundField DataField="nombreNivel" HeaderText="Nivel" HeaderStyle-Font-Names="calibri"/>
-            <asp:BoundField DataField="Año" HeaderText="Año" HeaderStyle-Font-Names="calibri"/>
+            <asp:BoundField DataField="Anio" HeaderText="Año" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="Monto" HeaderText="Monto" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="Descuento" HeaderText="Descuento" HeaderStyle-Font-Names="calibri"/>
                              

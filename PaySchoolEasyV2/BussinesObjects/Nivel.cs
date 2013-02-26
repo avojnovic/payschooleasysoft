@@ -23,6 +23,22 @@ namespace BussinesObjects
             set { _descripcion = value; }
         }
 
+        private int _edadMinima;
+
+        public int EdadMinima
+        {
+            get { return _edadMinima; }
+            set { _edadMinima = value; }
+        }
+
+        private int _edadMaxima;
+
+        public int EdadMaxima
+        {
+            get { return _edadMaxima; }
+            set { _edadMaxima = value; }
+        }
+
         
     }
 }

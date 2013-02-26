@@ -1,7 +1,7 @@
 --------------------------------------------
 inscripcion
 
-Verificar como obtener el nivel automaticamente. Como se calcula? POR LA EDAD (Agregar data en los niveles para la edad)
+REALIZADO - Verificar como obtener el nivel automaticamente. Como se calcula? POR LA EDAD (Agregar data en los niveles para la edad)
 Verificar que no se pueda inscribir al mismo alumno en algun curso del mismo nivel
 Dar la posibilidad de inscribir al alumno a lista de espera
 

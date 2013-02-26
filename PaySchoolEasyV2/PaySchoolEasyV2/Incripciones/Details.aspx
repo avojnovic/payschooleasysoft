@@ -99,7 +99,7 @@
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator3" runat="server" ControlToValidate="TxtFecNac"
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
-                    <td style="width: 200px;">
+                    <td align="left" style="width: 200px;">
                         <asp:TextBox ID="TxtFecNac" Width="90%" runat="server" onKeyPress = "javascript: return false;" onPaste = "javascript: return false;"></asp:TextBox>
                         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Calendar.png" />
                         <act:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TxtFecNac" Format="dd/MM/yyyy"
@@ -121,8 +121,10 @@
                     <td align="left" style="width: 100px;">
                         <asp:Label ID="Label3" runat="server" Text="Nivel:" Font-Names="Calibri"></asp:Label>
                     </td>
-                    <td style="width: 200px;">
-                        <asp:DropDownList ID="CmbNivel" Width="100%" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CmbNivel_OnSelectedIndexChanged" />
+                    <td align="left" style="width: 200px;">
+                        <asp:DropDownList ID="CmbNivel" Width="90%" runat="server" AutoPostBack="true" OnSelectedIndexChanged="CmbNivel_OnSelectedIndexChanged" />
+                          <asp:ImageButton ID="Btn_Niveles" Width="16px" Height="16px" ImageUrl="~/Images/refresh.png"
+                            runat="server" OnClick="Btn_Niveles_Click" ToolTip="Obtener Niveles" />
                     </td>
                 </tr>
                  <tr>

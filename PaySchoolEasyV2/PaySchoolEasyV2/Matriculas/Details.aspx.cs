@@ -45,7 +45,7 @@ namespace ControlObjects.Matriculas
         {
 
             CmbNivel.SelectedValue = m.Nivel.Id.ToString();
-            TxtAnio.Text = m.Año.ToString();
+            TxtAnio.Text = m.Anio.ToString();
             TxtMonto.Text = m.Monto.ToString("0000.00");
             TxtDescuento.Text = m.Descuento.ToString("0000.00");
 
@@ -99,7 +99,7 @@ namespace ControlObjects.Matriculas
         {
 
             m.Nivel = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
-            m.Año = long.Parse(TxtAnio.Text);
+            m.Anio = long.Parse(TxtAnio.Text);
             m.Descuento = float.Parse(TxtDescuento.Text);
             m.Monto = float.Parse(TxtMonto.Text);
    
