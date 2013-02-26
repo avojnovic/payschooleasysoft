@@ -24,7 +24,7 @@ namespace ControlObjects
             SchoolDbContext dbContext = new SchoolDbContext();
 
             var res = from c in dbContext.Matricula.Include("Nivel")
-                      where c.Año == year
+                      where c.Anio == year
                       select c;
 
             return res.ToList();
@@ -35,7 +35,7 @@ namespace ControlObjects
             SchoolDbContext dbContext = new SchoolDbContext();
 
             var res = from c in dbContext.Matricula.Include("Nivel")
-                      where c.Año == year && c.Nivel.Id==nivel
+                      where c.Anio == year && c.Nivel.Id==nivel
                       select c;
 
             return res.ToList();
@@ -59,7 +59,7 @@ namespace ControlObjects
                        where o.Id == x.Id
                        select o).First();
 
-            res.Año = x.Año;
+            res.Anio = x.Anio;
             res.Descuento = x.Descuento;
             res.Monto= x.Monto;
 
@@ -109,7 +109,7 @@ namespace ControlObjects
             if (update)
             {
                 var res = (from o in dbContext.Matricula.Include("Nivel")
-                           where o.Id != x.Id && o.Año == x.Año && o.Nivel.Id == x.Nivel.Id
+                           where o.Id != x.Id && o.Anio == x.Anio && o.Nivel.Id == x.Nivel.Id
                            select o);
                 count = res.Count();
 
@@ -117,7 +117,7 @@ namespace ControlObjects
             else
             {
                 var res = (from o in dbContext.Matricula.Include("Nivel")
-                           where o.Id != x.Id && o.Año == x.Año && o.Nivel.Id == x.Nivel.Id
+                           where o.Id != x.Id && o.Anio == x.Anio && o.Nivel.Id == x.Nivel.Id
                            select o);
                 count = res.Count();
             }

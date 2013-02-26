@@ -15,12 +15,12 @@ namespace BussinesObjects
             set { _id = value; }
         }
 
-        private Int64 _año;
+        private Int64 _anio;
 
-        public Int64 Año
+        public Int64 Anio
         {
-            get { return _año; }
-            set { _año = value; }
+            get { return _anio; }
+            set { _anio = value; }
         }
 
         private Nivel _nivel;

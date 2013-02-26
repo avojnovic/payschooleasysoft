@@ -21,6 +21,17 @@ namespace ControlObjects
             return res.ToList();
         }
 
+        public static IEnumerable<Nivel> GetByEdad(double edad)
+        {
+
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Nivel
+                      where edad>=c.EdadMinima && edad<=c.EdadMaxima
+                      select c;
+
+            return res.ToList();
+        }
 
         public static IEnumerable<Nivel> Get()
         {
@@ -42,6 +53,8 @@ namespace ControlObjects
                        select o).First();
 
             res.Descripcion = x.Descripcion;
+            res.EdadMaxima= x.EdadMaxima;
+            res.EdadMinima= x.EdadMinima;
       
 
             dbContext.SaveChanges();

@@ -22,8 +22,6 @@ namespace BussinesObjects
             get { return _alumno; }
             set { _alumno = value; }
         }
-
-
         
         public string alumnoNombre
         {
@@ -49,6 +47,14 @@ namespace BussinesObjects
         {
             get { return _inscripto; }
             set { _inscripto = value; }
+        }
+
+        private Boolean _enListaDeEspera;
+
+        public Boolean EnListaDeEspera
+        {
+            get { return _enListaDeEspera; }
+            set { _enListaDeEspera = value; }
         }
 
 

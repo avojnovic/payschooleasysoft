@@ -64,6 +64,7 @@ namespace ControlObjects
 
             res.FechaInscripción = x.FechaInscripción;
             res.Inscripto = x.Inscripto;
+            res.EnListaDeEspera = x.EnListaDeEspera;
 
 
             res.Alumno = (from c in dbContext.Alumno.Include("Usuario")
