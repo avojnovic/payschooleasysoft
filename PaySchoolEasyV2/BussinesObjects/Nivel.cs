@@ -39,6 +39,13 @@ namespace BussinesObjects
             set { _edadMaxima = value; }
         }
 
+        private float _descuento;
+
+        public float Descuento
+        {
+            get { return _descuento; }
+            set { _descuento = value; }
+        }
         
     }
 }

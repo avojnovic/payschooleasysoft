@@ -74,6 +74,7 @@
     <Content Include="Images\return.png" />
     <Content Include="Images\save.png" />
     <Content Include="Images\Trash.png" />
+    <Content Include="Incripciones\Confirmar.aspx" />
     <Content Include="Incripciones\Details.aspx" />
     <Content Include="Incripciones\Index.aspx" />
     <Content Include="Login.aspx" />
@@ -130,6 +131,13 @@
     </Compile>
     <Compile Include="Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Incripciones\Confirmar.aspx.cs">
+      <DependentUpon>Confirmar.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Incripciones\Confirmar.aspx.designer.cs">
+      <DependentUpon>Confirmar.aspx</DependentUpon>
     </Compile>
     <Compile Include="Incripciones\Details.aspx.cs">
       <DependentUpon>Details.aspx</DependentUpon>

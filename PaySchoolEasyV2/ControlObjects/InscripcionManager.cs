@@ -44,6 +44,19 @@ namespace ControlObjects
             return res.ToList();
         }
 
+
+        public static IEnumerable<Inscripcion> GetByAlumnoAnio(long idAlumno,int anio)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Inscripcion.Include("Alumno").Include("Curso")
+                      where c.Alumno.Id == idAlumno && c.FechaInscripción.Year==anio
+                      select c;
+
+
+            return res.ToList();
+        }
+
         public static IEnumerable<Inscripcion> Get()
         {
             SchoolDbContext dbContext = new SchoolDbContext();
@@ -101,7 +114,7 @@ namespace ControlObjects
         }
 
 
-        public static void Delete(int id)
+        public static void Delete(long id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 

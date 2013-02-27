@@ -95,6 +95,12 @@ namespace PaySchoolEasyV2
 
             if (UsuarioLogueado.TipoUsuarioNombre == "Admin")
             {
+                MenuItem Incripcion = new MenuItem("Confimar Inscripciones");
+                Incripcion.Value = "Confimar Inscripciones";
+                Incripcion.NavigateUrl = "Incripciones/Confirmar.aspx";
+                Menu1.Items.Add(Incripcion);
+
+
                 MenuItem Usuarios = new MenuItem("Usuarios");
                 Usuarios.Value = "Usuarios";
                 Usuarios.NavigateUrl = "Usuarios/Index.aspx";

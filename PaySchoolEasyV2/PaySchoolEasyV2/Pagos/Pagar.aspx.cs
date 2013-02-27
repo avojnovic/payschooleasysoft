@@ -22,11 +22,13 @@ namespace ControlObjects.Pagos
 
                 TxtApellido.Text = ((User)Session["user"]).Apellido;
 
+             
+                //Solo cargos los alumnos inscriptos en este año
                 CmbAlumnos.DataTextField = "DNI";
                 CmbAlumnos.DataValueField = "Id";
-                CmbAlumnos.DataSource = AlumnoManager.GetByTutor(((User)Session["user"]).Id);
+                CmbAlumnos.DataSource = obtenerAlumnosInscriptos() ;
                 CmbAlumnos.DataBind();
-               
+
                 setearAlumno();
 
 
@@ -34,9 +36,6 @@ namespace ControlObjects.Pagos
                 CmbPagoDe.Items.Insert(1, new ListItem("Matricula y Cuota", "1"));
                 CmbPagoDe.Items.Insert(2, new ListItem("Cuota", "2"));
                 CmbPagoDe.SelectedIndex = 0;
-
-
-
 
                 setearMontos();
 
@@ -46,69 +45,113 @@ namespace ControlObjects.Pagos
 
         }
 
+        private List<Alumno> obtenerAlumnosInscriptos()
+        {
+            var _alumnos = AlumnoManager.GetByTutor(((User)Session["user"]).Id);
+            List<Alumno> listAl = new List<Alumno>();
+
+            foreach (Alumno a in _alumnos)
+            {
+                var inscripcionesList = InscripcionManager.GetByAlumnoAnio(a.Id,DateTime.Today.Year);
+                if (inscripcionesList.Count() > 0)
+                {
+                    listAl.Add(a);
+                }
+
+            }
+
+            return listAl;
+
+        }
+
         private void setearMontos()
         {
 
-               if (CmbAlumnos.Items.Count > 0)
+            if (CmbAlumnos.Items.Count > 0)
+            {
+                var alum = AlumnoManager.GetByTutor(((User)Session["user"]).Id);
+                Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
+                float descuento = 0;
+                bool descuentoMatricula = false;
+
+                if (alum.Count() > 1)
                 {
-                    TxtFechaEmision.Text = DateTime.Today.ToShortDateString();
-
-                    if (CmbPagoDe.SelectedValue == "0")
-                    {//Matricula
-                        lblCuota.Visible = false;
-                        CmbCuota.Visible = false;
-
-                        Nivel n= obtenerNiveldeAlumno(long.Parse( CmbAlumnos.SelectedValue));
-                        Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year,n.Id).First();
-
-                        TxtSubTotal.Text = m.Monto.ToString();
-                        TxtDescuento.Text = m.Descuento.ToString();
-                        TxtTotal.Text = (m.Monto - m.Descuento).ToString();
-
-                    }
-                    else
+                    int cant = 0;
+                    foreach (Alumno a in alum)
                     {
-                        lblCuota.Visible = true;
-                        CmbCuota.Visible = true;
+                        Nivel niv = obtenerNiveldeAlumnoInscripto(a.Id);
 
-                        if (CmbPagoDe.SelectedValue == "1")
-                        {//Matricula y Cuota
-                           
-                            Nivel n = obtenerNiveldeAlumno(long.Parse(CmbAlumnos.SelectedValue));
-                            Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
-
-                            Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
-
-                            TxtVencimiento1.Text = a.FechaVenc1.ToShortDateString();
-                            TxtVencimiento2.Text = a.FechaVenc2.ToShortDateString();
-
-                            TxtSubTotal.Text = (a.MontoCuota + m.Monto).ToString();
-                            TxtDescuento.Text = m.Descuento.ToString();
-
-                            TxtTotal.Text = (a.MontoCuota + m.Monto - m.Descuento).ToString();
-
-                        }
-                        else
-                        {//Cuota
-
-
-                            Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
-
-                            TxtVencimiento1.Text = a.FechaVenc1.ToShortDateString();
-                            TxtVencimiento2.Text = a.FechaVenc2.ToShortDateString();
-                            TxtDescuento.Text = "";
-
-                            TxtSubTotal.Text = a.MontoCuota.ToString();
-                            TxtTotal.Text = a.MontoCuota.ToString();
-
-                            
+                        if (niv != null && niv.Id==n.Id)
+                        {
+                            cant++;
                         }
                     }
+
+
+                    if (cant >= 2)
+                    {
+                        descuentoMatricula = true;
+                    }
+                     
+                    descuento = n.Descuento;
+
 
                 }
 
-               
-            
+                TxtFechaEmision.Text = DateTime.Today.ToShortDateString();
+
+                if (CmbPagoDe.SelectedValue == "0")
+                {//Matricula
+                    lblCuota.Visible = false;
+                    CmbCuota.Visible = false;
+
+
+                    Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
+
+                    if (descuentoMatricula)
+                        descuento += m.Descuento;
+                    TxtDescuento.Text = descuento.ToString();
+                    TxtSubTotal.Text = m.Monto.ToString();
+                    TxtTotal.Text = (descuento / 100 * m.Monto).ToString();
+
+                }
+                else
+                {
+                    lblCuota.Visible = true;
+                    CmbCuota.Visible = true;
+                    Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+
+                    TxtVencimiento1.Text = a.FechaVenc1.ToShortDateString();
+                    TxtVencimiento2.Text = a.FechaVenc2.ToShortDateString();
+
+                    if (CmbPagoDe.SelectedValue == "1")
+                    {//Matricula y Cuota
+
+
+                        Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
+                        if (descuentoMatricula)
+                            descuento += m.Descuento;
+
+
+                        TxtSubTotal.Text = (a.MontoCuota + m.Monto).ToString();
+                        TxtDescuento.Text = descuento.ToString();
+                        TxtTotal.Text = (descuento / 100 * (m.Monto + a.MontoCuota)).ToString();
+                    }
+                    else
+                    {//Cuota
+
+                        TxtSubTotal.Text = a.MontoCuota.ToString();
+                        TxtDescuento.Text = descuento.ToString();
+                        TxtTotal.Text = (descuento / 100 * a.MontoCuota).ToString();
+
+
+                    }
+                }
+
+            }
+
+
+
         }
 
 
@@ -146,7 +189,7 @@ namespace ControlObjects.Pagos
                 TxtNombre.Text = a.Nombre;
 
                 setearCuota(a);
-               
+                setearMontos();
             }
 
         }
@@ -155,11 +198,11 @@ namespace ControlObjects.Pagos
         private void setearCuota(Alumno a)
         {
             LblMensaje.Text = "";
-          
-            Nivel n=obtenerNiveldeAlumno(a.Id);
-            if(n!=null)
+
+            Nivel n = obtenerNiveldeAlumno(a);
+            if (n != null)
             {
-          
+
                 CmbCuota.DataTextField = "Mes";
                 CmbCuota.DataValueField = "Id";
                 CmbCuota.DataSource = CuotaManager.GetByYearNivel(DateTime.Today.Year, n.Id);
@@ -184,9 +227,25 @@ namespace ControlObjects.Pagos
         }
 
 
-        private Nivel obtenerNiveldeAlumno(long idAlumno)
+        private Nivel obtenerNiveldeAlumno(Alumno a)
         {
-            var inscripcionesList = InscripcionManager.GetByAlumno(idAlumno);
+            var inscripcionesList = InscripcionManager.GetByAlumno(a.Id);
+            if (inscripcionesList.Count() > 0)
+            {
+                var iMax = inscripcionesList.OrderByDescending(item => item.FechaInscripción).First();
+                Curso c = CursoManager.Get(iMax.Curso.Id).First();
+                return c.Nivel;
+            }
+            else
+            {
+                double edad = DateTime.Today.AddTicks(-a.FechaNacimiento.Ticks).Year - 1;
+                return NivelManager.GetByEdad(edad).First();
+            }
+        }
+
+        private Nivel obtenerNiveldeAlumnoInscripto(long id)
+        {
+            var inscripcionesList = InscripcionManager.GetByAlumno(id);
             if (inscripcionesList.Count() > 0)
             {
                 var iMax = inscripcionesList.OrderByDescending(item => item.FechaInscripción).First();
@@ -223,13 +282,13 @@ namespace ControlObjects.Pagos
             a.Confirmado = false;
             a.Alumno = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
 
-          
+
 
             if (CmbPagoDe.SelectedValue == "0")
             {//Matricula
                 a.Cuota = null;
 
-                Nivel n = obtenerNiveldeAlumno(long.Parse(CmbAlumnos.SelectedValue));
+                Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
                 Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
                 a.Matricula = m;
             }
@@ -240,7 +299,7 @@ namespace ControlObjects.Pagos
                 {//Matricula y Cuota
                     a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
 
-                    Nivel n = obtenerNiveldeAlumno(long.Parse(CmbAlumnos.SelectedValue));
+                    Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
                     Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
                     a.Matricula = m;
                 }
@@ -338,32 +397,53 @@ namespace ControlObjects.Pagos
                 guardar();
             }
 
-          
+            User u = ((User)Session["user"]);
 
-            var fromAddress = new MailAddress("from@gmail.com", "From Name");
-            var toAddress = new MailAddress("to@example.com", "To Name");
-            const string fromPassword = "fromPassword";
-            const string subject = "Subject";
-            const string body = "Body";
+            //var fromAddress = new MailAddress("payschooleasysoft@gmail.com", "Pay School Easy Soft");
+            //var toAddress = new MailAddress(u.Email, u.nombreCompleto);
+            //const string fromPassword = "psespses";
+            //const string subject = "Pago a traves de Pay School Easy Soft";
+            //const string body = "Body";
 
-            var smtp = new SmtpClient
-            {
-                Host = "smtp.gmail.com",
-                Port = 587,
-                EnableSsl = true,
-                DeliveryMethod = SmtpDeliveryMethod.Network,
-                UseDefaultCredentials = false,
-                Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            };
-            using (var message = new MailMessage(fromAddress, toAddress)
-            {
-                Subject = subject,
-                Body = body
-            })
-            {
-                smtp.Send(message);
-             
-            }
+            //var smtp = new SmtpClient
+            //{
+            //    Host = "smtp.gmail.com",
+            //    Port = 587,
+            //    EnableSsl = true,
+            //    DeliveryMethod = SmtpDeliveryMethod.Network,
+            //    UseDefaultCredentials = false,
+            //    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
+            //};
+            //using (var message = new MailMessage(fromAddress, toAddress)
+            //{
+            //    Subject = subject,
+            //    Body = body
+            //})
+            //{
+            //    smtp.Send(message);
+
+            //}
+
+
+
+            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+            smtpClient.Credentials = new System.Net.NetworkCredential("payschooleasysoft@gmail.com", "psespses");
+            smtpClient.UseDefaultCredentials = true;
+            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+            smtpClient.EnableSsl = true;
+            MailMessage mail = new MailMessage();
+
+
+            //Setting From , To and CC
+            mail.From = new MailAddress("payschooleasysoft@gmail.com", "Pay School Easy Soft");
+            mail.To.Add(new MailAddress(u.Email));
+
+            mail.Body = "body";
+            mail.Subject = "Pago a traves de Pay School Easy Soft";
+
+            smtpClient.Send(mail);
+
 
         }
 

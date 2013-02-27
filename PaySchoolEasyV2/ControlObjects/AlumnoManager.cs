@@ -62,7 +62,7 @@ namespace ControlObjects
             res.NroMatricula = x.NroMatricula;
 
             res.Usuario =  (from c in dbContext.User.Include("TipoUsuario")
-                      where c.Id == x.Id
+                      where c.Id == x.Usuario.Id
                       select c).First();
 
             dbContext.Entry(res.Usuario).State = System.Data.EntityState.Unchanged;

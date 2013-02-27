@@ -36,9 +36,14 @@ namespace ControlObjects
             foreach (Curso c in res)
             {
                 var ins = InscripcionManager.GetByCurso(c.Id);
-                
+
                 if (ins.Count() < c.Cupo)
                 {
+                    cursos.Add(c);
+                }
+                else
+                {
+                    c.Anio += " Sin Cupo";
                     cursos.Add(c);
                 }
                 

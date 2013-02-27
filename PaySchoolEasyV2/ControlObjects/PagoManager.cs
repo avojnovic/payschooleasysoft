@@ -114,7 +114,9 @@ namespace ControlObjects
 
             if (x.Cuota != null)
             {
-                x.Cuota = CuotaManager.Get((int)x.Cuota.Id).First();
+                x.Cuota = (from c in dbContext.Cuota.Include("Nivel")
+                             where c.Id == x.Cuota.Id
+                             select c).First();
                 dbContext.Entry(x.Cuota).State = System.Data.EntityState.Unchanged;
             }
 
@@ -126,13 +128,17 @@ namespace ControlObjects
 
             if (x.Matricula != null)
             {
-                x.Matricula = MatriculaManager.Get((int)x.Matricula.Id).First();
+                x.Matricula = (from c in dbContext.Matricula.Include("Nivel")
+                                 where c.Id == x.Matricula.Id
+                                 select c).First();
                 dbContext.Entry(x.Matricula).State = System.Data.EntityState.Unchanged;
             }
 
             if (x.Recargos != null)
             {
-                x.Recargos = RecargoManager.Get((int)x.Recargos.Id).First();
+                x.Recargos = (from c in dbContext.Recargos
+                                where c.Id == x.Recargos.Id
+                                select c).First();
                 dbContext.Entry(x.Recargos).State = System.Data.EntityState.Unchanged;
             }
 
