@@ -96,7 +96,18 @@ namespace BussinesObjects
             }
         }
 
+        public string StatusEspera
+        {
+            get
+            {
+                if (EnListaDeEspera)
+                    return "Si";
+                else
+                    return "No";
 
+
+            }
+        }
 
 
     }

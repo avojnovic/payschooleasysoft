@@ -227,9 +227,22 @@ namespace ControlObjects.Incripciones
         {
 
             i.FechaInscripción = DateTime.Parse(TxtFecIns.Text);
-            i.Inscripto = false;
-            i.EnListaDeEspera = true;
+
+
             i.Curso = CursoManager.Get(int.Parse(CmbCurso.SelectedValue)).First();
+
+
+            if (CmbCurso.SelectedItem.Text.ToUpper().Contains("SIN CUPO"))
+            {
+                i.EnListaDeEspera = true;
+            }
+            else
+            {
+                i.EnListaDeEspera = false;
+            }
+
+            i.Inscripto = false;
+            
 
             Alumno a = new Alumno();
 
@@ -249,7 +262,16 @@ namespace ControlObjects.Incripciones
 
                 if (AlumnoManager.Validar(a, true))
                 {
-                    AlumnoManager.Update(a);
+                    var ins = InscripcionManager.GetByAlumnoAnio(a.Id, DateTime.Today.Year);
+
+                    if (ins.Count() > 0)
+                    {
+                        LblMensaje.Text = "El Alumno ya posee una inscripcion para este año";
+                    }
+                    else
+                    {
+                        AlumnoManager.Update(a);
+                    }
                 }
                 else
                 {

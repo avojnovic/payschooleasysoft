@@ -55,6 +55,7 @@ namespace ControlObjects
             res.Descripcion = x.Descripcion;
             res.EdadMaxima= x.EdadMaxima;
             res.EdadMinima= x.EdadMinima;
+            res.Descuento = x.Descuento;
       
 
             dbContext.SaveChanges();
