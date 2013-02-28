@@ -20,7 +20,7 @@ namespace ControlObjects
            return res.ToList();
        }
 
-        public static IEnumerable<User> Get(int id)
+        public static IEnumerable<User> Get(long id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
@@ -59,6 +59,17 @@ namespace ControlObjects
             SchoolDbContext dbContext = new SchoolDbContext();
 
             var res = from c in dbContext.User.Include("TipoUsuario")
+                      select c;
+
+            return res.ToList();
+        }
+
+        public static IEnumerable<User> GetTutor()
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.User.Include("TipoUsuario")
+                      where c.TipoUsuario.Descripcion.ToLower().Contains("tutor")
                       select c;
 
             return res.ToList();

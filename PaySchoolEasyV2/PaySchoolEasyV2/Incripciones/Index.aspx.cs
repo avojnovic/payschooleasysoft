@@ -13,15 +13,8 @@ namespace ControlObjects.Incripciones
         protected void Page_Load(object sender, EventArgs e)
         {
 
-            var ins = InscripcionManager.Get();
-
-            foreach (Inscripcion i in ins)
-            {
-                i.Curso = CursoManager.Get(i.Curso.Id).First();
-            }
-
+            var ins = InscripcionManager.GetByTutor((((User)Session["user"])));
             GridView1.DataSource = ins;
-
             GridView1.DataBind();
 
         }

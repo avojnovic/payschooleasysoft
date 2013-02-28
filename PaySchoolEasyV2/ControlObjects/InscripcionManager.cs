@@ -22,6 +22,29 @@ namespace ControlObjects
             return res.ToList();
         }
 
+        public static IEnumerable<Inscripcion> GetByTutor(User user)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Inscripcion.Include("Alumno").Include("Curso")
+                      select c;
+
+            List<Inscripcion> list = new List<Inscripcion>();
+            foreach (Inscripcion i in res)
+            {
+                i.Alumno = AlumnoManager.Get(i.Alumno.Id).First();
+
+                if (i.Alumno.Usuario.Id == user.Id)
+                {
+                    i.Curso=CursoManager.Get(i.Curso.Id).First();
+                    list.Add(i);
+                }
+
+            }
+
+            return list;
+        }
+
         public static IEnumerable<Inscripcion> GetByAlumno(long id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
@@ -129,5 +152,7 @@ namespace ControlObjects
             }
         }
 
+
+       
     }
 }
