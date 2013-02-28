@@ -428,7 +428,7 @@ namespace ControlObjects.Pagos
                 StringBuilder st = new StringBuilder();
                 st.AppendLine("<html> <body>");
                 st.AppendLine("");
-                st.AppendLine("<img src='"+ImgBarCode.ImageUrl +"' alt='some_text'>");
+                st.AppendLine("<img src='"+ImgBarCode.ImageUrl +"'>");
                 st.AppendLine("</body> </html>");
 
 
