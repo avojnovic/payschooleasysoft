@@ -46,6 +46,21 @@ namespace BussinesObjects
             get { return _descuento; }
             set { _descuento = value; }
         }
-        
+
+        private float _recargoPrimerVencimiento;
+
+        public float RecargoPrimerVencimiento
+        {
+            get { return _recargoPrimerVencimiento; }
+            set { _recargoPrimerVencimiento = value; }
+        }
+
+        private float _recargoSegundoVencimiento;
+
+        public float RecargoSegundoVencimiento
+        {
+            get { return _recargoSegundoVencimiento; }
+            set { _recargoSegundoVencimiento = value; }
+        }
     }
 }

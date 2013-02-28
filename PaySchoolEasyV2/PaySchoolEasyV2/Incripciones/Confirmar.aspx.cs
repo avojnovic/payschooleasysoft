@@ -33,6 +33,14 @@ namespace ControlObjects.Incripciones
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
+            var ins = InscripcionManager.Get();
+
+            foreach (Inscripcion i in ins)
+            {
+                i.Curso = CursoManager.Get(i.Curso.Id).First();
+            }
+
+            GridView1.DataSource = ins;
             GridView1.DataBind();
         }
 

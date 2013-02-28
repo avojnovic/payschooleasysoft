@@ -28,11 +28,7 @@ namespace BussinesObjects
             get { return Alumno.nombreCompleto; }
         }
 
-        public string alumnoMatricula
-        {
-            get { return Alumno.NroMatricula.ToString(); }
-        }
-
+      
         private DateTime _fechaInscripción;
 
         public DateTime FechaInscripción

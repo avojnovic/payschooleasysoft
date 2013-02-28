@@ -56,7 +56,7 @@
 
                <tr>
                     <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label8" runat="server" Text="Id:" Font-Names="Calibri"></asp:Label>
+                        <asp:Label ID="Label8" runat="server" Text="Matricula:" Font-Names="Calibri"></asp:Label>
                     </td>
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtIdAlumno"  Enabled="false" Width="100%" runat="server"></asp:TextBox>
@@ -104,17 +104,6 @@
                         <asp:ImageButton ID="ImageButton1" runat="server" ImageUrl="~/Images/Calendar.png" />
                         <act:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TxtFecNac" Format="dd/MM/yyyy"
                             PopupButtonID="ImageButton1" />
-                    </td>
-                </tr>
-                <tr>
-                    <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label6" runat="server" Text="Matricula:" Font-Names="Calibri"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TxtMatricula"
-                            Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
-                    </td>
-                    <td style="width: 200px;">
-                        <asp:TextBox ID="TxtMatricula" Width="100%" runat="server"></asp:TextBox>
-                         <act:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="TxtMatricula" Mask="99999999" MaskType="Number" />
                     </td>
                 </tr>
                 <tr>

@@ -48,7 +48,6 @@ namespace BussinesObjects
             set { _fechaVenc1 = value; }
         }
 
-
         private DateTime _fechaVenc2;
 
         public DateTime FechaVenc2

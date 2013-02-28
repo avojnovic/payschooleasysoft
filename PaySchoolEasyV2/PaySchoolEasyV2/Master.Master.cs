@@ -53,6 +53,21 @@ namespace PaySchoolEasyV2
             home.NavigateUrl = "Default.aspx";
             Menu1.Items.Add(home);
 
+            if (UsuarioLogueado.TipoUsuarioNombre == "Tutor")
+            {
+                MenuItem Incripcion = new MenuItem("Incripciones");
+                Incripcion.Value = "Incripciones";
+                Incripcion.NavigateUrl = "Incripciones/Index.aspx";
+                Menu1.Items.Add(Incripcion);
+
+                MenuItem Pagos = new MenuItem("Pagar");
+                Pagos.Value = "pagar";
+                Pagos.NavigateUrl = "Pagos/Pagar.aspx";
+                Menu1.Items.Add(Pagos);
+
+
+            }
+
             if (UsuarioLogueado.TipoUsuarioNombre == "Admin")
             {
                 MenuItem alumnos = new MenuItem("Alumnos");
@@ -71,34 +86,37 @@ namespace PaySchoolEasyV2
                 matriculas.NavigateUrl = "Matriculas/Index.aspx";
                 Menu1.Items.Add(matriculas);
 
+
+                MenuItem pagos = new MenuItem("Pagos");
+
                 MenuItem import = new MenuItem("Importar");
                 import.Value = "Importar";
-                import.NavigateUrl = "PAgos/Importar.aspx";
-                Menu1.Items.Add(import);
+                import.NavigateUrl = "Pagos/Importar.aspx";
+                pagos.ChildItems.Add(import);
 
-            }
-
-            if (UsuarioLogueado.TipoUsuarioNombre == "Tutor")
-            {
-                MenuItem Incripcion = new MenuItem("Incripciones");
-                Incripcion.Value = "Incripciones";
-                Incripcion.NavigateUrl = "Incripciones/Index.aspx";
-                Menu1.Items.Add(Incripcion);
-
-                MenuItem Pagos = new MenuItem("Pagar");
-                Pagos.Value = "pagar";
-                Pagos.NavigateUrl = "Pagos/Pagar.aspx";
-                Menu1.Items.Add(Pagos);
+                MenuItem verpagos = new MenuItem("Ver Pagos");
+                verpagos.Value = "Ver Pagos";
+                verpagos.NavigateUrl = "Pagos/Index.aspx";
+                pagos.ChildItems.Add(verpagos);
 
 
-            }
+                Menu1.Items.Add(pagos);
 
-            if (UsuarioLogueado.TipoUsuarioNombre == "Admin")
-            {
+
+
+                MenuItem Ins = new MenuItem("Inscripciones");
+
+                MenuItem eliminar = new MenuItem("Eliminar Inscripciones vencidas");
+                eliminar.Value = "Eliminar Inscripciones vencidas";
+                eliminar.NavigateUrl = "Incripciones/DarDeBaja.aspx";
+                Ins.ChildItems.Add(eliminar);
+
                 MenuItem Incripcion = new MenuItem("Confimar Inscripciones");
                 Incripcion.Value = "Confimar Inscripciones";
                 Incripcion.NavigateUrl = "Incripciones/Confirmar.aspx";
-                Menu1.Items.Add(Incripcion);
+                Ins.ChildItems.Add(Incripcion);
+
+                Menu1.Items.Add(Ins);
 
 
                 MenuItem Usuarios = new MenuItem("Usuarios");

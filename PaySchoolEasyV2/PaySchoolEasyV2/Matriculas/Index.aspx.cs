@@ -27,6 +27,7 @@ namespace ControlObjects.Matriculas
         protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
             GridView1.PageIndex = e.NewPageIndex;
+            GridView1.DataSource = MatriculaManager.Get();
             GridView1.DataBind();
         }
     }

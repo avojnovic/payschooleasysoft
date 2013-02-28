@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace BussinesObjects
 {
@@ -47,13 +48,6 @@ namespace BussinesObjects
             set { _fechaNacimiento = value; }
         }
 
-        private Int64 _nroMatricula;
-
-        public Int64 NroMatricula
-        {
-            get { return _nroMatricula; }
-            set { _nroMatricula = value; }
-        }
 
         private User _usuario;
 

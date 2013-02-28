@@ -58,8 +58,7 @@ namespace ControlObjects
             res.Borrado = x.Borrado;
             res.Dni = x.Dni;
             res.FechaNacimiento = x.FechaNacimiento;
-            res.Nombre = x.Nombre;
-            res.NroMatricula = x.NroMatricula;
+            res.Nombre = x.Nombre;   
 
             res.Usuario =  (from c in dbContext.User.Include("TipoUsuario")
                       where c.Id == x.Usuario.Id

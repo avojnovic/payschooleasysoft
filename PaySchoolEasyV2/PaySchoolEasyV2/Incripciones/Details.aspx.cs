@@ -115,7 +115,6 @@ namespace ControlObjects.Incripciones
             TxtApellido.Text = a.Apellido;
             TxtDNI.Text = a.Dni;
             TxtFecNac.Text = a.FechaNacimiento.ToShortDateString();
-            TxtMatricula.Text = a.NroMatricula.ToString();
             TxtNombre.Text = a.Nombre;
 
             ObtenerNiveles();
@@ -129,7 +128,6 @@ namespace ControlObjects.Incripciones
             if (int.Parse(CmbAlumnos.SelectedValue) == 0)
             {
                 TxtIdAlumno.Text ="";
-                TxtApellido.Text = "";
                 TxtDNI.Text = "";
                 TxtFecNac.Text = "";
                 TxtMatricula.Text = "";
@@ -159,7 +157,7 @@ namespace ControlObjects.Incripciones
                 var alu = from a in AlumnoManager.Get()
                           where a.Dni.ToString().Contains(TxtSearch.Text) ||
                            a.nombreCompleto.ToLower().Contains(TxtSearch.Text.ToLower()) ||
-                           a.NroMatricula.ToString().ToLower().Contains(TxtSearch.Text.ToLower())
+                           a.Id.ToString().ToLower().Contains(TxtSearch.Text.ToLower())
                           select a;
 
                 if (alu.Count() > 0)
@@ -250,7 +248,6 @@ namespace ControlObjects.Incripciones
             a.Apellido = TxtApellido.Text;
             a.Dni = TxtDNI.Text;
             a.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
-            a.NroMatricula = long.Parse(TxtMatricula.Text);
             a.Usuario = (User)Session["user"];
 
 

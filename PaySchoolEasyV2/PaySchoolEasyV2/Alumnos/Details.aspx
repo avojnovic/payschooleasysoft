@@ -13,6 +13,18 @@
     <center>
         <asp:Panel runat="server" ID="panel1" Visible="true" Width="600px" Style="background-color: #DDDDDD">
             <table style="width: 500px;" border="0" cellspacing="0">
+
+               <tr>
+                    <td align="left" style="width: 100px;">
+                        <asp:Label ID="Label6" runat="server" Text="Matricula:" Font-Names="Calibri"></asp:Label>
+                    </td>
+                    <td style="width: 200px;">
+                        <asp:TextBox ID="TxtMatricula" Enabled="false" ForeColor="Red" Width="100%" runat="server"></asp:TextBox>
+                        <act:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="TxtMatricula"
+                            Mask="99999999" MaskType="Number" />
+                    </td>
+                </tr>
+
                 <tr>
                     <td align="left" style="width: 100px;">
                         <asp:Label ID="Label11" runat="server" Text="Tutor:" Font-Names="Calibri"></asp:Label>
@@ -67,18 +79,7 @@
                             Format="dd/MM/yyyy" PopupButtonID="btnCalendar" />
                     </td>
                 </tr>
-                <tr>
-                    <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label6" runat="server" Text="Matricula:" Font-Names="Calibri"></asp:Label>
-                        <asp:RequiredFieldValidator ID="RequiredFieldValidator4" runat="server" ControlToValidate="TxtMatricula"
-                            Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
-                    </td>
-                    <td style="width: 200px;">
-                        <asp:TextBox ID="TxtMatricula" Width="100%" runat="server"></asp:TextBox>
-                        <act:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="TxtMatricula"
-                            Mask="99999999" MaskType="Number" />
-                    </td>
-                </tr>
+             
                 <tr>
                     <td align="center" colspan="2">
                         <br />

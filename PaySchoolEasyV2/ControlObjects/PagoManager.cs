@@ -9,11 +9,11 @@ namespace ControlObjects
     public static class PagoManager
     {
 
-        public static IEnumerable<Pago> Get(int id)
+        public static IEnumerable<Pago> Get(long id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Pago
+            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
                       where c.Id == id
                       select c;
 
@@ -24,19 +24,29 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno")
+            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
                       where c.Cuota.Id == idCuota && c.Alumno.Id == idAlumno
                       select c;
 
             return res.ToList();
         }
 
+        public static IEnumerable<Pago> GetByInscripcionFecha(long idAlumno,DateTime fecha)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
+                      where c.Alumno.Id==idAlumno && c.Matricula!=null && c.FechaDePago>fecha
+                      select c;
+
+            return res.ToList();
+        }
 
         public static IEnumerable<Pago> GetByMatricula(long idMatricula, long idAlumno)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Pago.Include("Matricula").Include("Alumno")
+            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
                       where c.Matricula.Id == idMatricula && c.Alumno.Id == idAlumno
                       select c;
 
@@ -47,7 +57,7 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            var res = from c in dbContext.Pago
+            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
                       select c;
 
             return res.ToList();
@@ -89,14 +99,9 @@ namespace ControlObjects
                 dbContext.Entry(res.Matricula).State = System.Data.EntityState.Unchanged;
             }
 
-            if (x.Recargos != null)
-            {
-                res.Recargos = (from c in dbContext.Recargos
-                                where c.Id ==x.Recargos.Id
-                                select c).First();
-                dbContext.Entry(res.Recargos).State = System.Data.EntityState.Unchanged;
-            }
 
+            res.FechaDePago = x.FechaDePago;
+            
             res.Confirmado = x.Confirmado;
         
 
@@ -109,8 +114,11 @@ namespace ControlObjects
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
-            x.Alumno = AlumnoManager.Get((int)x.Alumno.Id).First();
+            x.Alumno =  (from c in dbContext.Alumno.Include("Usuario")
+                         where c.Id == x.Alumno.Id
+                         select c).First();
             dbContext.Entry(x.Alumno).State = System.Data.EntityState.Unchanged;
+
 
             if (x.Cuota != null)
             {
@@ -120,11 +128,6 @@ namespace ControlObjects
                 dbContext.Entry(x.Cuota).State = System.Data.EntityState.Unchanged;
             }
 
-            //if (x.Factura != null)
-            //{
-            //    x.Factura = FacturaManager.Get((int)x.Factura.Id).First();
-            //    dbContext.Entry(x.Factura).State = System.Data.EntityState.Unchanged;
-            //}
 
             if (x.Matricula != null)
             {
@@ -134,16 +137,7 @@ namespace ControlObjects
                 dbContext.Entry(x.Matricula).State = System.Data.EntityState.Unchanged;
             }
 
-            if (x.Recargos != null)
-            {
-                x.Recargos = (from c in dbContext.Recargos
-                                where c.Id == x.Recargos.Id
-                                select c).First();
-                dbContext.Entry(x.Recargos).State = System.Data.EntityState.Unchanged;
-            }
-
-
-
+          
             dbContext.Pago.Add(x);
             dbContext.SaveChanges();
         }

@@ -73,6 +73,7 @@ namespace ControlObjects.Pagos
                 var alum = AlumnoManager.GetByTutor(((User)Session["user"]).Id);
                 Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
                 float descuento = 0;
+                float total = 0;
                 bool descuentoMatricula = false;
 
                 if (alum.Count() > 1)
@@ -113,7 +114,8 @@ namespace ControlObjects.Pagos
                         descuento += m.Descuento;
                     TxtDescuento.Text = descuento.ToString();
                     TxtSubTotal.Text = m.Monto.ToString();
-                    TxtTotal.Text = (descuento / 100 * m.Monto).ToString();
+                    total=m.Monto-((descuento / 100) * m.Monto);
+                    TxtTotal.Text = total.ToString();
 
                 }
                 else
@@ -136,18 +138,25 @@ namespace ControlObjects.Pagos
 
                         TxtSubTotal.Text = (a.MontoCuota + m.Monto).ToString();
                         TxtDescuento.Text = descuento.ToString();
-                        TxtTotal.Text = (descuento / 100 * (m.Monto + a.MontoCuota)).ToString();
+
+                        total = (m.Monto + a.MontoCuota)-((descuento / 100) * (m.Monto + a.MontoCuota));
+                        TxtTotal.Text = total.ToString();
                     }
                     else
                     {//Cuota
 
                         TxtSubTotal.Text = a.MontoCuota.ToString();
                         TxtDescuento.Text = descuento.ToString();
-                        TxtTotal.Text = (descuento / 100 * a.MontoCuota).ToString();
+
+                        total = a.MontoCuota-((descuento / 100) * a.MontoCuota);
+                        TxtTotal.Text = total.ToString();
 
 
                     }
                 }
+
+                TxtTotal1Ven.Text = (total + ((n.RecargoPrimerVencimiento / 100) * total)).ToString();
+                TxtTotal2Ven.Text = (total + ((n.RecargoSegundoVencimiento / 100) * total)).ToString();
 
             }
 
@@ -186,9 +195,8 @@ namespace ControlObjects.Pagos
 
 
                 TxtApellido.Text = a.Apellido;
-                TxtMatricula.Text = a.NroMatricula.ToString();
                 TxtNombre.Text = a.Nombre;
-
+                TxtMatricula.Text = a.Id.ToString();
                 setearCuota(a);
                 setearMontos();
             }
