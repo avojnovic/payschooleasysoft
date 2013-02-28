@@ -8,6 +8,7 @@ using BussinesObjects;
 using System.Drawing.Text;
 using System.Net.Mail;
 using System.Net;
+using System.Text;
 
 
 namespace ControlObjects.Pagos
@@ -277,53 +278,59 @@ namespace ControlObjects.Pagos
 
         private void guardar()
         {
-
-            Pago a = new Pago();
-            a.Confirmado = false;
-            a.Alumno = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
-
-
-
-            if (CmbPagoDe.SelectedValue == "0")
-            {//Matricula
-                a.Cuota = null;
-
-                Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
-                Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
-                a.Matricula = m;
-            }
-            else
+            if (CmbAlumnos.SelectedValue != "")
             {
 
-                if (CmbPagoDe.SelectedValue == "1")
-                {//Matricula y Cuota
-                    a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+                Pago a = new Pago();
+                a.Confirmado = false;
+                a.Alumno = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
+
+
+
+                if (CmbPagoDe.SelectedValue == "0")
+                {//Matricula
+                    a.Cuota = null;
 
                     Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
                     Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
                     a.Matricula = m;
                 }
                 else
-                {//Cuota
-                    a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
-                    a.Matricula = null;
+                {
+
+                    if (CmbPagoDe.SelectedValue == "1")
+                    {//Matricula y Cuota
+                        a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+
+                        Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
+                        Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
+                        a.Matricula = m;
+                    }
+                    else
+                    {//Cuota
+                        a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+                        a.Matricula = null;
+                    }
+                }
+
+
+                if (validar(a))
+                {
+                    Factura f = new Factura();
+                    f.FechaEmisión = DateTime.Today;
+                    f.ImporteTotal = float.Parse(TxtTotal.Text);
+                    a.Factura = f;
+                    PagoManager.Insert(a);
+
+
+                    string codigo = f.Id.ToString() + "-" + a.Id.ToString();
+                    generarCodigo(codigo);
                 }
             }
-
-
-            if (validar(a))
+            else
             {
-                Factura f = new Factura();
-                f.FechaEmisión = DateTime.Today;
-                f.ImporteTotal = float.Parse(TxtTotal.Text);
-                a.Factura = f;
-                PagoManager.Insert(a);
-
-
-                string codigo = f.Id.ToString() + "-" + a.Id.ToString();
-                generarCodigo(codigo);
+                LblMensaje.Text = "No existen alumnos inscriptos, no se puede realizar la operación";
             }
-
         }
 
 
@@ -397,54 +404,41 @@ namespace ControlObjects.Pagos
                 guardar();
             }
 
-            User u = ((User)Session["user"]);
+            if (LblMensaje.Text == "")
+            {
 
-            //var fromAddress = new MailAddress("payschooleasysoft@gmail.com", "Pay School Easy Soft");
-            //var toAddress = new MailAddress(u.Email, u.nombreCompleto);
-            //const string fromPassword = "psespses";
-            //const string subject = "Pago a traves de Pay School Easy Soft";
-            //const string body = "Body";
-
-            //var smtp = new SmtpClient
-            //{
-            //    Host = "smtp.gmail.com",
-            //    Port = 587,
-            //    EnableSsl = true,
-            //    DeliveryMethod = SmtpDeliveryMethod.Network,
-            //    UseDefaultCredentials = false,
-            //    Credentials = new NetworkCredential(fromAddress.Address, fromPassword)
-            //};
-            //using (var message = new MailMessage(fromAddress, toAddress)
-            //{
-            //    Subject = subject,
-            //    Body = body
-            //})
-            //{
-            //    smtp.Send(message);
-
-            //}
+                User u = ((User)Session["user"]);
 
 
 
-            SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
 
-            smtpClient.Credentials = new System.Net.NetworkCredential("payschooleasysoft@gmail.com", "psespses");
-            smtpClient.UseDefaultCredentials = true;
-            smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-            smtpClient.EnableSsl = true;
-            MailMessage mail = new MailMessage();
-
-
-            //Setting From , To and CC
-            mail.From = new MailAddress("payschooleasysoft@gmail.com", "Pay School Easy Soft");
-            mail.To.Add(new MailAddress(u.Email));
-
-            mail.Body = "body";
-            mail.Subject = "Pago a traves de Pay School Easy Soft";
-
-            smtpClient.Send(mail);
+                smtpClient.Credentials = new System.Net.NetworkCredential("payschooleasysoft@gmail.com", "psespses");
+                //smtpClient.UseDefaultCredentials = true;
+                //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                smtpClient.EnableSsl = true;
+                MailMessage mail = new MailMessage();
 
 
+                //Setting From , To and CC
+                mail.From = new MailAddress("payschooleasysoft@gmail.com", "Pay School Easy Soft");
+                mail.To.Add(new MailAddress(u.Email));
+
+              
+                StringBuilder st = new StringBuilder();
+                st.AppendLine("<html> <body>");
+                st.AppendLine("");
+                st.AppendLine("<img src='"+ImgBarCode.ImageUrl +"' alt='some_text'>");
+                st.AppendLine("</body> </html>");
+
+
+                mail.IsBodyHtml = true;
+                mail.Body = Server.HtmlEncode(st.ToString());
+                mail.Subject = "Pago a traves de Pay School Easy Soft";
+
+                smtpClient.Send(mail);
+
+            }
         }
 
 
