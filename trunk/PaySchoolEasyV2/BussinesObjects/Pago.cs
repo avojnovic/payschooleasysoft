@@ -47,15 +47,7 @@ namespace BussinesObjects
             set { _matricula = value; }
         }
 
-        private Recargos _recargos;
-
-        public Recargos Recargos
-        {
-            get { return _recargos; }
-            set { _recargos = value; }
-        }
-
-
+        
         private bool _confirmado;
 
         public bool Confirmado
@@ -64,5 +56,81 @@ namespace BussinesObjects
             set { _confirmado = value; }
         }
 
+        private DateTime? _fechaDePago;
+
+        public DateTime? FechaDePago
+        {
+            get { return _fechaDePago; }
+            set { _fechaDePago = value; }
+        }
+
+        public string StatusConfirmado
+        {
+            get
+            {
+                if (Confirmado)
+                    return "Si";
+                else
+                    return "No";
+
+
+            }
+        }
+
+        public string CuotaDescripcion
+        {
+            get
+            {
+                if (Cuota != null)
+                { return Cuota.Anio.ToString() + "-" + Cuota.Mes.ToString(); }
+                else
+                { return ""; }
+            }
+        }
+
+        public string MatriculaDescripcion
+        {
+            get
+            {
+                if (Matricula != null)
+                { return Matricula.Anio.ToString(); }
+                else
+                { return ""; }
+            }
+        }
+
+
+        public string AlumnoDescripcion
+        {
+            get
+            {
+                if (Alumno!= null)
+                { return Alumno.Id.ToString()+" - "+ Alumno.nombreCompleto; }
+                else
+                { return ""; }
+            }
+        }
+
+        public string FacturaNumero
+        {
+            get
+            {
+                if (Factura != null)
+                { return Factura.Id.ToString(); }
+                else
+                { return ""; }
+            }
+        }
+
+        public string FacturaFechaEmision
+        {
+            get
+            {
+                if (Factura != null)
+                { return Factura.FechaEmisión.ToShortDateString(); }
+                else
+                { return ""; }
+            }
+        }
     }
 }

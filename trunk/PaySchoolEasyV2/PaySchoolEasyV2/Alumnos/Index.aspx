@@ -14,14 +14,12 @@
         <PagerSettings PageButtonCount="5" />
         <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
         <Columns>
-            <asp:BoundField DataField="Id" HeaderText="ID" HeaderStyle-Font-Names="calibri" ReadOnly="True"/>
+            <asp:BoundField DataField="Id" HeaderText="NroMatricula" HeaderStyle-Font-Names="calibri" ReadOnly="True"/>
             <asp:BoundField DataField="Dni" HeaderText="Dni" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="Nombre" HeaderText="Nombre" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="Apellido" HeaderText="Apellido" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="FechaNacimiento"   DataFormatString="{0:dd/MM/yyyy}"  HeaderText="FechaNacimiento" HeaderStyle-Font-Names="calibri"/>
-            <asp:BoundField DataField="NroMatricula" HeaderText="NroMatricula" HeaderStyle-Font-Names="calibri" />
-                    
-          
+           
             <asp:TemplateField ItemStyle-Width="25px">
                 <ItemTemplate>
                     <a href="Details.aspx?id=<%# Eval("Id") %>">

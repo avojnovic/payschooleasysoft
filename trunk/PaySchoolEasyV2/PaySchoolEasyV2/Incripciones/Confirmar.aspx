@@ -14,13 +14,12 @@
         <PagerSettings PageButtonCount="5" />
         <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
         <Columns>
-            <asp:TemplateField HeaderText="ID">
+            <asp:TemplateField HeaderText="Matricula">
                 <ItemTemplate>
                     <asp:Label ID="lblId" Font-Names="calibri" runat="server" Text='<%#Eval("Id") %>'></asp:Label>
                 </ItemTemplate>
             </asp:TemplateField>
             <asp:BoundField DataField="alumnoNombre" HeaderText="Alumno" HeaderStyle-Font-Names="calibri" />
-            <asp:BoundField DataField="alumnoMatricula" HeaderText="Matricula" HeaderStyle-Font-Names="calibri" />
             <asp:BoundField DataField="CursoDescripcion" HeaderText="Curso" HeaderStyle-Font-Names="calibri" />
             <asp:BoundField DataField="NivelDescripcion" HeaderText="Nivel" HeaderStyle-Font-Names="calibri" />
             <asp:BoundField DataField="FechaInscripción" DataFormatString="{0:dd/MM/yyyy}" HeaderText="Fecha Inscripción"

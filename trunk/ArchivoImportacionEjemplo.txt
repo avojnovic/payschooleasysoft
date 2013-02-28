@@ -1,0 +1,1 @@
+idFactura:1-idPago:1-Monto:300,40-Fecha:18/04/2003

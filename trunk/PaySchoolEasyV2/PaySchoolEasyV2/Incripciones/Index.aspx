@@ -12,16 +12,13 @@
         <PagerSettings PageButtonCount="5" />
         <RowStyle HorizontalAlign="Center" VerticalAlign="Middle" />
         <Columns>
-            <asp:BoundField DataField="Id" HeaderText="ID" HeaderStyle-Font-Names="calibri" ReadOnly="True"/>
+            <asp:BoundField DataField="Id" HeaderText="Matricula" HeaderStyle-Font-Names="calibri" ReadOnly="True"/>
             <asp:BoundField DataField="alumnoNombre" HeaderText="Alumno" HeaderStyle-Font-Names="calibri"/>
-            <asp:BoundField DataField="alumnoMatricula" HeaderText="Matricula" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="CursoDescripcion" HeaderText="Curso" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="NivelDescripcion" HeaderText="Nivel" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="FechaInscripción" DataFormatString="{0:dd/MM/yyyy}"  HeaderText="Fecha Inscripción" HeaderStyle-Font-Names="calibri"/>
             <asp:BoundField DataField="StatusInscripto" HeaderText="Inscripto" HeaderStyle-Font-Names="calibri" />
             <asp:BoundField DataField="StatusEspera" HeaderText="En lista de Espera" HeaderStyle-Font-Names="calibri" />
-            
-           
           
             <asp:TemplateField ItemStyle-Width="25px">
                 <ItemTemplate>

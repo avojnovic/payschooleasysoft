@@ -101,7 +101,7 @@
                 </tr>
                  <tr>
                     <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label12" runat="server" Text="Descuento:" Font-Names="Calibri"></asp:Label>
+                        <asp:Label ID="Label12" runat="server" Text="Descuento %:" Font-Names="Calibri"></asp:Label>
                       </td>
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtDescuento" Width="100%" ReadOnly="true" runat="server"></asp:TextBox>
@@ -115,8 +115,23 @@
                         <asp:TextBox ID="TxtTotal" Width="100%" ReadOnly="true" runat="server"></asp:TextBox>
                     </td>
                 </tr>
-               
 
+                  <tr>
+                    <td align="left" style="width: 100px;">
+                        <asp:Label ID="Label3" runat="server" Text="Total desp. de 1er Venc.:" Font-Names="Calibri"></asp:Label>
+                      </td>
+                    <td style="width: 200px;">
+                        <asp:TextBox ID="TxtTotal1Ven" Width="100%" ReadOnly="true" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
+                 <tr>
+                    <td align="left" style="width: 100px;">
+                        <asp:Label ID="Label13" runat="server" Text="Total desp. de 2do Venc.:" Font-Names="Calibri"></asp:Label>
+                      </td>
+                    <td style="width: 200px;">
+                        <asp:TextBox ID="TxtTotal2Ven" Width="100%" ReadOnly="true" runat="server"></asp:TextBox>
+                    </td>
+                </tr>
 
              <tr>
                     <td align="center" colspan="2">

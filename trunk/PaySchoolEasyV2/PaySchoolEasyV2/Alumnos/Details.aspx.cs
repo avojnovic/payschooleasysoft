@@ -50,10 +50,10 @@ namespace PaySchoolEasyV2.Alumnos
 
         private void setearAlumno(Alumno alumno)
         {
+            TxtMatricula.Text = alumno.Id.ToString();
             TxtApellido.Text = alumno.Apellido;
             TxtDNI.Text = alumno.Dni;
             TxtFecNac.Text = alumno.FechaNacimiento.ToShortDateString();
-            TxtMatricula.Text = alumno.NroMatricula.ToString();
             TxtNombre.Text = alumno.Nombre;
             CmbTutor.SelectedValue = alumno.Usuario.Id.ToString();
 
@@ -80,6 +80,7 @@ namespace PaySchoolEasyV2.Alumnos
                 if (AlumnoManager.Validar(a, true))
                 {
                     AlumnoManager.Update(a);
+
                     volver();
                 }
                 else
@@ -93,7 +94,11 @@ namespace PaySchoolEasyV2.Alumnos
                 if (AlumnoManager.Validar(a, false))
                 {
                     AlumnoManager.Insert(a);
-                    volver();
+
+                    TxtMatricula.Text = a.Id.ToString();
+
+                    BtnGuardar.Visible = false;
+                    BtnBorrar.Visible = false;
                 }
                 else
                 {
@@ -110,7 +115,6 @@ namespace PaySchoolEasyV2.Alumnos
             a.Apellido = TxtApellido.Text;
             a.Dni = TxtDNI.Text;
             a.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
-            a.NroMatricula = long.Parse(TxtMatricula.Text);
             a.Usuario = UserManager.Get(long.Parse(CmbTutor.SelectedValue)).First();
 
             

@@ -1,52 +1,35 @@
---------------------------------------------
-inscripcion
-
 REALIZADO - Verificar como obtener el nivel automaticamente. Como se calcula? POR LA EDAD (Agregar data en los niveles para la edad)
 REALIZADO - Verificar que no se pueda inscribir al mismo alumno en algun curso del mismo año
 REALIZADO - Dar la posibilidad de inscribir al alumno a lista de espera
+REALIZADO - Descuentos Familiares 
+REALIZADO - Poder confirmar inscripciones.
+REALIZADO - ARREGLAR APELLIDO AUTOMATICO EN INSCRIPCION AL CAMBIAR CMB DE ALUMNO
+REALIZADO - GENERAR NRO MATRICULA AUTOMATICAMENTE DSP DE GUARDAR
+REALIZADO - Arreglar cuenta de descuentos, Total , subtotal
+REALIZADO - Pagar: Aplicar recargos por fecha de vencimiento
+REALIZADO -
 
-
------------------------------------------------
-Pagar: Email
-
-payschooleasysoft@gmail.com
-psespses
-
-Pagar: Aplicar recargos por fecha de vencimiento
-
-
-REALIZADO
-	Descuentos Familiares 
-	El Colegio San Vicente de Paul  brinda un descuento para los grupos familiares con más de un hijo inscripto. 
-	Por cada hermano ofrece un descuento de:
-	5% para hermanos de nivel secundario
-	3% para hermanos de nivel primario
-	2% para hermanos de nivel inicial
-	Si hay hermanos que pertenezcan a un mismo nivel se descontara un 10% en las matriculas.
-
-------------------------------------------
-Importar Pagos: Procesar archivo
-
-
--------------------------------------------
 el registro del pago de matriculas, permitirá al sistema dar de baja a todos aquellos alumnos 
 que han sido inscriptos 30 días antes al día de la fecha y no realizaron el pago de la misma,
  dando así lugares vacantes a los alumnos que se encuentran en lista de espera.
 
+Elimina solo los que no pagaron la matricula
 
-------------------------------
+REALIZADO - Importar Pagos: Procesar archivo
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
+------------------------------------------------------------------------------------------------------------------------------
 
-
-REALIZADO - Poder confirmar inscripciones.
-
---------------------------
-
-ARREGLAR APELLIDO AUTOMATICO EN INSCRIPCION AL CAMBIAR CMB DE ALUMNO
-
---------------------------
-
-GENERAR NRO MATRICULA AUTOMATICAMENTE DSP DE GUARDAR
+--------------------------------------
 
 
 
+PENDIENTES
+
+Pagar: Email (payschooleasysoft@gmail.com - psespses)
+----------------------------------------------
+
+-------------------------------------------
 

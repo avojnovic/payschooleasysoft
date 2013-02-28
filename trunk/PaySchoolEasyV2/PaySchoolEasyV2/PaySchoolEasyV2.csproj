@@ -75,12 +75,14 @@
     <Content Include="Images\save.png" />
     <Content Include="Images\Trash.png" />
     <Content Include="Incripciones\Confirmar.aspx" />
+    <Content Include="Incripciones\DarDeBaja.aspx" />
     <Content Include="Incripciones\Details.aspx" />
     <Content Include="Incripciones\Index.aspx" />
     <Content Include="Login.aspx" />
     <Content Include="Matriculas\Details.aspx" />
     <Content Include="Matriculas\Index.aspx" />
     <Content Include="Pagos\Importar.aspx" />
+    <Content Include="Pagos\Index.aspx" />
     <Content Include="Pagos\Pagar.aspx" />
     <Content Include="Scripts\jquery-1.4.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.4.1.js" />
@@ -139,6 +141,13 @@
     <Compile Include="Incripciones\Confirmar.aspx.designer.cs">
       <DependentUpon>Confirmar.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Incripciones\DarDeBaja.aspx.cs">
+      <DependentUpon>DarDeBaja.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Incripciones\DarDeBaja.aspx.designer.cs">
+      <DependentUpon>DarDeBaja.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Incripciones\Details.aspx.cs">
       <DependentUpon>Details.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -187,6 +196,13 @@
     </Compile>
     <Compile Include="Pagos\Importar.aspx.designer.cs">
       <DependentUpon>Importar.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Pagos\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Pagos\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Pagos\Pagar.aspx.cs">
       <DependentUpon>Pagar.aspx</DependentUpon>
