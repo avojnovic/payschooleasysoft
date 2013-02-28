@@ -11,7 +11,7 @@ namespace ControlObjects
     {
 
         //Obtener un alumno por ID
-        public static IEnumerable<Alumno> Get(int id)
+        public static IEnumerable<Alumno> Get(long id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 

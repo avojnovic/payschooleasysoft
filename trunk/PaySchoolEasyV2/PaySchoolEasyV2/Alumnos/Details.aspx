@@ -15,13 +15,22 @@
             <table style="width: 500px;" border="0" cellspacing="0">
                 <tr>
                     <td align="left" style="width: 100px;">
+                        <asp:Label ID="Label11" runat="server" Text="Tutor:" Font-Names="Calibri"></asp:Label>
+                    </td>
+                    <td style="width: 200px;">
+                        <asp:DropDownList ID="CmbTutor" Width="100%" runat="server" />
+                    </td>
+                </tr>
+                <tr>
+                    <td align="left" style="width: 100px;">
                         <asp:Label ID="Label1" runat="server" Text="DNI:" Font-Names="Calibri"></asp:Label>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TxtDNI"
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtDNI" Width="100%" runat="server"></asp:TextBox>
-                        <act:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="TxtDNI" Mask="99999999" MaskType="Number" />
+                        <act:MaskedEditExtender ID="MaskedEditExtender1" runat="server" TargetControlID="TxtDNI"
+                            Mask="99999999" MaskType="Number" />
                     </td>
                 </tr>
                 <tr>
@@ -51,10 +60,11 @@
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
                     <td style="width: 200px;">
-                        <asp:TextBox ID="TxtFecNac" Width="90%" runat="server" onKeyPress = "javascript: return false;" onPaste = "javascript: return false;"></asp:TextBox>
+                        <asp:TextBox ID="TxtFecNac" Width="90%" runat="server" onKeyPress="javascript: return false;"
+                            onPaste="javascript: return false;"></asp:TextBox>
                         <asp:ImageButton ID="btnCalendar" runat="server" ImageUrl="~/Images/Calendar.png" />
-                        <act:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TxtFecNac" Format="dd/MM/yyyy"
-                            PopupButtonID="btnCalendar" />
+                        <act:CalendarExtender ID="CalendarExtender1" runat="server" TargetControlID="TxtFecNac"
+                            Format="dd/MM/yyyy" PopupButtonID="btnCalendar" />
                     </td>
                 </tr>
                 <tr>
@@ -65,10 +75,10 @@
                     </td>
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtMatricula" Width="100%" runat="server"></asp:TextBox>
-                         <act:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="TxtMatricula" Mask="99999999" MaskType="Number" />
+                        <act:MaskedEditExtender ID="MaskedEditExtender2" runat="server" TargetControlID="TxtMatricula"
+                            Mask="99999999" MaskType="Number" />
                     </td>
                 </tr>
-             
                 <tr>
                     <td align="center" colspan="2">
                         <br />
