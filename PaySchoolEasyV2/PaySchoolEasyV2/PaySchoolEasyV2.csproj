@@ -81,6 +81,7 @@
     <Content Include="Login.aspx" />
     <Content Include="Matriculas\Details.aspx" />
     <Content Include="Matriculas\Index.aspx" />
+    <Content Include="Pagos\EmailTemplate.htm" />
     <Content Include="Pagos\Importar.aspx" />
     <Content Include="Pagos\Index.aspx" />
     <Content Include="Pagos\Pagar.aspx" />

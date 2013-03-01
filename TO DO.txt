@@ -7,29 +7,14 @@ REALIZADO - ARREGLAR APELLIDO AUTOMATICO EN INSCRIPCION AL CAMBIAR CMB DE ALUMNO
 REALIZADO - GENERAR NRO MATRICULA AUTOMATICAMENTE DSP DE GUARDAR
 REALIZADO - Arreglar cuenta de descuentos, Total , subtotal
 REALIZADO - Pagar: Aplicar recargos por fecha de vencimiento
-REALIZADO -
-
-el registro del pago de matriculas, permitirá al sistema dar de baja a todos aquellos alumnos 
-que han sido inscriptos 30 días antes al día de la fecha y no realizaron el pago de la misma,
- dando así lugares vacantes a los alumnos que se encuentran en lista de espera.
-
+REALIZADO - el registro del pago de matriculas, permitirá al sistema dar de baja a todos aquellos alumnos que han sido inscriptos 30 días antes al día de la fecha y no realizaron el pago de la misma, dando así lugares vacantes a los alumnos que se encuentran en lista de espera.
 Elimina solo los que no pagaron la matricula
 
 REALIZADO - Importar Pagos: Procesar archivo
+REALIZADO - Pagar: Email (payschooleasysoft@gmail.com - psespses)
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
 ------------------------------------------------------------------------------------------------------------------------------
-
---------------------------------------
-
-
-
-PENDIENTES
-
-Pagar: Email (payschooleasysoft@gmail.com - psespses)
-----------------------------------------------
-
--------------------------------------------
 
