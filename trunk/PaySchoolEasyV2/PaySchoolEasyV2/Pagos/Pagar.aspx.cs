@@ -9,6 +9,7 @@ using System.Drawing.Text;
 using System.Net.Mail;
 using System.Net;
 using System.Text;
+using System.IO;
 
 
 namespace ControlObjects.Pagos
@@ -432,16 +433,9 @@ namespace ControlObjects.Pagos
                 mail.From = new MailAddress("payschooleasysoft@gmail.com", "Pay School Easy Soft");
                 mail.To.Add(new MailAddress(u.Email));
 
-              
-                StringBuilder st = new StringBuilder();
-                st.AppendLine("<html> <body>");
-                st.AppendLine("");
-                st.AppendLine("<img src='"+ImgBarCode.ImageUrl +"'>");
-                st.AppendLine("</body> </html>");
-
 
                 mail.IsBodyHtml = true;
-                mail.Body = Server.HtmlEncode(st.ToString());
+                mail.Body = PopulateBody();
                 mail.Subject = "Pago a traves de Pay School Easy Soft";
 
                 smtpClient.Send(mail);
@@ -449,6 +443,28 @@ namespace ControlObjects.Pagos
             }
         }
 
+        private string PopulateBody()
+        {
+            string body = string.Empty;
+            using (StreamReader reader = new StreamReader(Server.MapPath("~/Pagos/EmailTemplate.htm")))
+            {
+                body = reader.ReadToEnd();
+            }
+            body = body.Replace("{TxtApellido}", TxtApellido.Text);
+            body = body.Replace("{TxtNombre}", TxtNombre.Text);
+            body = body.Replace("{TxtMatricula}", TxtMatricula.Text);
+            body = body.Replace("{TxtFechaEmision}", TxtFechaEmision.Text);
+            body = body.Replace("{TxtVencimiento1}", TxtVencimiento1.Text);
+            body = body.Replace("{TxtVencimiento2}", TxtVencimiento2.Text);
+            body = body.Replace("{BarCode}", ImgBarCode.ImageUrl);
+            body = body.Replace("{TxtSubTotal}", TxtSubTotal.Text);
+            body = body.Replace("{TxtDescuento}", TxtDescuento.Text);
+            body = body.Replace("{TxtTotal}", TxtTotal.Text);
+            body = body.Replace("{TxtTotal1Ven}", TxtTotal1Ven.Text);
+            body = body.Replace("{TxtTotal2Ven}", TxtTotal2Ven.Text);
+
+            return body;
+        }
 
         private void volver()
         {
