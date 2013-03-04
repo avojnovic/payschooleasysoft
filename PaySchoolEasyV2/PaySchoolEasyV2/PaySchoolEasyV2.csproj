@@ -91,7 +91,9 @@
     <Content Include="Usuarios\Details.aspx" />
     <Content Include="Usuarios\Index.aspx" />
     <Content Include="Usuarios\Password.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

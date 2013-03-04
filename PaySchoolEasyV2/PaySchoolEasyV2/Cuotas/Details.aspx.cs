@@ -104,8 +104,8 @@ namespace ControlObjects.Cuotas
             cuota.Anio = long.Parse(TxtAnio.Text);
             cuota.Mes = long.Parse(TxtMes.Text);
             cuota.MontoCuota = float.Parse(TxtMonto.Text);
-            cuota.FechaVenc1 = DateTime.Parse(TxtVenc1.Text);
-            cuota.FechaVenc2 = DateTime.Parse(TxtVenc2.Text);
+            cuota.FechaVenc1 = DateTime.ParseExact(TxtVenc1.Text, "dd/MM/yyyy", null);
+            cuota.FechaVenc2 = DateTime.ParseExact(TxtVenc2.Text, "dd/MM/yyyy", null);
 
         }
 
