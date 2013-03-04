@@ -14,7 +14,10 @@
 <body style="width: 960px; margin:0 auto;">
     <form id="form1" runat="server" >
     <div >
-       
+     <br />    
+     <br />
+     <br />
+     <br />
         <div>
             <center>
             <img src="../Images/logosuperior.PNG" alt="PaySchoolSys" />
@@ -23,7 +26,7 @@
         </div>
          <div style=" background-color: black; width: 100%; height: 1px;" /> 
 
-         
+
     <div style="margin-right: 0px" id="divMenu" runat="server" visible="false" >
 
                         <asp:Menu ID="Menu1" runat="server" BackColor="#F7F6F3" 

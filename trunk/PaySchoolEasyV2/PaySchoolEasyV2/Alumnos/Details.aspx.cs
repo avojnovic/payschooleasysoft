@@ -114,7 +114,7 @@ namespace PaySchoolEasyV2.Alumnos
             a.Nombre = TxtNombre.Text;
             a.Apellido = TxtApellido.Text;
             a.Dni = TxtDNI.Text;
-            a.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
+            a.FechaNacimiento = DateTime.ParseExact(TxtFecNac.Text, "dd/MM/yyyy", null);
             a.Usuario = UserManager.Get(long.Parse(CmbTutor.SelectedValue)).First();
 
             

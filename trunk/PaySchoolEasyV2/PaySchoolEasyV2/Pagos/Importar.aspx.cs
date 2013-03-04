@@ -81,7 +81,7 @@ namespace ControlObjects.Pagos
                         if (i.ToLower().Contains("fecha:"))
                         {
                             string tmp = i.ToLower().Replace("fecha:", "");
-                            fecha = DateTime.Parse(tmp);
+                            fecha = DateTime.ParseExact(tmp, "dd/MM/yyyy", null);
                         }
 
                     }

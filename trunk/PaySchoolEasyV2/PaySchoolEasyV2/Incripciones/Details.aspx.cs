@@ -65,7 +65,7 @@ namespace ControlObjects.Incripciones
 
             if (TxtFecNac.Text != "")
             {
-                DateTime nacimiento = DateTime.Parse(TxtFecNac.Text);
+                DateTime nacimiento = DateTime.ParseExact(TxtFecNac.Text, "dd/MM/yyyy", null);
                 double edad = DateTime.Today.AddTicks(-nacimiento.Ticks).Year - 1;
 
 
@@ -224,7 +224,8 @@ namespace ControlObjects.Incripciones
         private void setObject(Inscripcion i)
         {
 
-            i.FechaInscripción = DateTime.Parse(TxtFecIns.Text);
+            i.FechaInscripción = DateTime.ParseExact(TxtFecIns.Text, "dd/MM/yyyy", null);
+
 
 
             i.Curso = CursoManager.Get(int.Parse(CmbCurso.SelectedValue)).First();
@@ -247,7 +248,7 @@ namespace ControlObjects.Incripciones
             a.Nombre = TxtNombre.Text;
             a.Apellido = TxtApellido.Text;
             a.Dni = TxtDNI.Text;
-            a.FechaNacimiento = DateTime.Parse(TxtFecNac.Text);
+            a.FechaNacimiento = DateTime.ParseExact(TxtFecNac.Text, "dd/MM/yyyy", null);
             a.Usuario = (User)Session["user"];
 
 
