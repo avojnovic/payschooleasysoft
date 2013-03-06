@@ -53,7 +53,7 @@ namespace PaySchoolEasyV2.Alumnos
             TxtMatricula.Text = alumno.Id.ToString();
             TxtApellido.Text = alumno.Apellido;
             TxtDNI.Text = alumno.Dni;
-            TxtFecNac.Text = alumno.FechaNacimiento.ToShortDateString();
+            TxtFecNac.Text = alumno.FechaNacimiento.ToString("dd/MM/yyyy");
             TxtNombre.Text = alumno.Nombre;
             CmbTutor.SelectedValue = alumno.Usuario.Id.ToString();
 
@@ -129,10 +129,30 @@ namespace PaySchoolEasyV2.Alumnos
             if (id != null && id != "")
             {
 
-                AlumnoManager.Delete(int.Parse(id));
+                var ins = InscripcionManager.GetByAlumno(long.Parse(id));
+                var pag = PagoManager.GetByAlumno(long.Parse(id));
+
+                if (ins.Count() == 0 )
+                {
+                    if (pag.Count() == 0)
+                    {
+                        AlumnoManager.Delete(int.Parse(id));
+                        volver();
+                    }
+                    else
+                    {
+                        LblMensaje.Text = "No se puede eliminar al alumno, ya que posee Pagos registrados";
+                    }
+                }
+                else
+                {
+                    LblMensaje.Text = "No se puede eliminar al alumno, ya que posee inscripciones registradas";
+                }
+
+               
             }
 
-            volver();
+
         }
 
         private void volver()

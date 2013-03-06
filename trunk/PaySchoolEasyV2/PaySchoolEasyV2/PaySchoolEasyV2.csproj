@@ -66,6 +66,8 @@
     <Content Include="Alumnos\Index.aspx" />
     <Content Include="Cuotas\Details.aspx" />
     <Content Include="Cuotas\Index.aspx" />
+    <Content Include="Cursos\Details.aspx" />
+    <Content Include="Cursos\Index.aspx" />
     <Content Include="Default.aspx" />
     <Content Include="Images\Calendar.png" />
     <Content Include="Images\File-Open-icon.png" />
@@ -128,6 +130,20 @@
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="Cuotas\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cursos\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Cursos\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Cursos\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
     <Compile Include="Default.aspx.cs">
@@ -239,7 +255,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Cursos\" />
     <Folder Include="Facturas\" />
     <Folder Include="Files\" />
     <Folder Include="Niveles\" />

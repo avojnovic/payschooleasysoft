@@ -127,7 +127,7 @@ namespace BussinesObjects
             get
             {
                 if (Factura != null)
-                { return Factura.FechaEmisión.ToShortDateString(); }
+                { return Factura.FechaEmisión.ToString("dd/MM/yyyy"); }
                 else
                 { return ""; }
             }

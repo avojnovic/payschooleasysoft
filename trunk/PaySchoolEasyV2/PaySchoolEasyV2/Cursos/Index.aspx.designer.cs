@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ControlObjects.Cuotas {
+namespace ControlObjects.Cursos {
     
     
     public partial class Index {

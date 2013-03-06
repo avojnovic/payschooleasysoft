@@ -101,7 +101,7 @@ namespace ControlObjects.Pagos
 
                 }
 
-                TxtFechaEmision.Text = DateTime.Today.ToShortDateString();
+                TxtFechaEmision.Text = DateTime.Today.ToString("dd/MM/yyyy");
 
                 if (CmbPagoDe.SelectedValue == "0")
                 {//Matricula
@@ -125,8 +125,9 @@ namespace ControlObjects.Pagos
                     CmbCuota.Visible = true;
                     Cuota a = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
 
-                    TxtVencimiento1.Text = a.FechaVenc1.ToShortDateString();
-                    TxtVencimiento2.Text = a.FechaVenc2.ToShortDateString();
+                    TxtVencimiento1.Text = a.FechaVenc1.ToString("dd/MM/yyyy");
+                    TxtVencimiento2.Text = a.FechaVenc2.ToString("dd/MM/yyyy");
+
 
                     if (CmbPagoDe.SelectedValue == "1")
                     {//Matricula y Cuota
@@ -158,6 +159,9 @@ namespace ControlObjects.Pagos
 
                 TxtTotal1Ven.Text = (total + ((n.RecargoPrimerVencimiento / 100) * total)).ToString();
                 TxtTotal2Ven.Text = (total + ((n.RecargoSegundoVencimiento / 100) * total)).ToString();
+
+                TxtVencimiento1Porc.Text = n.RecargoPrimerVencimiento.ToString() + "%";
+                TxtVencimiento2Porc.Text = n.RecargoSegundoVencimiento.ToString() + "%";
 
             }
 
@@ -285,161 +289,191 @@ namespace ControlObjects.Pagos
             volver();
         }
 
-        private void guardar()
+        private bool guardar()
         {
+            bool ret = true;
+
             if (CmbAlumnos.SelectedValue != "")
             {
 
-                Pago a = new Pago();
-                a.Confirmado = false;
-                a.Alumno = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
+                Pago p = new Pago();
+                p.Confirmado = false;
+                p.Alumno = AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First();
 
 
 
                 if (CmbPagoDe.SelectedValue == "0")
                 {//Matricula
-                    a.Cuota = null;
+                    p.Cuota = null;
 
                     Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
                     Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
-                    a.Matricula = m;
+                    p.Matricula = m;
                 }
                 else
                 {
 
                     if (CmbPagoDe.SelectedValue == "1")
                     {//Matricula y Cuota
-                        a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+                        p.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
 
                         Nivel n = obtenerNiveldeAlumno(AlumnoManager.Get(int.Parse(CmbAlumnos.SelectedValue)).First());
                         Matricula m = MatriculaManager.GetByYearNivel(DateTime.Today.Year, n.Id).First();
-                        a.Matricula = m;
+                        p.Matricula = m;
                     }
                     else
                     {//Cuota
-                        a.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
-                        a.Matricula = null;
+                        p.Cuota = CuotaManager.Get(int.Parse(CmbCuota.SelectedValue)).First();
+                        p.Matricula = null;
                     }
                 }
 
 
-                if (validar(a))
+                Pago pagoExistente=validar(p);
+                if (pagoExistente==null)
                 {
+
                     Factura f = new Factura();
                     f.FechaEmisión = DateTime.Today;
                     f.ImporteTotal = float.Parse(TxtTotal.Text);
-                    a.Factura = f;
-                    PagoManager.Insert(a);
+                    p.Factura = f;
 
-
-                    string codigo = f.Id.ToString() + "-" + a.Id.ToString();
+                    PagoManager.Insert(p);
+                    string codigo = f.Id.ToString() + "-" + p.Id.ToString();
                     generarCodigo(codigo);
+                    ret = true;
                 }
+                else
+                {
+                    string codigo = pagoExistente.Factura.Id.ToString() + "-" + pagoExistente.Id.ToString();
+                    generarCodigo(codigo);
+                    ret = true;
+                }
+                
             }
             else
             {
                 LblMensaje.Text = "No existen alumnos inscriptos, no se puede realizar la operación";
+                ret = false;
             }
+
+            return ret;
         }
 
 
-        private bool validar(Pago a)
+        private Pago validar(Pago p)
         {
-            bool guardar = true;
+            Pago pagoExistente = null;
+
+      
             if (CmbPagoDe.SelectedValue == "0")
             {
-                var pago = PagoManager.GetByMatricula(a.Matricula.Id, a.Alumno.Id);
+                var pago = PagoManager.GetByMatricula(p.Matricula.Id, p.Alumno.Id);
+                
                 if (pago.Count() > 0)
                 {
-                    guardar = false;
+                    pagoExistente = pago.First();
+        
                     LblMensaje.Text = "La Matricula seleccionada ya se encuentra paga";
+
                 }
             }
             else
             {
                 if (CmbPagoDe.SelectedValue == "1")
                 {
-                    var pago = PagoManager.GetByMatricula(a.Matricula.Id, a.Alumno.Id);
+                    var pago = PagoManager.GetByMatricula(p.Matricula.Id, p.Alumno.Id);
                     if (pago.Count() > 0)
                     {
-                        guardar = false;
+                        pagoExistente = pago.First();
+              
                         LblMensaje.Text = "La Matricula seleccionada ya se encuentra paga";
+
                     }
                     else
                     {
-                        var pago2 = PagoManager.GetByCuota(a.Cuota.Id, a.Alumno.Id);
+                        var pago2 = PagoManager.GetByCuota(p.Cuota.Id, p.Alumno.Id);
                         if (pago2.Count() > 0)
                         {
-                            guardar = false;
+                            pagoExistente = pago.First();
+                
                             LblMensaje.Text = "La Cuota seleccionada ya se encuentra paga";
+
                         }
                     }
                 }
                 else
                 {
-                    var pago2 = PagoManager.GetByCuota(a.Cuota.Id, a.Alumno.Id);
+                    var pago2 = PagoManager.GetByCuota(p.Cuota.Id, p.Alumno.Id);
                     if (pago2.Count() > 0)
                     {
-                        guardar = false;
+                        pagoExistente = pago2.First();
+                     
                         LblMensaje.Text = "La Cuota seleccionada ya se encuentra paga";
+
                     }
 
                 }
             }
-            return guardar;
+            return pagoExistente;
         }
 
         protected void BtnPrint_Click(object sender, EventArgs e)
         {
             LblMensaje.Text = "";
 
-            if (ImgBarCode.Visible == false)
-            {
-                guardar();
-            }
-
-            if (LblMensaje.Text == "")
+            if (guardar())
             {
                 ClientScript.RegisterStartupScript(this.GetType(), "PrintPage", "<script language='javascript'>window.print()</script>");
             }
+
+
         }
 
         protected void BtnEmail_Click(object sender, EventArgs e)
         {
             LblMensaje.Text = "";
 
-            if (ImgBarCode.Visible == false)
-            {
-                guardar();
-            }
 
-            if (LblMensaje.Text == "")
+            if (guardar())
             {
 
                 User u = ((User)Session["user"]);
 
+                try
+                {
+                    SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
+
+                    smtpClient.Credentials = new System.Net.NetworkCredential("payschooleasysoft@gmail.com", "psespses");
+                    //smtpClient.UseDefaultCredentials = true;
+                    //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
+                    smtpClient.EnableSsl = true;
+                    MailMessage mail = new MailMessage();
 
 
-                SmtpClient smtpClient = new SmtpClient("smtp.gmail.com", 587);
-
-                smtpClient.Credentials = new System.Net.NetworkCredential("payschooleasysoft@gmail.com", "psespses");
-                //smtpClient.UseDefaultCredentials = true;
-                //smtpClient.DeliveryMethod = SmtpDeliveryMethod.Network;
-                smtpClient.EnableSsl = true;
-                MailMessage mail = new MailMessage();
+                    //Setting From , To and CC
+                    mail.From = new MailAddress("payschooleasysoft@gmail.com", "Pay School Easy Soft");
+                    mail.To.Add(new MailAddress(u.Email));
 
 
-                //Setting From , To and CC
-                mail.From = new MailAddress("payschooleasysoft@gmail.com", "Pay School Easy Soft");
-                mail.To.Add(new MailAddress(u.Email));
+                    mail.IsBodyHtml = true;
+                    mail.Body = PopulateBody();
+                    mail.Subject = "Pago a traves de Pay School Easy Soft";
 
+                    smtpClient.Send(mail);
 
-                mail.IsBodyHtml = true;
-                mail.Body = PopulateBody();
-                mail.Subject = "Pago a traves de Pay School Easy Soft";
+                    LblMensaje.Text = "Email enviado correctamente";
 
-                smtpClient.Send(mail);
+                }
+                catch (Exception ex)
+                {
 
+                    LblMensaje.Text = "Error al enviar el Email: "+ ex.Message;
+                }
+
+             
+
+              
             }
         }
 

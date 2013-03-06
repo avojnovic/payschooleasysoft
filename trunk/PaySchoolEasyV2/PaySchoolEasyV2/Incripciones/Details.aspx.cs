@@ -51,7 +51,7 @@ namespace ControlObjects.Incripciones
                 {
                     BtnBorrar.Visible = false;
                     TxtApellido.Text = ((User)Session["user"]).Apellido;
-                    TxtFecIns.Text = DateTime.Today.ToShortDateString();
+                    TxtFecIns.Text = DateTime.Today.ToString("dd/MM/yyyy");
                     
                 }
             }
@@ -104,7 +104,7 @@ namespace ControlObjects.Incripciones
 
         private void setearInscripcion(Inscripcion inscripcion)
         {
-            TxtFecIns.Text = inscripcion.FechaInscripción.Date.ToShortDateString();
+            TxtFecIns.Text = inscripcion.FechaInscripción.Date.ToString("dd/MM/yyyy");
             setearAlumno(inscripcion.Alumno);
             
         }
@@ -114,7 +114,7 @@ namespace ControlObjects.Incripciones
             TxtIdAlumno.Text = a.Id.ToString();
             TxtApellido.Text = a.Apellido;
             TxtDNI.Text = a.Dni;
-            TxtFecNac.Text = a.FechaNacimiento.ToShortDateString();
+            TxtFecNac.Text = a.FechaNacimiento.ToString("dd/MM/yyyy");
             TxtNombre.Text = a.Nombre;
 
             ObtenerNiveles();
@@ -124,6 +124,7 @@ namespace ControlObjects.Incripciones
 
         protected void CmbAlumnos_OnSelectedIndexChanged(object sender, EventArgs e)
         {
+            LblMensaje.Text = "";
 
             if (int.Parse(CmbAlumnos.SelectedValue) == 0)
             {

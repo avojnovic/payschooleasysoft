@@ -74,6 +74,7 @@
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtVencimiento1" ReadOnly="true" Width="100%" runat="server"></asp:TextBox>
                     </td>
+
                 </tr>
                 <tr>
                     <td align="left" style="width: 100px;">
@@ -82,6 +83,7 @@
                     <td style="width: 200px;">
                         <asp:TextBox ID="TxtVencimiento2" ReadOnly="true" Width="100%" runat="server"></asp:TextBox>
                     </td>
+                   
                 </tr>
                  <tr>
                     <td align="left" style="width: 100px;">
@@ -120,16 +122,19 @@
                     <td align="left" style="width: 100px;">
                         <asp:Label ID="Label3" runat="server" Text="Total desp. de 1er Venc.:" Font-Names="Calibri"></asp:Label>
                       </td>
-                    <td style="width: 200px;">
-                        <asp:TextBox ID="TxtTotal1Ven" Width="100%" ReadOnly="true" runat="server"></asp:TextBox>
+                    <td style="width: 100px;">
+                        <asp:TextBox ID="TxtTotal1Ven" Width="80%" ReadOnly="true" runat="server"></asp:TextBox>
+                          <asp:TextBox ID="TxtVencimiento1Porc" ReadOnly="true" Width="10%" runat="server"></asp:TextBox>
                     </td>
+                  
                 </tr>
                  <tr>
                     <td align="left" style="width: 100px;">
                         <asp:Label ID="Label13" runat="server" Text="Total desp. de 2do Venc.:" Font-Names="Calibri"></asp:Label>
                       </td>
-                    <td style="width: 200px;">
-                        <asp:TextBox ID="TxtTotal2Ven" Width="100%" ReadOnly="true" runat="server"></asp:TextBox>
+                    <td style="width: 100px;">
+                        <asp:TextBox ID="TxtTotal2Ven" Width="80%" ReadOnly="true" runat="server"></asp:TextBox>
+                          <asp:TextBox ID="TxtVencimiento2Porc" ReadOnly="true" Width="10%" runat="server"></asp:TextBox>
                     </td>
                 </tr>
 

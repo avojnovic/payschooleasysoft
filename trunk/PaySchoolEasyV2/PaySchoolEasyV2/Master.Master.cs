@@ -75,6 +75,10 @@ namespace PaySchoolEasyV2
                 alumnos.NavigateUrl = "Alumnos/Index.aspx";
                 Menu1.Items.Add(alumnos);
 
+                MenuItem cursos = new MenuItem("Cursos");
+                cursos.Value = "Cursos";
+                cursos.NavigateUrl = "Cursos/Index.aspx";
+                Menu1.Items.Add(cursos);
 
                 MenuItem cuotas = new MenuItem("Cuotas");
                 cuotas.Value = "Cuotas";

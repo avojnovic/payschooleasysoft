@@ -12,7 +12,7 @@ namespace ControlObjects.Usuarios
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            BtnBorrar.Attributes.Add("OnClick", "javascript:if(confirm('Esta seguro que desea borrar el Alumno')== false) return false;");
+            BtnBorrar.Attributes.Add("OnClick", "javascript:if(confirm('Esta seguro que desea borrar el Usuario')== false) return false;");
             string id = Request.QueryString["id"];
             LblMensaje.Text = "";
 
@@ -148,11 +148,28 @@ namespace ControlObjects.Usuarios
             string id = Request.QueryString["id"];
             if (id != null && id != "")
             {
+                if (id == ((User)Session["user"]).Id.ToString())
+                {
+                    LblMensaje.Text = "No se puede eliminar a si mismo como usuario";
+                }
+                else
+                {
 
-                UserManager.Delete(int.Parse(id));
+                    var a = AlumnoManager.GetByTutor(long.Parse(id));
+
+                    if (a.Count() == 0)
+                    {
+                        UserManager.Delete(int.Parse(id));
+                        volver();
+                    }
+                    else
+                    {
+                        LblMensaje.Text = "No se puede eliminar al usuario, ya que posee alumnos asignados";
+                    }
+                }
             }
 
-            volver();
+           
         }
 
         private void volver()

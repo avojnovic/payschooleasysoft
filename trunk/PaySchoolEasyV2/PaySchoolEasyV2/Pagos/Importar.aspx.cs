@@ -29,9 +29,8 @@ namespace ControlObjects.Pagos
                         FileUploadControl.SaveAs(Server.MapPath("~/Files/") + filename);
                         LblMensaje.Text = "Importación de archivo correcta, procesando información.";
 
-                        procesarArchivo(Server.MapPath("~/Files/") + filename);
-
-                        LblMensaje.Text = "Proceso finalizado con éxito.";
+                       if(procesarArchivo(Server.MapPath("~/Files/") + filename))
+                            LblMensaje.Text = "Proceso finalizado con éxito.";
                     }
                     catch (Exception ex)
                     {
@@ -45,9 +44,9 @@ namespace ControlObjects.Pagos
             }
         }
 
-        private void procesarArchivo(string path)
+        private bool procesarArchivo(string path)
         {
-
+            bool ret = true;
             int nro = 0;
             foreach (string line in File.ReadLines(path))
             {
@@ -76,6 +75,7 @@ namespace ControlObjects.Pagos
                         if (i.ToLower().Contains("monto:"))
                         {
                             string tmp = i.ToLower().Replace("monto:", "");
+                            tmp = tmp.Replace(",", ".");
                             monto = float.Parse(tmp);
                         }
                         if (i.ToLower().Contains("fecha:"))
@@ -95,14 +95,24 @@ namespace ControlObjects.Pagos
 
                         if (p.Factura.Id == idFactura)
                         {
-                            p.FechaDePago = fecha;
-                            p.Confirmado = true;
+                            if (monto == p.Factura.ImporteTotal)
+                            {
+                                p.FechaDePago = fecha;
+                                p.Confirmado = true;
 
-                            PagoManager.Update(p);
+                                PagoManager.Update(p);
+                            }
+                            else
+                            {
+                                LblMensaje.Text = "Monto de Factura erroneo en la linea nro: " + nro.ToString() + " del archivo, este debe ser igual a:" + p.Factura.ImporteTotal.ToString();
+                                ret = false;
+                                break;
+                            }
                         }
                         else
                         {
                             LblMensaje.Text = "Numero de Factura erroneo en la linea nro: " + nro.ToString() + " del archivo ";
+                            ret = false;
                             break;
                         }
                     }
@@ -110,11 +120,13 @@ namespace ControlObjects.Pagos
                 catch (Exception ex)
                 {
                     LblMensaje.Text = "Error el archivo no pudo ser procesado. Ocurrio el siguiente error: " + ex.Message + " en la linea nro: " + nro.ToString() + " del archivo ";
+                    ret = false;
                 }
 
 
             }
 
+            return ret;
           
 
         }
