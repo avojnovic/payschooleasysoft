@@ -56,7 +56,9 @@ namespace ControlObjects
             res.EdadMaxima= x.EdadMaxima;
             res.EdadMinima= x.EdadMinima;
             res.Descuento = x.Descuento;
-      
+            res.RecargoPrimerVencimiento = x.RecargoPrimerVencimiento;
+            res.RecargoSegundoVencimiento = x.RecargoSegundoVencimiento;
+       
 
             dbContext.SaveChanges();
         }
