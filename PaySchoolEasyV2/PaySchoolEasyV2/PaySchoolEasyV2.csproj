@@ -83,6 +83,8 @@
     <Content Include="Login.aspx" />
     <Content Include="Matriculas\Details.aspx" />
     <Content Include="Matriculas\Index.aspx" />
+    <Content Include="Niveles\Details.aspx" />
+    <Content Include="Niveles\Index.aspx" />
     <Content Include="Pagos\EmailTemplate.htm" />
     <Content Include="Pagos\Importar.aspx" />
     <Content Include="Pagos\Index.aspx" />
@@ -209,6 +211,20 @@
     <Compile Include="Matriculas\Index.aspx.designer.cs">
       <DependentUpon>Index.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Niveles\Details.aspx.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Niveles\Details.aspx.designer.cs">
+      <DependentUpon>Details.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Niveles\Index.aspx.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Niveles\Index.aspx.designer.cs">
+      <DependentUpon>Index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Pagos\Importar.aspx.cs">
       <DependentUpon>Importar.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -257,7 +273,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Facturas\" />
     <Folder Include="Files\" />
-    <Folder Include="Niveles\" />
     <Folder Include="Recargos\" />
   </ItemGroup>
   <ItemGroup>

@@ -70,6 +70,11 @@ namespace PaySchoolEasyV2
 
             if (UsuarioLogueado.TipoUsuarioNombre == "Admin")
             {
+                MenuItem niveles = new MenuItem("Niveles");
+                niveles.Value = "Niveles";
+                niveles.NavigateUrl = "Niveles/Index.aspx";
+                Menu1.Items.Add(niveles);
+
                 MenuItem alumnos = new MenuItem("Alumnos");
                 alumnos.Value = "Alumnos";
                 alumnos.NavigateUrl = "Alumnos/Index.aspx";
