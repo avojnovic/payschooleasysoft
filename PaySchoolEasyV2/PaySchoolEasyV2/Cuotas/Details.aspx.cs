@@ -47,8 +47,8 @@ namespace ControlObjects.Cuotas
             TxtAnio.Text = cuota.Anio.ToString();
             TxtMes.Text = cuota.Mes.ToString();
             TxtMonto.Text = cuota.MontoCuota.ToString("0000.00");
-            TxtVenc1.Text = cuota.FechaVenc1.ToShortDateString();
-            TxtVenc2.Text = cuota.FechaVenc2.ToShortDateString();
+            TxtVenc1.Text = cuota.FechaVenc1.ToString("dd/MM/yyyy");
+            TxtVenc2.Text = cuota.FechaVenc2.ToString("dd/MM/yyyy");
 
         }
         protected void BtnSalir_Click(object sender, EventArgs e)
@@ -66,46 +66,77 @@ namespace ControlObjects.Cuotas
 
                 c.Id = long.Parse(id);
 
-                setObject(c);
-                if (CuotaManager.Validar(c, true))
+                if (setObject(c))
                 {
-                    CuotaManager.Update(c);
-                    volver();
+                    if (CuotaManager.Validar(c, true))
+                    {
+                        CuotaManager.Update(c);
+                        volver();
+                    }
+                    else
+                    {
+                        LblMensaje.Text = "La Cuota para el Año, Mes y Nivel ya existe";
+                    }
                 }
-                else
-                {
-                    LblMensaje.Text = "La Cuota para el Año, Mes y Nivel ya existe";
-                }
-
                
             }
             else
             {
-                setObject(c);
+                if (setObject(c))
+                {
 
-                if (CuotaManager.Validar(c, false))
-                {
-                    CuotaManager.Insert(c);
-                    volver();
-                }
-                else
-                {
-                    LblMensaje.Text = "La Cuota para el Año, Mes y Nivel ya existe";
+                    if (CuotaManager.Validar(c, false))
+                    {
+                        CuotaManager.Insert(c);
+                        volver();
+                    }
+                    else
+                    {
+                        LblMensaje.Text = "La Cuota para el Año, Mes y Nivel ya existe";
+                    }
                 }
             }
 
 
         }
 
-        private void setObject(Cuota cuota)
+        private bool setObject(Cuota cuota)
         {
-
+            LblMensaje.Text = "";
+            bool ret = true;
             cuota.Nivel = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
             cuota.Anio = long.Parse(TxtAnio.Text);
             cuota.Mes = long.Parse(TxtMes.Text);
-            cuota.MontoCuota = float.Parse(TxtMonto.Text);
+
+            if (TxtMonto.Text.Trim().Replace(".", "").Replace("_","") != "")
+                cuota.MontoCuota = float.Parse(TxtMonto.Text);
+            else
+            {
+                LblMensaje.Text = "Monto erroneo.";
+                ret = false;
+            }
+
+            if (cuota.MontoCuota <= 0)
+            {
+                LblMensaje.Text = "Monto erroneo.";
+                ret = false;
+            }
+
+            if (cuota.Mes > 12)
+            {
+                LblMensaje.Text =LblMensaje.Text + " - El Mes debe ser menor o igual a 12.";
+                ret = false;
+            }
+
             cuota.FechaVenc1 = DateTime.ParseExact(TxtVenc1.Text, "dd/MM/yyyy", null);
             cuota.FechaVenc2 = DateTime.ParseExact(TxtVenc2.Text, "dd/MM/yyyy", null);
+
+            if (cuota.FechaVenc2 <= cuota.FechaVenc1)
+            {
+                LblMensaje.Text = LblMensaje.Text + " - La fecha de vencimiento 2 debe ser posterior a la 1.";
+            }
+
+            return ret;
 
         }
 
@@ -117,11 +148,20 @@ namespace ControlObjects.Cuotas
             string id = Request.QueryString["id"];
             if (id != null && id != "")
             {
+                var pagos = PagoManager.GetByCuota(long.Parse(id));
 
-                CuotaManager.Delete(int.Parse(id));
+                if (pagos.Count() == 0)
+                {
+                    CuotaManager.Delete(int.Parse(id));
+                    volver();
+                }
+                else
+                {
+                    LblMensaje.Text = "No se puede eliminar la cuota, ya que posee pagos registrados";
+                }
+                
             }
 
-            volver();
         }
 
         private void volver()

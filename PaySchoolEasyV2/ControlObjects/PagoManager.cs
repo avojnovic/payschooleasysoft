@@ -31,6 +31,29 @@ namespace ControlObjects
             return res.ToList();
         }
 
+        public static IEnumerable<Pago> GetByCuota(long idCuota)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
+                      where c.Cuota.Id == idCuota
+                      select c;
+
+            return res.ToList();
+        }
+
+        public static IEnumerable<Pago> GetByAlumno( long idAlumno)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
+                      where c.Alumno.Id == idAlumno
+                      select c;
+
+            return res.ToList();
+        }
+
+
         public static IEnumerable<Pago> GetByInscripcionFecha(long idAlumno,DateTime fecha)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
@@ -48,6 +71,17 @@ namespace ControlObjects
 
             var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
                       where c.Matricula.Id == idMatricula && c.Alumno.Id == idAlumno
+                      select c;
+
+            return res.ToList();
+        }
+
+        public static IEnumerable<Pago> GetByMatricula(long idMatricula)
+        {
+            SchoolDbContext dbContext = new SchoolDbContext();
+
+            var res = from c in dbContext.Pago.Include("Cuota").Include("Alumno").Include("Matricula").Include("Factura")
+                      where c.Matricula.Id == idMatricula
                       select c;
 
             return res.ToList();

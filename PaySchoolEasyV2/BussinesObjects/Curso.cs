@@ -40,7 +40,12 @@ namespace BussinesObjects
             set { _nivel = value; }
         }
 
+        public string NivelDesc
+        {
+            get { return _nivel.Descripcion; }
 
+        }
+        
 
     }
 }

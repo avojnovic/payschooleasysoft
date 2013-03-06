@@ -65,43 +65,81 @@ namespace ControlObjects.Matriculas
 
                 m.Id = long.Parse(id);
 
-                setObject(m);
+                if (setObject(m))
+                {
 
-                if (MatriculaManager.Validar(m, true))
-                {
-                    MatriculaManager.Update(m);
-                    volver();
-                }
-                else
-                {
-                    LblMensaje.Text = "La Matricula para el Año y Nivel ya existe";
+                    if (MatriculaManager.Validar(m, true))
+                    {
+                        MatriculaManager.Update(m);
+                        volver();
+                    }
+                    else
+                    {
+                        LblMensaje.Text = "La Matricula para el Año y Nivel ya existe";
+                    }
                 }
             }
             else
             {
-                setObject(m);
+                if (setObject(m))
+                {
 
-                if (MatriculaManager.Validar(m, false))
-                {
-                    MatriculaManager.Insert(m);
-                    volver();
-                }
-                else
-                {
-                    LblMensaje.Text = "La Matricula para el Año y Nivel ya existe";
+                    if (MatriculaManager.Validar(m, false))
+                    {
+                        MatriculaManager.Insert(m);
+                        volver();
+                    }
+                    else
+                    {
+                        LblMensaje.Text = "La Matricula para el Año y Nivel ya existe";
+                    }
                 }
             }
 
 
         }
 
-        private void setObject(Matricula m)
+        private bool setObject(Matricula m)
         {
+            LblMensaje.Text = "";
+            bool ret = true;
 
             m.Nivel = NivelManager.Get(int.Parse(CmbNivel.SelectedValue)).First();
             m.Anio = long.Parse(TxtAnio.Text);
-            m.Descuento = float.Parse(TxtDescuento.Text);
-            m.Monto = float.Parse(TxtMonto.Text);
+          
+
+
+            if (TxtDescuento.Text.Trim().Replace(".", "").Replace("_", "") != "")
+                m.Descuento = float.Parse(TxtDescuento.Text);
+            else
+            {
+                LblMensaje.Text = "Descuento erroneo.";
+                ret = false;
+            }
+
+            if (m.Descuento <= 0)
+            {
+                LblMensaje.Text = "Descuento erroneo.";
+                ret = false;
+            }
+
+
+            if (TxtMonto.Text.Trim().Replace(".", "").Replace("_", "") != "")
+                m.Monto = float.Parse(TxtMonto.Text);
+            else
+            {
+                LblMensaje.Text = "Monto erroneo.";
+                ret = false;
+            }
+
+            if (m.Monto <= 0)
+            {
+                LblMensaje.Text = "Monto erroneo.";
+                ret = false;
+            }
+
+
+            return ret;
    
         }
 
@@ -113,11 +151,22 @@ namespace ControlObjects.Matriculas
             string id = Request.QueryString["id"];
             if (id != null && id != "")
             {
+                var pagos = PagoManager.GetByCuota(long.Parse(id));
 
-                MatriculaManager.Delete(int.Parse(id));
+                if (pagos.Count() == 0)
+                {
+                    MatriculaManager.Delete(int.Parse(id));
+                    volver();
+                }
+                else
+                {
+                    LblMensaje.Text = "No se puede eliminar la matricula, ya que posee pagos registrados";
+                }
+
+              
             }
 
-            volver();
+          
         }
 
         private void volver()

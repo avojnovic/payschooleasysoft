@@ -274,6 +274,15 @@ namespace ControlObjects.Pagos {
         protected global::System.Web.UI.WebControls.TextBox TxtTotal1Ven;
         
         /// <summary>
+        /// TxtVencimiento1Porc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtVencimiento1Porc;
+        
+        /// <summary>
         /// Label13 control.
         /// </summary>
         /// <remarks>
@@ -290,6 +299,15 @@ namespace ControlObjects.Pagos {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TxtTotal2Ven;
+        
+        /// <summary>
+        /// TxtVencimiento2Porc control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox TxtVencimiento2Porc;
         
         /// <summary>
         /// BtnPrint control.

@@ -1,0 +1,2 @@
+idFactura:1-idPago:1-Monto:679-Fecha:18/04/2013
+idFactura:2-idPago:2-Monto:679-Fecha:28/02/2013

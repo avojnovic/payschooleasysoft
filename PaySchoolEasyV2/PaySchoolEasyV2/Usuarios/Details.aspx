@@ -35,7 +35,7 @@
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
                     <td style="width: 200px;">
-                        <asp:TextBox ID="TxtContrasena" TextMode="Password" Width="100%" runat="server"></asp:TextBox>
+                        <asp:TextBox ID="TxtContrasena"  Width="100%" runat="server"></asp:TextBox>
                     </td>
                 </tr>
                 
