@@ -23,7 +23,7 @@
 
                 <tr>
                     <td align="left" style="width: 100px;">
-                        <asp:Label ID="Label1" runat="server" Text="Año:" Font-Names="Calibri"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" Text="Descripción:" Font-Names="Calibri"></asp:Label>
                         <asp:RequiredFieldValidator ID="RequiredFieldValidator6" runat="server" ControlToValidate="TxtAnio"
                             Display="Dynamic" ErrorMessage="*" SetFocusOnError="true" ValidationGroup="add" />
                     </td>
