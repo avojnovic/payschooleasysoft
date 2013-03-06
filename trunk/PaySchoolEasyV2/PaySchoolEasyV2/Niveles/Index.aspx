@@ -1,11 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ControlObjects.Cursos.Index" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Master.Master" AutoEventWireup="true" CodeBehind="Index.aspx.cs" Inherits="ControlObjects.Niveles.Index" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-<asp:ImageButton ID="ImageButton1" Width="32px" Height="32px" ImageUrl="~/Images/New.png"
-        runat="server" OnClick="BtnNuevo_Click" ToolTip="Nuevo" />
-
-    <asp:GridView ID="GridView1" Font-Names="calibri" runat="server" AutoGenerateColumns="False"
+ <asp:GridView ID="GridView1" Font-Names="calibri" runat="server" AutoGenerateColumns="False"
         GridLines="None" AllowPaging="true" HorizontalAlign="Center" Width="100%" PageSize="30"
         CssClass="mGrid" PagerStyle-CssClass="pgr" AlternatingRowStyle-CssClass="alt"
         OnPageIndexChanging="GridView1_PageIndexChanging">
@@ -14,10 +11,14 @@
         <Columns>
    
             <asp:BoundField DataField="Id" HeaderText="ID" HeaderStyle-Font-Names="calibri" ReadOnly="True"/>
-             <asp:BoundField DataField="Anio" HeaderText="Descripción" HeaderStyle-Font-Names="calibri"/>
-            <asp:BoundField DataField="Cupo" HeaderText="Cupo" HeaderStyle-Font-Names="calibri"/>
-            <asp:BoundField DataField="NivelDesc" HeaderText="Nivel" HeaderStyle-Font-Names="calibri"/>
+             <asp:BoundField DataField="Descripcion" HeaderText="Descripción" HeaderStyle-Font-Names="calibri"/>
+            <asp:BoundField DataField="EdadMinima" HeaderText="Edad Minima" HeaderStyle-Font-Names="calibri"/>
+            <asp:BoundField DataField="EdadMaxima" HeaderText="Edad Maxima" HeaderStyle-Font-Names="calibri"/>
+            <asp:BoundField DataField="Descuento" HeaderText="Descuento" HeaderStyle-Font-Names="calibri"/>
+            <asp:BoundField DataField="RecargoPrimerVencimiento" HeaderText="Recargo Primer Vencimiento" HeaderStyle-Font-Names="calibri"/>
+            <asp:BoundField DataField="RecargoSegundoVencimiento" HeaderText="Recargo Segundo Vencimiento" HeaderStyle-Font-Names="calibri"/>
 
+            
             <asp:TemplateField ItemStyle-Width="25px">
                 <ItemTemplate>
                     <a href="Details.aspx?id=<%# Eval("Id") %>">
