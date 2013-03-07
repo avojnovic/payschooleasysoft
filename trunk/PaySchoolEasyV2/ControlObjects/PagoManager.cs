@@ -177,7 +177,7 @@ namespace ControlObjects
         }
 
 
-        public static void Delete(int id)
+        public static void Delete(long id)
         {
             SchoolDbContext dbContext = new SchoolDbContext();
 
