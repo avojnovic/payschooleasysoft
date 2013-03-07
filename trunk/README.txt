@@ -1,38 +1,41 @@
 
- ==========================================
- ========== PAY SCHOOL EASY SOFT ==========
- ==========================================
+==========================================
+=========  PAY SCHOOL EASY SOFT   ========
+=========   Prueba del Sistema    ========
+==========================================
+
 
 Requerimientos de Software:
 
- - Microsoft SQL Server 2005 (Express)
- - Microsoft SQL Server Management Studio Express
- - Microsoft Visual Studio 2008
+ - Microsoft SQL Server 2005 Server Management Studio
+ - Microsoft Visual Studio 2010
  - Microsoft Visual C#
  - Internet Explorer 7 (o superior) o Mozilla Firefox 3.5
 
-Pasos para la puesta en marcha del entorno
-de ejecución parcial de Pay School Easy Soft:
+Pasos para la puesta en marcha del sistema en modo local:
 
-1- Copiar del CD-ROM al directorio raíz la carpeta "PaySchoolEasySoft".
-2- Desde el SQL Server Management Studio Express abrir y ejecutar el archivo "scriptCreate.sql"
-   ubicado en el directorio ../PaySchoolEasySoft/Script para crear la Base de Datos y las tablas
-   correspondientes.
-3- Desde el SQL Server Management Studio Express abrir y ejecutar el archivo "scriptInsert.sql"
-   ubicado en el directorio ../PaySchoolEasySoft/Script para agregar a la Base de Datos, generada
-   en el paso anterior, el juego de datos de prueba.
-4- Ejecutar la solucion "PaySchoolEasySoft.sln" ubicada en el directorio ../PaySchoolEasySoft.
-5- Una vez dentro del entorno de desarrollo Visual Studio 2008, abrir la clase "Datos.cs" ubicada
-   dentro del proyecto "CapaDatos" y modificar el String de Conexión a la Base de Datos; cambiando
-   el Data Source por el que corresponda (nombre del servidor donde se aloja la Base de Datos).
-6- Iniciar depuración para probar la aplicación.
+1- Copiar la carpeta PaySchoolEasyV2 del CD-ROM.
+2- Abrir la solución PaySchoolEasyV2.sln ubicada en el directorio ../PaySchoolEasySoftVS con
+   Microsoft Visual Studio.
+3- Compilar la aplicación y ejecutarla.
+4- Si la base de datos no fue creada anteriormente, ingresar un usuario y contraseña cualquiera.
+   El sistema lanzará el mensaje: "Usuario o Contraseña incorrecto" y la base de datos se creará 
+   automáticamente.
+5- Desde el SQL Server Management Studio abrir y ejecutar el archivo "Insert.sql" ubicado en el
+   directorio ../Script para insertar datos de prueba a la base de datos.
 
 
 Nota: 
      Para la prueba del sistema como usuario de tipo tutor utilice los siguientes datos: 
-        Nombre de Usuario: santiagoalegre@hotmail.com
-        Contraseña: 1
+        Nombre de Usuario: tutor@tutor.com
+        Contraseña: tutor
 
      Para la prueba del sistema como usuario de tipo administrador utilice los siguientes datos:
-        Nombre de usuario: admin@fasta.edu.ar
+        Nombre de usuario: admin@admin.com
         Contraseña: admin
+
+
+Pasos para la puesta en marcha del sistema desde Internet:
+
+1- Acceder al sitio http://aspspider.info/payschooleasysoft
+2- Ingresar con el usuario: admin@fasta.edu.ar, contraseña: admin.
