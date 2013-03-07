@@ -21,11 +21,12 @@ namespace ControlObjects.Incripciones
             var ins = InscripcionManager.Get();
             List<long> insBorrar = new List<long>();
 
+
             foreach (Inscripcion i in ins)
             {
                 var pagos = PagoManager.GetByInscripcionFecha(i.Alumno.Id, i.FechaInscripción);
 
-                if (pagos.Count() > 0 && pagos.First().FechaDePago!=null)
+                if (pagos.Count() > 0 && pagos.First().FechaDePago != null)
                 {
 
                     TimeSpan? ts = pagos.First().FechaDePago - i.FechaInscripción;
@@ -33,14 +34,24 @@ namespace ControlObjects.Incripciones
                     if (ts.Value.Days > 30)
                     {
                         insBorrar.Add(i.Id);
-                        
+
                     }
-                    
+
+                }
+                else
+                {
+                    TimeSpan? ts = DateTime.Today - i.FechaInscripción;
+
+                    if (ts.Value.Days > 30)
+                    {
+                        insBorrar.Add(i.Id);
+
+                    }
                 }
 
             }
 
-
+         
 
             foreach (long id in insBorrar)
             {
